@@ -8,18 +8,15 @@ const FILTERS = [
   { key: "agent", label: "AI Agents" },
   { key: "platform", label: "Platform / Infra" },
   { key: "rnd", label: "R&D" },
-  { key: "ml", label: "ML Engineering" },
+  { key: "ml", label: "ML Engineering", alwaysShow: true, comingSoon: true },
 ];
 
 export default function Gallery({ projects }) {
   const [active, setActive] = useState("all");
 
-  // Only show a filter chip if at least one project uses that group (keeps it
-  // clean now, and the "ML Engineering" chip appears automatically once you add
-  // your first project with group: "ml").
   const available = useMemo(() => {
     const groups = new Set(projects.map((p) => p.group));
-    return FILTERS.filter((f) => f.key === "all" || groups.has(f.key));
+    return FILTERS.filter((f) => f.key === "all" || groups.has(f.key) || f.alwaysShow);
   }, [projects]);
 
   const shown = useMemo(
@@ -30,18 +27,25 @@ export default function Gallery({ projects }) {
   return (
     <>
       <div className="filters">
-        {available.map((f) => (
-          <button
-            key={f.key}
-            className={`filter ${active === f.key ? "active" : ""}`}
-            onClick={() => setActive(f.key)}
-          >
-            {f.label}
-            <span style={{ opacity: 0.6, marginLeft: 6 }}>
-              {f.key === "all" ? projects.length : projects.filter((p) => p.group === f.key).length}
-            </span>
-          </button>
-        ))}
+        {available.map((f) => {
+          const count = f.key === "all" ? projects.length : projects.filter((p) => p.group === f.key).length;
+          const isEmpty = count === 0;
+          return (
+            <button
+              key={f.key}
+              className={`filter ${active === f.key ? "active" : ""} ${isEmpty ? "filter-soon" : ""}`}
+              onClick={() => !isEmpty && setActive(f.key)}
+              style={isEmpty ? { cursor: "default" } : {}}
+            >
+              {f.label}
+              {isEmpty ? (
+                <span className="soon-badge">soon</span>
+              ) : (
+                <span style={{ opacity: 0.6, marginLeft: 6 }}>{count}</span>
+              )}
+            </button>
+          );
+        })}
       </div>
       <div className="card-grid">
         {shown.map((p) => (

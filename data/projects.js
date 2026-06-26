@@ -233,8 +233,8 @@ export const profile = {
   setName: "Agent Constellation",
   links: {
     email: "mailto:davronbekmalikov96@gmail.com",
-    github: "https://github.com/tripleh-aiteam",
-    linkedin: "https://www.linkedin.com/in/davronbek-malikov", // TODO: replace with your real LinkedIn URL
+    github: "https://github.com/davronbek-malikov",
+    linkedin: "https://www.linkedin.com/in/davronbek-malikov",
     cv: "/cv.pdf", // TODO: drop your CV into /public/cv.pdf
   },
 };
