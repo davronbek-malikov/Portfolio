@@ -1,17 +1,7 @@
 import { projects, profile } from "../data/projects";
-import { auth } from "../auth";
-import Gallery from "../components/Gallery";
-import AuthBar from "../components/AuthBar";
-import SignInGate from "../components/SignInGate";
-import EcosystemMap from "../components/EcosystemMap";
 import Reveal from "../components/Reveal";
 
-const ALLOWED_EMAIL = process.env.ALLOWED_EMAIL || "davronbekmalikov96@gmail.com";
-
-export default async function Home() {
-  const session = await auth();
-  const isOwner = session?.user?.email === ALLOWED_EMAIL;
-
+export default function Home() {
   const liveCount = projects.filter((p) => p.status.state === "live").length;
   const mythicLegendary = projects.filter((p) => ["mythic", "legendary"].includes(p.rarity)).length;
 
@@ -32,13 +22,9 @@ export default async function Home() {
             {profile.name}
           </div>
           <div className="nav-links">
-            <a href="#cards">Projects</a>
-            <a href="#ecosystem">Ecosystem</a>
             <a href="#contact">Contact</a>
           </div>
-          <a className="nav-cta" href={profile.links.github} target="_blank" rel="noreferrer">
-            GitHub ↗
-          </a>
+          <span className="nav-cta">GitHub</span>
         </div>
       </nav>
 
@@ -46,7 +32,7 @@ export default async function Home() {
       <header className="hero">
         <div className="container">
           <Reveal as="div" className="hero-eyebrow">
-            {profile.title} · The "{profile.setName}" set
+            {profile.title} · {profile.setName}
           </Reveal>
           <Reveal delay={60}>
             <h1>
@@ -66,7 +52,6 @@ export default async function Home() {
           </Reveal>
           <Reveal delay={200}>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="#cards">Explore the card set →</a>
               <a className="btn btn-ghost" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>
             </div>
           </Reveal>
@@ -84,45 +69,6 @@ export default async function Home() {
         </div>
       </header>
 
-      {/* CARDS — project data only rendered server-side when session is verified */}
-      <section className="section" id="cards">
-        <div className="container">
-          <Reveal as="div" className="section-head">
-            <div className="section-kicker">Agent Constellation · {projects.length} cards · 1 ecosystem</div>
-            <h2>Project trading cards</h2>
-            <p>
-              Every card is scored on the same five axes (0–100): Power, Scale, Autonomy,
-              AI Intelligence and Polish. Hover a card to tilt it. Filter by type — the
-              ML Engineering tab appears automatically as I add those projects.
-            </p>
-          </Reveal>
-          {isOwner ? (
-            <>
-              <AuthBar email={session.user.email} />
-              <Gallery projects={projects} />
-            </>
-          ) : (
-            <SignInGate />
-          )}
-        </div>
-      </section>
-
-      {/* ECOSYSTEM */}
-      <section className="section" id="ecosystem">
-        <div className="container">
-          <Reveal as="div" className="section-head">
-            <div className="section-kicker">The set-back card</div>
-            <h2>One system, not eight projects</h2>
-            <p>
-              The cards connect into a single architecture: a command hub, a reusable
-              module that plugs into every station, and an enterprise rail that turns any
-              of them into a self-hosted product.
-            </p>
-          </Reveal>
-          <Reveal><EcosystemMap /></Reveal>
-        </div>
-      </section>
-
       {/* CONTACT / FOOTER */}
       <footer className="footer" id="contact">
         <div className="container">
@@ -133,7 +79,6 @@ export default async function Home() {
             </div>
             <div className="footer-links">
               <a className="btn btn-ghost" href={profile.links.email}>Email</a>
-              <a className="btn btn-ghost" href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a>
               <a className="btn btn-ghost" href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
               <a className="btn btn-primary" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>
             </div>
