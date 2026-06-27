@@ -1,5 +1,6 @@
 import "./globals.css";
 import { profile } from "../data/projects";
+import Providers from "../components/Providers";
 
 export const metadata = {
   title: `${profile.name} — ${profile.title}`,
@@ -26,7 +27,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body><Providers>{children}</Providers></body>
     </html>
   );
 }

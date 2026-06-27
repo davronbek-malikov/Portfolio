@@ -1,5 +1,5 @@
 import { projects, profile } from "../data/projects";
-import Gallery from "../components/Gallery";
+import CardGate from "../components/CardGate";
 import EcosystemMap from "../components/EcosystemMap";
 import Reveal from "../components/Reveal";
 
@@ -88,7 +88,7 @@ export default function Home() {
               ML Engineering tab appears automatically as I add those projects.
             </p>
           </Reveal>
-          <Gallery projects={projects} />
+          <CardGate projects={projects} />
         </div>
       </section>
 
