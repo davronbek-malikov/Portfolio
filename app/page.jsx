@@ -1,9 +1,17 @@
 import { projects, profile } from "../data/projects";
-import CardGate from "../components/CardGate";
+import { auth } from "../auth";
+import Gallery from "../components/Gallery";
+import AuthBar from "../components/AuthBar";
+import SignInGate from "../components/SignInGate";
 import EcosystemMap from "../components/EcosystemMap";
 import Reveal from "../components/Reveal";
 
-export default function Home() {
+const ALLOWED_EMAIL = process.env.ALLOWED_EMAIL || "davronbekmalikov96@gmail.com";
+
+export default async function Home() {
+  const session = await auth();
+  const isOwner = session?.user?.email === ALLOWED_EMAIL;
+
   const liveCount = projects.filter((p) => p.status.state === "live").length;
   const mythicLegendary = projects.filter((p) => ["mythic", "legendary"].includes(p.rarity)).length;
 
@@ -38,7 +46,7 @@ export default function Home() {
       <header className="hero">
         <div className="container">
           <Reveal as="div" className="hero-eyebrow">
-            {profile.title} · The “{profile.setName}” set
+            {profile.title} · The "{profile.setName}" set
           </Reveal>
           <Reveal delay={60}>
             <h1>
@@ -76,7 +84,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* CARDS */}
+      {/* CARDS — project data only rendered server-side when session is verified */}
       <section className="section" id="cards">
         <div className="container">
           <Reveal as="div" className="section-head">
@@ -88,7 +96,14 @@ export default function Home() {
               ML Engineering tab appears automatically as I add those projects.
             </p>
           </Reveal>
-          <CardGate projects={projects} />
+          {isOwner ? (
+            <>
+              <AuthBar email={session.user.email} />
+              <Gallery projects={projects} />
+            </>
+          ) : (
+            <SignInGate />
+          )}
         </div>
       </section>
 
@@ -113,7 +128,7 @@ export default function Home() {
         <div className="container">
           <div className="footer-grid">
             <div>
-              <h3>Let’s build something autonomous.</h3>
+              <h3>Let&apos;s build something autonomous.</h3>
               <p>{profile.name} — {profile.title}. Open to AI Engineer, AI Agent Engineer and Automation roles.</p>
             </div>
             <div className="footer-links">
