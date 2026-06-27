@@ -43,7 +43,7 @@ export const projects = [
     ],
     stack: ["Next.js", "Python/FastAPI", "Supabase", "Groq/OpenAI", "Vercel + Render"],
     status: { state: "live", label: "LIVE" },
-    links: { demo: "https://oasisvip.vercel.app/", github: "https://github.com/tripleh-aiteam/VIP-Agent" },
+    links: { demo: "https://oasisvip.vercel.app/" },
   },
   {
     id: "chatbot-module",
@@ -130,7 +130,7 @@ export const projects = [
     ],
     stack: ["Next.js 16", "React 19", "Vercel AI SDK v6", "GPT-4o + embed-3-large", "pgvector"],
     status: { state: "live", label: "LIVE" },
-    links: { demo: "https://law-agent-jet.vercel.app/", github: "https://github.com/tripleh-aiteam/law_agent" },
+    links: { demo: "https://law-agent-jet.vercel.app/" },
   },
   {
     id: "meeting-agent",
@@ -152,7 +152,7 @@ export const projects = [
     ],
     stack: ["Python", "FastAPI/Jinja", "faster-whisper", "Claude/OpenAI", "Ollama-swappable"],
     status: { state: "live", label: "LIVE (auth-gated)" },
-    links: { demo: "https://meeting-agent-blue.vercel.app/", github: "https://github.com/tripleh-aiteam/Meeting_Agent" },
+    links: { demo: "https://meeting-agent-blue.vercel.app/" },
   },
   {
     id: "smart-local-llm",
@@ -173,7 +173,7 @@ export const projects = [
     ],
     stack: ["Python", "Qwen3.5", "LoRA", "Vector RAG", "GGUF", "Ollama"],
     status: { state: "rnd", label: "R&D pipeline" },
-    links: { github: "https://github.com/tripleh-agents/reinforcement_learning" },
+    links: {},
   },
   {
     id: "enterprise-edition",
