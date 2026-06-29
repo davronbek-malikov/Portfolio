@@ -22,6 +22,7 @@ export default function Home() {
             {profile.name}
           </div>
           <div className="nav-links">
+            <a href="/about">About</a>
             <a href="#contact">Contact</a>
           </div>
           <span className="nav-cta">GitHub</span>
@@ -52,6 +53,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={200}>
             <div className="hero-actions">
+              <a className="btn btn-primary" href="/about">About me →</a>
               <a className="btn btn-ghost" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>
             </div>
           </Reveal>
