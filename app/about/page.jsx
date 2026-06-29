@@ -22,6 +22,16 @@ const education = [
 
 const experience = [
   {
+    role: "AI Engineer & Team Lead",
+    org: "TripleH",
+    period: "Jan 2026 – Present",
+    bullets: [
+      "Lead the AI engineering team building autonomous agent systems and enterprise AI products.",
+      "Architect and ship production-grade AI agents including VIP Agent, Law Agent, Meeting Agent, and Digital Twins.",
+      "Drive end-to-end development from research and prototyping to deployment on cloud and on-prem infrastructure.",
+    ],
+  },
+  {
     role: "Independent AI Educator",
     org: "Online & Private Instruction",
     period: "2023 – Present",
