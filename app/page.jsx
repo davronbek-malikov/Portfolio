@@ -1,17 +1,7 @@
-import { projects, profile } from "../data/projects";
+import { profile } from "../data/projects";
 import Reveal from "../components/Reveal";
 
 export default function Home() {
-  const liveCount = projects.filter((p) => p.status.state === "live").length;
-  const mythicLegendary = projects.filter((p) => ["mythic", "legendary"].includes(p.rarity)).length;
-
-  const heroStats = [
-    { num: projects.length, lbl: "Projects shipped" },
-    { num: liveCount, lbl: "Live in production" },
-    { num: mythicLegendary, lbl: "Legendary+ cards" },
-    { num: "1", lbl: "Connected ecosystem" },
-  ];
-
   return (
     <>
       {/* NAV */}
@@ -58,16 +48,6 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={260}>
-            <div className="hero-stats">
-              {heroStats.map((s) => (
-                <div className="hero-stat" key={s.lbl}>
-                  <div className="num">{s.num}</div>
-                  <div className="lbl">{s.lbl}</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
         </div>
       </header>
 

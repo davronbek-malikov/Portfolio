@@ -542,6 +542,16 @@ a { color: inherit; text-decoration: none; }
   padding: 2px 8px; border-radius: 999px;
   border: 1px solid var(--line-strong); color: var(--muted);
 }
+.pub-link {
+  font-family: var(--mono); font-size: 10.5px;
+  padding: 2px 8px; border-radius: 999px;
+  background: var(--text);
+  color: #fff;
+  border: 1px solid var(--text);
+  transition: 0.15s;
+  white-space: nowrap;
+}
+.pub-link:hover { opacity: 0.75; }
 .pub-highlight {
   font-family: var(--mono); font-size: 10.5px;
   padding: 2px 8px; border-radius: 999px;
