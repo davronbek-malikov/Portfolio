@@ -157,21 +157,24 @@ export default function About() {
             <Reveal delay={80}>
               <div className="about-titles">
                 <span className="role-chip">PhD in AI Engineering</span>
+                <span className="role-chip">AI Agent Engineer</span>
                 <span className="role-chip">ML / DL Engineer</span>
                 <span className="role-chip">AI Researcher</span>
                 <span className="role-chip">AI Educator</span>
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <p className="about-location">📍 Jinju, South Korea</p>
+              <p className="about-location">📍 Seoul, South Korea</p>
             </Reveal>
             <Reveal delay={160}>
               <p className="about-summary">
-                Creative and analytical AI researcher and machine learning engineer with a strong background
-                in applying advanced mathematical concepts to real-world problems. Experienced in developing
-                innovative solutions in sports analytics — especially soccer — combining technical expertise
-                with practical insights. Author of 5 first-author publications in SCIE journals and
-                international conferences.
+                PhD-level AI Engineer and researcher who builds autonomous agent systems that work in
+                production. Currently leading the AI team at TripleH — shipping agents for legal
+                intelligence, financial analysis, meeting automation, and enterprise digital twins.
+                Grounded in advanced mathematics and machine learning research, with 5 first-author
+                publications in SCIE journals and international conferences. I close the gap between
+                rigorous research and real-world engineering — from model training to full-stack
+                deployment.
               </p>
             </Reveal>
           </div>
