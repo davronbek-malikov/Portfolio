@@ -61,8 +61,9 @@ export default function Home() {
           </Reveal>
           <Reveal delay={80}>
             <p className="showcase-sub">
-              Expanding into supervised ML, unsupervised ML, computer vision, and LLM engineering.
-              Each category will link to its own dedicated repository.
+              First project live: <strong>Soccer Player Salary Predictor</strong> — an industry-level supervised ML pipeline
+              with SHAP explainability, Optuna tuning, and a live Gradio demo deployed on Render.
+              Unsupervised ML, Computer Vision, and LLM Engineering coming next.
             </p>
           </Reveal>
           <div className="showcase-grid">
