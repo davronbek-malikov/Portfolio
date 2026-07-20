@@ -111,7 +111,7 @@ const publications = [
 
 const tools = [
   { cat: "ML / DL", items: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy"] },
-  { cat: "Data & DevOps", items: ["SQL", "GitHub", "Docker"] },
+  { cat: "Deployment & DevOps", items: ["Docker", "Vercel", "Render", "UptimeRobot", "GitHub Actions", "GitHub"] },
   { cat: "Computer Vision", items: ["YOLO", "Roboflow", "OpenCV"] },
   { cat: "Web & Viz", items: ["HTML", "CSS", "JavaScript"] },
   { cat: "Research", items: ["Overleaf", "LaTeX"] },
