@@ -109,6 +109,61 @@ const publications = [
   },
 ];
 
+const selectedProjects = [
+  {
+    title: "Soccer Player Salary Predictor",
+    sub: "Supervised ML · Regression · Sports Analytics",
+    period: "2024 – 2025",
+    demo: "https://soccer-xg-salary-prediction.onrender.com",
+    github: "https://github.com/davronbek-malikov/soccer-xG-salary_prediction",
+    bullets: [
+      "Industry-level ML pipeline: Baseline → Improved (RF, XGBoost, LightGBM) → Ensemble (Stacking + Voting).",
+      "21 engineered features without data leakage. Optuna Bayesian tuning (60 trials). SHAP global + local explanations.",
+      "Deployed on Render · kept alive 24/7 via UptimeRobot. Linked to SCIE publication — 17% accuracy improvement.",
+    ],
+    stack: ["Python", "XGBoost", "LightGBM", "SHAP", "Optuna", "Gradio", "Render"],
+  },
+  {
+    title: "Palov",
+    sub: "Full-Stack · RAG · AI Chatbot",
+    period: "2024",
+    demo: "https://www.palov.app/",
+    github: null,
+    bullets: [
+      "Halal Uzbek food platform for South Korea with multi-country OTP auth (+82 KR / +998 UZ).",
+      "RAG system over menu database — AI chatbot answers dish queries with context-aware recommendations.",
+      "Self-improvement loop: user feedback feeds back into the model continuously.",
+    ],
+    stack: ["Next.js", "RAG", "LLM API", "Vercel"],
+  },
+  {
+    title: "Hamyon",
+    sub: "Personal Finance · RAG · AI Insights",
+    period: "2024",
+    demo: "https://hamyon-six.vercel.app/",
+    github: null,
+    bullets: [
+      "Real-time expense tracking with category-based spending analysis.",
+      "RAG-powered AI chatbot over transaction history for natural-language finance queries.",
+      "Self-improvement: learns from user corrections to refine categorisation and advice quality.",
+    ],
+    stack: ["Next.js", "Supabase", "RAG", "LLM API", "Vercel"],
+  },
+  {
+    title: "Kotib",
+    sub: "AI Agent · Graph RAG · Conversational Memory",
+    period: "2024",
+    demo: "https://kotib-rouge.vercel.app/",
+    github: null,
+    bullets: [
+      "AI-powered personal secretary with multi-step agent pipeline: intent → routing → action.",
+      "Graph RAG over personal knowledge base. Persistent conversational memory across all sessions.",
+      "Self-improvement: tracks completed vs. missed tasks, adjusts proactive suggestions autonomously.",
+    ],
+    stack: ["Next.js", "Graph RAG", "LLM API", "Vercel"],
+  },
+];
+
 const tools = [
   { cat: "ML / DL", items: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy"] },
   { cat: "Deployment & DevOps", items: ["Docker", "Vercel", "Render", "UptimeRobot", "GitHub Actions", "GitHub"] },
@@ -251,8 +306,39 @@ export default function About() {
           </div>
         </section>
 
-        {/* TOOLS */}
+        {/* PROJECTS */}
         <section className="about-section about-section-alt">
+          <div className="container">
+            <Reveal as="div" className="about-section-label">Selected Projects</Reveal>
+            <div className="timeline">
+              {selectedProjects.map((p, i) => (
+                <Reveal key={i} delay={i * 40} className="tl-item">
+                  <div className="tl-dot" />
+                  <div className="tl-body">
+                    <div className="tl-head">
+                      <span className="tl-role">{p.title}</span>
+                      <span className="tl-period">{p.period}</span>
+                    </div>
+                    <div className="tl-org">{p.sub}</div>
+                    <ul className="tl-bullets">
+                      {p.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                    </ul>
+                    <div className="tl-stack">
+                      {p.stack.map((s) => <span className="chip" key={s}>{s}</span>)}
+                    </div>
+                    <div className="tl-links">
+                      {p.demo && <a href={p.demo} target="_blank" rel="noreferrer" className="tl-link">Live Demo ↗</a>}
+                      {p.github && <a href={p.github} target="_blank" rel="noreferrer" className="tl-link">GitHub ↗</a>}
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TOOLS */}
+        <section className="about-section">
           <div className="container">
             <Reveal as="div" className="about-section-label">Tools & Frameworks</Reveal>
             <div className="tools-grid">

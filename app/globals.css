@@ -582,6 +582,10 @@ a { color: inherit; text-decoration: none; }
 .tl-period { font-family: var(--mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
 .tl-org { font-family: var(--mono); font-size: 13.5px; color: var(--r-rare); margin-bottom: 10px; }
 .tl-note { font-size: 15px; color: var(--muted); font-style: italic; margin: 6px 0 0; line-height: 1.55; }
+.tl-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tl-links { display: flex; gap: 14px; margin-top: 10px; }
+.tl-link { font-size: 13px; font-family: var(--mono); color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
+.tl-link:hover { border-color: var(--accent); }
 .tl-bullets {
   margin: 0; padding: 0 0 0 16px;
   display: flex; flex-direction: column; gap: 5px;
