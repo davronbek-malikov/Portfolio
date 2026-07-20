@@ -1,5 +1,6 @@
-import { profile } from "../data/projects";
+import { profile, mlProjects } from "../data/projects";
 import Reveal from "../components/Reveal";
+import Card from "../components/Card";
 
 export default function Home() {
   return (
@@ -50,6 +51,29 @@ export default function Home() {
 
         </div>
       </header>
+
+      {/* ML PROJECTS SHOWCASE */}
+      <section className="ml-showcase" id="projects">
+        <div className="container">
+          <Reveal as="div" className="showcase-eyebrow">ML Projects</Reveal>
+          <Reveal delay={40}>
+            <h2 className="showcase-title">Machine Learning <span className="grad">Research & Projects</span></h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="showcase-sub">
+              Expanding into supervised ML, unsupervised ML, computer vision, and LLM engineering.
+              Each category will link to its own dedicated repository.
+            </p>
+          </Reveal>
+          <div className="showcase-grid">
+            {mlProjects.map((p, i) => (
+              <Reveal key={p.id} delay={i * 60}>
+                <Card project={p} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CONTACT / FOOTER */}
       <footer className="footer" id="contact">

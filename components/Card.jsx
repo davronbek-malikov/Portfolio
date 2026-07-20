@@ -42,11 +42,17 @@ export default function Card({ project }) {
     <div className="card-wrap">
       <article
         ref={ref}
-        className="card"
+        className={`card${project.comingSoon ? " card-soon" : ""}`}
         style={rarityVars(project.rarity)}
-        onMouseMove={onMove}
-        onMouseLeave={onLeave}
+        onMouseMove={project.comingSoon ? undefined : onMove}
+        onMouseLeave={project.comingSoon ? undefined : onLeave}
       >
+        {project.comingSoon && (
+          <div className="card-soon-overlay">
+            <span className="card-soon-label">Coming Soon</span>
+            <span className="card-soon-sub">Repository in progress</span>
+          </div>
+        )}
         <div className="card-foil" />
         <div className="card-inner">
           <div className="card-top">

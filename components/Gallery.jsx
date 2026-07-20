@@ -8,7 +8,10 @@ const FILTERS = [
   { key: "agent", label: "AI Agents" },
   { key: "platform", label: "Platform / Infra" },
   { key: "rnd", label: "R&D" },
-  { key: "ml", label: "ML Engineering", alwaysShow: true, comingSoon: true },
+  { key: "supervised-ml", label: "Supervised ML", alwaysShow: true, comingSoon: true },
+  { key: "unsupervised-ml", label: "Unsupervised ML", alwaysShow: true, comingSoon: true },
+  { key: "cv", label: "Computer Vision", alwaysShow: true, comingSoon: true },
+  { key: "llm", label: "LLM Engineering", alwaysShow: true, comingSoon: true },
 ];
 
 export default function Gallery({ projects }) {
