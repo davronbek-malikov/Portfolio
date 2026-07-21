@@ -124,6 +124,19 @@ const selectedProjects = [
     stack: ["Python", "XGBoost", "LightGBM", "SHAP", "Optuna", "Gradio", "Render"],
   },
   {
+    title: "Player Archetype Clustering",
+    sub: "Unsupervised ML · Clustering · Sports Analytics",
+    period: "2025 – 2026",
+    demo: "https://soccer-player-clustering.onrender.com",
+    github: "https://github.com/davronbek-malikov/soccer-player-clustering",
+    bullets: [
+      "Algorithm bake-off (KMeans, Agglomerative, DBSCAN, Gaussian Mixture) over 6,314 qualified player-seasons — scored on Silhouette, Davies-Bouldin & Calinski-Harabasz.",
+      "Rule-based archetype naming from cluster centroids: Elite Complete Forward, Clinical Poacher, Deep-Lying Playmaker & more.",
+      "Cosine-similarity engine + interactive Streamlit demo — classify any real or hypothetical player and find their statistical twins.",
+    ],
+    stack: ["Python", "Scikit-learn", "Streamlit", "Plotly", "Render"],
+  },
+  {
     title: "Palov",
     sub: "Full-Stack · RAG · AI Chatbot",
     period: "2024",
@@ -165,7 +178,7 @@ const selectedProjects = [
 ];
 
 const tools = [
-  { cat: "ML / DL", items: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy"] },
+  { cat: "ML / DL", items: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Streamlit"] },
   { cat: "Deployment & DevOps", items: ["Docker", "Vercel", "Render", "UptimeRobot", "GitHub Actions", "GitHub"] },
   { cat: "Computer Vision", items: ["YOLO", "Roboflow", "OpenCV"] },
   { cat: "Web & Viz", items: ["HTML", "CSS", "JavaScript"] },
