@@ -259,12 +259,13 @@ export const mlProjects = [
   {
     id: "unsupervised-ml",
     n: "10",
-    title: "Player Archetype Clustering",
+    title: "TacticalDNA",
     rarity: "epic",
     cls: "Unsupervised ML · Clustering · Sports Analytics",
-    flavor: "Six playing styles emerge from stats alone — no labels, no salary, just how they play.",
+    flavor: "No name attached, just 25 goals and 15 assists — the model matched it to prime Messi at 98% similarity.",
     motif: "ml",
     group: "unsupervised-ml",
+    extraStat: { label: "TWIN MATCH", value: 98 },
     stats: { PWR: 82, SCL: 80, AUT: 65, INT: 92, PLH: 82 },
     abilities: [
       "6,314 qualified player-seasons (≥900 min) across Bundesliga, La Liga, Serie A — zero salary/target leakage",
@@ -278,7 +279,7 @@ export const mlProjects = [
     status: { state: "live", label: "LIVE DEMO" },
     links: {
       demo: "https://soccer-player-clustering.onrender.com",
-      github: "https://github.com/davronbek-malikov/soccer-player-clustering",
+      github: "https://github.com/davronbek-malikov/tactical-dna",
     },
   },
   {

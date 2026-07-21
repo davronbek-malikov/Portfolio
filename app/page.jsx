@@ -63,8 +63,8 @@ export default function Home() {
             <p className="showcase-sub">
               Two projects live on the same soccer dataset: <strong>Soccer Player Salary Predictor</strong> — a
               supervised ML pipeline with SHAP explainability and Optuna tuning — and{" "}
-              <strong>Player Archetype Clustering</strong> — an unsupervised bake-off across four clustering
-              algorithms with an interactive Streamlit demo. Computer Vision and LLM Engineering coming next.
+              <strong>TacticalDNA</strong> — unsupervised clustering that matched a blind, made-up stat line to
+              prime Messi at 98% similarity. Computer Vision and LLM Engineering coming next.
             </p>
           </Reveal>
           <div className="showcase-grid">

@@ -124,12 +124,13 @@ const selectedProjects = [
     stack: ["Python", "XGBoost", "LightGBM", "SHAP", "Optuna", "Gradio", "Render"],
   },
   {
-    title: "Player Archetype Clustering",
+    title: "TacticalDNA",
     sub: "Unsupervised ML · Clustering · Sports Analytics",
     period: "2025 – 2026",
     demo: "https://soccer-player-clustering.onrender.com",
-    github: "https://github.com/davronbek-malikov/soccer-player-clustering",
+    github: "https://github.com/davronbek-malikov/tactical-dna",
     bullets: [
+      "A blind stat line — 25 goals, 15 assists, no name attached — matched to prime Messi's 2019/20 season at 98% similarity.",
       "Algorithm bake-off (KMeans, Agglomerative, DBSCAN, Gaussian Mixture) over 6,314 qualified player-seasons — scored on Silhouette, Davies-Bouldin & Calinski-Harabasz.",
       "Rule-based archetype naming from cluster centroids: Elite Complete Forward, Clinical Poacher, Deep-Lying Playmaker & more.",
       "Cosine-similarity engine + interactive Streamlit demo — classify any real or hypothetical player and find their statistical twins.",
