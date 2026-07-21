@@ -32,23 +32,23 @@ const experience = [
     ],
   },
   {
-    role: "Independent AI Educator",
-    org: "Online & Private Instruction",
-    period: "2023 – Present",
-    bullets: [
-      "Design and deliver advanced courses in AI, ML, Deep Learning, and LLMs.",
-      "Mentor students and professionals on building end-to-end AI systems.",
-      "Focus on practical applications of AI in industry and academia.",
-    ],
-  },
-  {
     role: "Independent Researcher — Sports Analytics",
     org: "Self-directed Research",
-    period: "2025 – Present",
+    period: "2025 – 2026",
     bullets: [
       "Research on LLMs and Deep Learning applied to soccer analytics.",
       "Models for performance evaluation, salary prediction, and tactical analysis.",
       "Preparing submissions to SCIE and AI-focused journals.",
+    ],
+  },
+  {
+    role: "Independent AI Educator",
+    org: "Online & Private Instruction",
+    period: "2023 – 2026",
+    bullets: [
+      "Design and deliver advanced courses in AI, ML, Deep Learning, and LLMs.",
+      "Mentor students and professionals on building end-to-end AI systems.",
+      "Focus on practical applications of AI in industry and academia.",
     ],
   },
   {
