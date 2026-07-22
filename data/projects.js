@@ -329,12 +329,79 @@ export const mlProjects = [
   },
 ];
 
+// ----------------------------------------------------------------------------
+//  PRODUCT PROJECTS  —  full-stack AI products shipped solo (not ML/DS work,
+//  but live, in-production apps with real AI features built in).
+// ----------------------------------------------------------------------------
+export const productProjects = [
+  {
+    id: "palov",
+    n: "13",
+    title: "Palov",
+    rarity: "rare",
+    cls: "Full-Stack · RAG · AI Chatbot",
+    flavor: "Halal Uzbek food, in Korean cities — with an AI chatbot that actually knows the menu.",
+    motif: "module",
+    group: "products",
+    stats: { PWR: 70, SCL: 65, AUT: 55, INT: 75, PLH: 82 },
+    abilities: [
+      "Multi-country phone auth (+82 KR / +998 UZ) with OTP verification and Telegram OAuth",
+      "RAG system over the menu database — chatbot answers dish queries with real-time recommendations",
+      "Self-improvement loop: user feedback and order patterns continuously refine suggestions",
+      "Full-stack food ordering platform connecting the Uzbek community in South Korea to halal cuisine",
+    ],
+    stack: ["Next.js", "RAG", "LLM API", "Vercel"],
+    status: { state: "live", label: "LIVE" },
+    links: { demo: "https://www.palov.app/" },
+  },
+  {
+    id: "hamyon",
+    n: "14",
+    title: "Hamyon",
+    rarity: "rare",
+    cls: "Personal Finance · RAG · AI Insights",
+    flavor: "\"Pulingiz nazoratda\" — your money, under an AI's watch, not just a spreadsheet's.",
+    motif: "quant",
+    group: "products",
+    stats: { PWR: 68, SCL: 62, AUT: 58, INT: 78, PLH: 80 },
+    abilities: [
+      "Real-time expense tracking, budget monitoring, category-based spending analysis",
+      "RAG-powered AI chatbot over transaction history — natural-language finance queries",
+      "Self-improvement loop: learns from user corrections to refine categorisation & advice",
+      "AI-generated budget insights, not just static charts",
+    ],
+    stack: ["Next.js", "Supabase", "RAG", "LLM API", "Vercel"],
+    status: { state: "live", label: "LIVE" },
+    links: { demo: "https://hamyon-six.vercel.app/" },
+  },
+  {
+    id: "kotib",
+    n: "15",
+    title: "Kotib",
+    rarity: "epic",
+    cls: "AI Agent · Graph RAG · Conversational Memory",
+    flavor: "A secretary that never forgets — and quietly gets better at guessing what you need next.",
+    motif: "hub",
+    group: "products",
+    stats: { PWR: 74, SCL: 68, AUT: 72, INT: 82, PLH: 78 },
+    abilities: [
+      "Multi-step agent pipeline: intent classification → action routing → task/reminder/note execution",
+      "Graph RAG over the user's personal knowledge base for deep contextual understanding",
+      "Persistent conversational memory maintaining full context across all sessions",
+      "Self-improvement: tracks completed vs. missed tasks, adjusts proactive suggestions autonomously",
+    ],
+    stack: ["Next.js", "Graph RAG", "LLM API", "Vercel"],
+    status: { state: "live", label: "LIVE" },
+    links: { demo: "https://kotib-rouge.vercel.app/" },
+  },
+];
+
 export const profile = {
   name: "Davronbek Malikov",
   title: "PhD in AI Engineering",
   roles: ["AI Engineer", "AI Agent Engineer", "Automation"],
   tagline:
-    "I build autonomous AI agents and the platform that ships them — from a single reusable chatbot core to self-hosted enterprise deployments.",
+    "I create AI models — supervised, unsupervised, and everything between — and build the autonomous agents and platforms that ship them, from a single reusable chatbot core to self-hosted enterprise deployments.",
   setName: "Agent Constellation",
   links: {
     email: "mailto:davronbekmalikov96@gmail.com",

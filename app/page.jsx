@@ -1,4 +1,4 @@
-import { profile, mlProjects } from "../data/projects";
+import { profile, mlProjects, productProjects } from "../data/projects";
 import Reveal from "../components/Reveal";
 import Card from "../components/Card";
 
@@ -16,7 +16,7 @@ export default function Home() {
             <a href="/about">About</a>
             <a href="#contact">Contact</a>
           </div>
-          <span className="nav-cta">GitHub</span>
+          <a className="nav-cta" href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </nav>
 
@@ -28,8 +28,9 @@ export default function Home() {
           </Reveal>
           <Reveal delay={60}>
             <h1>
-              I build <span className="grad">autonomous AI agents</span>
-              <br /> and the platform that ships them.
+              I create <span className="grad">AI models</span> and build{" "}
+              <span className="grad">autonomous agents</span>
+              <br /> — and the platforms that ship them.
             </h1>
           </Reveal>
           <Reveal delay={120}>
@@ -69,6 +70,30 @@ export default function Home() {
           </Reveal>
           <div className="showcase-grid">
             {mlProjects.map((p, i) => (
+              <Reveal key={p.id} delay={i * 60}>
+                <Card project={p} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRODUCT PROJECTS SHOWCASE */}
+      <section className="ml-showcase" id="products">
+        <div className="container">
+          <Reveal as="div" className="showcase-eyebrow">Product Projects</Reveal>
+          <Reveal delay={40}>
+            <h2 className="showcase-title">Full-Stack <span className="grad">AI Products</span></h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="showcase-sub">
+              Three live products, built solo end-to-end: <strong>Palov</strong> (food ordering with a RAG
+              menu chatbot), <strong>Hamyon</strong> (finance tracking with AI-generated insights), and{" "}
+              <strong>Kotib</strong> (an AI secretary with Graph RAG and persistent memory).
+            </p>
+          </Reveal>
+          <div className="showcase-grid">
+            {productProjects.map((p, i) => (
               <Reveal key={p.id} delay={i * 60}>
                 <Card project={p} />
               </Reveal>
