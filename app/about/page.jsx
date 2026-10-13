@@ -120,6 +120,20 @@ const publications = [
 
 const selectedProjects = [
   {
+    title: "LLM Course Assistant",
+    sub: "LLM Post-Training · SFT · LoRA / QLoRA",
+    period: "2026",
+    demo: null,
+    github: "https://github.com/davronbek-malikov/Post_Training",
+    bullets: [
+      "Post-trained Qwen2.5-0.5B into an Uzbek-language assistant for an LLM course, working from a written model spec that the data and evaluation both follow.",
+      "Built a 1,189-example SFT dataset and a 68-question held-out test set across 8 task types, with test-only concepts filtered out of training.",
+      "Trained LoRA on a laptop CPU (rank 16, 1.75% of parameters, 151 min) and QLoRA on a Kaggle GPU (4-bit NF4, rank 64, best epoch kept).",
+      "Both adapters pass 32/68 test questions against 5/68 for the base model. Local FastAPI chat UI streams tokens and switches between adapters.",
+    ],
+    stack: ["Python", "PyTorch", "Hugging Face", "PEFT", "LoRA/QLoRA", "bitsandbytes", "FastAPI"],
+  },
+  {
     title: "Soccer Player Salary Predictor",
     sub: "Supervised ML · Regression · Sports Analytics",
     period: "2024 – 2025",
