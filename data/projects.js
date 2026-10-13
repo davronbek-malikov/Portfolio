@@ -399,9 +399,9 @@ export const productProjects = [
 export const profile = {
   name: "Davronbek Malikov",
   title: "PhD in AI Engineering",
-  roles: ["AI Engineer", "AI Agent Engineer", "Automation"],
+  roles: ["LLM Engineer", "RAG Engineer", "Agentic AI Engineer", "ML Engineer"],
   tagline:
-    "I create AI models — supervised, unsupervised, and everything between — and build the autonomous agents and platforms that ship them, from a single reusable chatbot core to self-hosted enterprise deployments.",
+    "LLM, RAG, Agentic AI and ML engineer. I fine-tune and serve models, build retrieval pipelines and multi-agent systems, and ship them to production — from a single reusable chatbot core to self-hosted enterprise deployments.",
   setName: "Agent Constellation",
   links: {
     email: "mailto:davronbekmalikov96@gmail.com",

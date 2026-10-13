@@ -24,7 +24,7 @@ const experience = [
   {
     role: "AI Engineer & Team Lead",
     org: "TripleH",
-    period: "Jan 2026 – Present",
+    period: "Dec 2025 – Present",
     bullets: [
       "Lead the AI engineering team building autonomous agent systems and enterprise AI products.",
       "Architect and ship production-grade AI agents including VIP Agent, Law Agent, Meeting Agent, and Digital Twins.",
@@ -67,6 +67,15 @@ const experience = [
     bullets: [
       "Applied advanced mathematical concepts to distributed systems.",
       "Published on lattice-group structures in Cartesian product spaces.",
+    ],
+  },
+  {
+    role: "Mathematics Instructor",
+    org: "University Preparation, SAT & International Math Exams · Fergana, Uzbekistan",
+    period: "2014 – 2017",
+    bullets: [
+      "Taught advanced mathematics and analytical reasoning for university entrance exams, the SAT, and other international mathematics exams.",
+      "Developed customized teaching materials to strengthen students' problem-solving and logical thinking skills.",
     ],
   },
 ];
@@ -179,7 +188,12 @@ const selectedProjects = [
 ];
 
 const tools = [
-  { cat: "ML / DL", items: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Streamlit"] },
+  { cat: "LLM Fine-Tuning", items: ["SFT", "LoRA / QLoRA", "DPO", "Hugging Face PEFT", "Instruction Tuning"] },
+  { cat: "Model Serving & Inference", items: ["vLLM", "TGI", "Ollama", "llama.cpp", "AWQ / GPTQ / GGUF", "LoRA Hot-Swapping", "Speculative Decoding"] },
+  { cat: "RAG & Vector Engineering", items: ["GraphRAG", "Hybrid Search (Dense + BM25)", "Cross-Encoder Reranking", "Hierarchical Chunking", "pgvector", "Qdrant", "Milvus", "LlamaParse", "Unstructured.io"] },
+  { cat: "Agentic AI & Orchestration", items: ["LangChain", "LangGraph", "MCP", "Function Calling", "Multi-Agent (Supervisor / Router / Network)", "Plan-and-Execute", "Reflection Loops", "Human-in-the-Loop"] },
+  { cat: "Evaluation & Security", items: ["LLM-as-a-Judge", "Ragas", "DeepEval", "LangSmith", "NeMo Guardrails", "Llama Guard", "Prompt Injection Defense", "Semantic Caching", "Token & Cost Tracking"] },
+  { cat: "ML / DL", items: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "XGBoost", "LightGBM", "Pandas", "NumPy", "Streamlit"] },
   { cat: "Deployment & DevOps", items: ["Docker", "Vercel", "Render", "UptimeRobot", "GitHub Actions", "GitHub"] },
   { cat: "Computer Vision", items: ["YOLO", "Roboflow", "OpenCV"] },
   { cat: "Web & Viz", items: ["HTML", "CSS", "JavaScript"] },
@@ -196,7 +210,7 @@ const languages = [
 
 export const metadata = {
   title: "About — Davronbek Malikov",
-  description: "PhD in AI Engineering. ML/DL researcher, AI educator, and AI agent engineer.",
+  description: "PhD in AI Engineering. LLM Engineer, RAG Engineer, Agentic AI Engineer, and ML Engineer.",
 };
 
 export default function About() {
@@ -226,10 +240,10 @@ export default function About() {
             <Reveal delay={80}>
               <div className="about-titles">
                 <span className="role-chip">PhD in AI Engineering</span>
-                <span className="role-chip">AI Agent Engineer</span>
-                <span className="role-chip">ML / DL Engineer</span>
-                <span className="role-chip">AI Researcher</span>
-                <span className="role-chip">AI Educator</span>
+                <span className="role-chip">LLM Engineer</span>
+                <span className="role-chip">RAG Engineer</span>
+                <span className="role-chip">Agentic AI Engineer</span>
+                <span className="role-chip">ML Engineer</span>
               </div>
             </Reveal>
             <Reveal delay={120}>
@@ -237,13 +251,14 @@ export default function About() {
             </Reveal>
             <Reveal delay={160}>
               <p className="about-summary">
-                PhD-level AI Engineer and researcher who builds autonomous agent systems that work in
-                production. Currently leading the AI team at TripleH — shipping agents for legal
-                intelligence, financial analysis, meeting automation, and enterprise digital twins.
-                Grounded in advanced mathematics and machine learning research, with 5 first-author
-                publications in SCIE journals and international conferences. I close the gap between
-                rigorous research and real-world engineering — from model training to full-stack
-                deployment.
+                LLM Engineer, RAG Engineer, Agentic AI Engineer, and ML Engineer with a PhD in AI
+                Engineering. I build LLM systems end to end: fine-tuning (LoRA/QLoRA, DPO) and
+                inference serving, RAG and GraphRAG pipelines with hybrid search and reranking, and
+                multi-agent systems with evaluation and guardrails built in. Currently leading the AI
+                team at TripleH — shipping agents for legal intelligence, financial analysis, meeting
+                automation, and enterprise digital twins. Grounded in advanced mathematics and
+                machine learning research, with 5 first-author publications in SCIE journals and
+                international conferences.
               </p>
             </Reveal>
           </div>
@@ -391,7 +406,7 @@ export default function About() {
           <div className="container about-cta">
             <Reveal>
               <h2>Open to new opportunities</h2>
-              <p>AI Engineer · AI Agent Engineer · Automation · ML Research</p>
+              <p>LLM Engineer · RAG Engineer · Agentic AI Engineer · ML Engineer</p>
               <div className="hero-actions" style={{ marginTop: 24 }}>
                 <a className="btn btn-primary" href={profile.links.email}>Get in touch</a>
                 <a className="btn btn-ghost" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>

@@ -1,0 +1,351 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+
+% Section formatting with line
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+
+% No paragraph indentation
+\setlength{\parindent}{0pt}
+
+% Let long unbreakable terms (LoRA/QLoRA, tool names) wrap instead of overflowing the margin
+\setlength{\emergencystretch}{3em}
+
+% Item spacing
+\setlist[itemize]{noitemsep, topsep=2pt}
+
+% Name command
+\newcommand{\name}[1]{{\Huge\bfseries #1}}
+
+\begin{document}
+
+%====================
+% HEADER
+%====================
+\begin{center}
+\name{Davronbek Malikov} \\[2mm]
+LLM Engineer \textbar\ RAG Engineer \textbar\ Agentic AI Engineer \textbar\ ML Engineer \\
+Seoul, South Korea \\[1mm]
+\textbf{
+  \href{mailto:davronbekmalikov96@gmail.com}{davronbekmalikov96@gmail.com}
+  \textbar\ +82-10-2822-2901
+  \textbar\ \href{https://www.linkedin.com/in/davronbek-malikov}{LinkedIn}
+  \textbar\ \href{https://davronbek-portfolio.vercel.app}{Portfolio}
+}
+\end{center}
+
+%====================
+\section*{Summary}
+\begin{itemize}
+    \item LLM Engineer, RAG Engineer, Agentic AI Engineer, and ML Engineer with a Ph.D. in AI
+Convergence Engineering. I build LLM systems end to end: fine-tuning and inference serving,
+retrieval, agent orchestration, evaluation, and deployment on cloud and on-premise infrastructure.
+    \item \textbf{LLM Engineering:} Supervised fine-tuning and parameter-efficient adaptation (LoRA/QLoRA),
+preference optimization (DPO), quantization (AWQ, GPTQ, GGUF), and local inference serving
+(vLLM, TGI, Ollama, llama.cpp).
+    \item \textbf{RAG Engineering:} Standard RAG and GraphRAG pipelines with hybrid search (dense vectors
++ sparse BM25), cross-encoder reranking, hierarchical chunking, and vector databases (pgvector,
+Qdrant, Milvus).
+    \item \textbf{Agentic AI Engineering:} Multi-agent architectures (Supervisor, Router, Network),
+plan-and-execute and self-correction loops, human-in-the-loop workflows, and tool use through MCP
+and function calling. Currently leading the AI engineering team at TripleH, shipping agents for
+legal intelligence, financial analysis, meeting automation, and enterprise digital twins.
+    \item \textbf{ML Engineering:} Supervised and unsupervised machine learning on tabular data and
+Computer Vision, grounded in advanced mathematics, with 5 first-author publications in SCIE
+journals and international conferences.
+    \item \textbf{Production, Evaluation \& Security:} LLM-as-a-Judge evaluation (Ragas, DeepEval),
+input/output guardrails, prompt-injection defense, semantic caching, and token and cost tracking.
+\end{itemize}
+
+%====================
+\section*{Education}
+\textbf{Ph.D. in AI Convergence Engineering} \hfill 2020--2025 \\
+Gyeongsang National University, Republic of Korea \\
+Thesis: \textit{Advancements in Soccer Analytics: Players' Goals and Salary Prediction Models with
+Machine Learning} \\
+Supervisor: Jaeho Kim
+
+\medskip
+
+\textbf{Master of Informatics} \hfill 2018--2020 \\
+Gyeongsang National University, Republic of Korea
+
+\medskip
+
+\textbf{Bachelor of Mathematics} \hfill 2014--2018 \\
+Fergana State University, Uzbekistan
+
+%====================
+\section*{Experience}
+
+\textbf{AI Engineer \& Team Lead} \hfill Dec 2025--Present \\
+TripleH, Seoul, South Korea
+\begin{itemize}
+    \item Lead the AI engineering team designing and shipping production-grade autonomous agent
+systems.
+    \item Architected and delivered the following AI products:
+    \begin{itemize}
+        \item \textbf{VIP Agent} --- Centralized AI Orchestration Platform that manages and controls a
+network of specialized sub-agents (market reports, financial RAG brain, KakaoTalk
+chatbot) from a unified control hub.
+        \item \textbf{Law Agent} --- Smart Legal Chatbot implementing Mixture of Decisions: routes
+queries across multiple LLMs simultaneously, aggregates results, and applies a citability filter for Korean Supreme Court precedents.
+        \item \textbf{Meeting Agent} --- Smart Meeting Agent powered by Voice Recognition: real-time
+on-premise audio transcription, automatic structuring into agenda-based minutes,
+and 4-format export (PDF, DOCX, Markdown, JSON).
+        \item \textbf{Enterprise System} --- On-premise deployment platform enabling all agents to run
+entirely locally without external API calls, ensuring full data privacy and compliance
+for enterprise clients.
+        \item \textbf{Digital Workers} --- Per-employee AI agents (Digital Twins) that learn each worker's
+tasks, communication style, and workflows, then act autonomously on their behalf.
+    \end{itemize}
+    \item Drive end-to-end development from research and prototyping to on-premise and cloud
+deployment.
+    \item Establish engineering standards, conduct code reviews, and mentor junior engineers on
+LLM integration and agent design.
+\end{itemize}
+
+\medskip
+
+\textbf{Independent Researcher in Sports Analytics} \hfill 2025--2026 \\
+Self-directed Research Projects
+\begin{itemize}
+    \item Conduct independent research on the applications of LLMs and Deep Learning in soccer
+analytics.
+    \item Develop models for performance evaluation, salary prediction, and tactical analysis using
+AI.
+    \item Prepare and submit publications to SCIE and AI-focused journals.
+\end{itemize}
+
+\medskip
+
+\textbf{Independent AI Educator (Machine Learning, Deep Learning, NLP, LLM)} \hfill 2023--2026 \\
+Online and Private Instruction
+\begin{itemize}
+    \item Design and deliver advanced courses in AI, Machine Learning, Deep Learning, and Large
+Language Models.
+    \item Mentor students and professionals on building end-to-end AI systems and research-oriented
+projects.
+    \item Focus on practical applications of AI in industry and academia.
+\end{itemize}
+
+\medskip
+
+\textbf{Graduate Researcher} \hfill 2022--2025 \\
+Big Data Systems Software Lab, Gyeongsang National University, South Korea
+\begin{itemize}
+    \item Focused on ML applications in soccer analytics.
+    \item \textbf{Publications:}
+    \begin{itemize}
+        \item Malikov, D., et al. \textit{Predicting Soccer Player Salaries with Both Traditional and Automated Machine Learning Approaches} (first author). SCIE: 17\% increased accuracy
+of prediction model.
+        \href{https://doi.org/10.3390/app15148108}{[DOI]}
+
+        \item Malikov, D., et al. \textit{Beyond xG: A Dual Prediction Model for Analyzing Player Performance Through Expected and Actual Goals in European Soccer Leagues} (first author).
+SCIE: 12\% improvement on player performance prediction.
+        \href{https://doi.org/10.3390/app142210390}{[DOI]}
+
+        \item Malikov, D., et al. \textit{Comparative Evaluation of Machine Learning Models for Predicting Soccer Injury Types} (first author). KSCIE: Introduced soccer players injury
+prediction model using constructed features.
+        \href{https://doi.org/10.21289/KSIC.2024.27.2.257}{[DOI]}
+
+        \item Malikov, D., et al. \textit{The Application of Machine Learning on the Injury Prediction of
+Soccer Players} (first author). ISE@APSEC: Novel approach for predicting players
+injury without GPS technology.
+        \href{https://ceur-ws.org/Vol-3362/ISE2022_short02_Malikov_Application.pdf}{[PDF]}
+    \end{itemize}
+\end{itemize}
+
+\medskip
+
+\textbf{Graduate Researcher} \hfill 2018--2021 \\
+Distributed Systems Lab, Gyeongsang National University, South Korea
+\begin{itemize}
+    \item Focused on applying advanced mathematical concepts to distributed systems.
+    \item \textbf{Publications:}
+    \begin{itemize}
+        \item On the construction and properties of lattice-group structure in Cartesian product
+spaces (first author). \textit{Journal of Computer Science}.
+        \href{https://doi.org/10.3844/jcssp.2020.402.421}{[DOI]}
+    \end{itemize}
+\end{itemize}
+
+\medskip
+
+\textbf{Mathematics Instructor (University Preparation, SAT \& International Math Exams)} \hfill 2014--2017 \\
+Fergana, Uzbekistan
+\begin{itemize}
+    \item Taught advanced mathematics and analytical reasoning to high school graduates preparing
+for university entrance exams, the SAT, and other international mathematics exams.
+    \item Developed customized teaching materials to strengthen students' problem-solving and
+logical thinking skills.
+\end{itemize}
+
+%====================
+\section*{Projects}
+
+\textbf{Soccer Player Salary Predictor} --- Industry-level ML Pipeline \hfill \href{https://github.com/davronbek-malikov/soccer-xG-salary_prediction}{[GitHub]} $\cdot$ {\large\textbf{\href{https://soccer-xg-salary-prediction.onrender.com}{Live}}}
+\begin{itemize}
+    \item Built an end-to-end supervised ML pipeline predicting professional soccer players' annual
+gross salaries from season-level performance statistics across Bundesliga, La Liga, and
+Serie A (8 seasons, 2014/15--2021/22).
+    \item \textbf{Data leakage prevention:} Train/test split before any fitting; StandardScaler and OrdinalEncoder fitted on training data only; target salary never imputed at any stage.
+    \item \textbf{Modeling tiers:} Baseline (Linear Regression, Ridge, Lasso, Decision Tree) $\rightarrow$ Improved
+(Random Forest, XGBoost, LightGBM, Gradient Boosting) $\rightarrow$ Ensemble (Stacking with
+Ridge meta-learner, Voting regressor).
+    \item \textbf{Feature engineering:} 21 derived features without using the target --- per-game rates
+(xG/game, assists/game), efficiency index $(goals+assists)/(xG+xA)$, contribution index,
+shot conversion, position simplification.
+    \item \textbf{Hyperparameter tuning:} Optuna Bayesian optimisation (TPE sampler, 60 trials) over
+n\_estimators, max\_depth, learning\_rate, subsample, and L1/L2 regularisation.
+    \item \textbf{Explainability:} SHAP TreeExplainer --- global beeswarm and bar charts, local waterfall
+and force plots, engineered-feature impact report confirming FE added signal.
+    \item \textbf{Deployment:} Gradio demo live on Render, kept active 24/7 via UptimeRobot (5-min
+ping). Full end-to-end daily logging throughout the pipeline.
+    \item Linked to SCIE publication (Applied Sciences, 2025) --- 17\% improvement in prediction
+accuracy. \href{https://doi.org/10.3390/app15148108}{[DOI]}
+    \item Stack: Python, XGBoost, LightGBM, Scikit-learn, SHAP, Optuna, Gradio, Render, UptimeRobot.
+\end{itemize}
+
+\medskip
+
+\textbf{TacticalDNA} --- Unsupervised Player-Archetype Discovery \hfill \href{https://github.com/davronbek-malikov/tactical-dna}{[GitHub]} $\cdot$ {\large\textbf{\href{https://soccer-player-clustering.onrender.com}{Live}}}
+\begin{itemize}
+    \item Companion project to the Salary Predictor: same Big-5-league dataset (Bundesliga, La Liga,
+Serie A), this time solving an unsupervised problem with zero salary/target leakage.
+    \item Built an end-to-end clustering pipeline over 6,314 qualified player-seasons ($\geq$900 minutes)
+using only per-90 performance features --- no salary, age, or team involved in the grouping.
+    \item \textbf{Validated finding:} a blind stat line (25 goals, 15 assists, no name attached) was matched
+by the model to prime Messi's 2019/20 season at 98\% cosine similarity --- pure identity recovery
+from raw performance shape, with no player identity ever fed to the model.
+    \item \textbf{Algorithm bake-off:} KMeans, Agglomerative (Ward), DBSCAN, and Gaussian Mixture
+compared on Silhouette, Davies-Bouldin, and Calinski-Harabasz scores; KMeans won outright.
+    \item \textbf{Documented negative result:} DBSCAN collapses to a single dense cluster across every
+eps/min\_samples tested --- reported as a genuine empirical finding, not hidden.
+    \item \textbf{Model selection trade-off:} chose $k=6$ over the statistically optimal $k=3$ for product
+interpretability --- a deliberate statistical-optimum-vs-usefulness decision.
+    \item \textbf{Archetype naming:} rule-based labeling from cluster centroids --- Elite Complete Forward,
+Clinical Poacher, Deep-Lying Playmaker, Efficient Impact Player, Volume Forward, Defensive Anchor.
+    \item \textbf{Deployment:} interactive Streamlit demo on Render; PCA(2) projection chosen over
+t-SNE/UMAP for stable, real-time inference on new player input.
+    \item Stack: Python, Scikit-learn, Streamlit, Plotly, Render.
+\end{itemize}
+
+\medskip
+
+\textbf{Palov} --- Halal Uzbek Food Platform for Korea \hfill {\large\textbf{\href{https://www.palov.app/}{Live}}}
+\begin{itemize}
+    \item Built a full-stack food ordering platform connecting the Uzbek community in South Korea
+with authentic halal cuisine.
+    \item Implemented multi-country phone authentication (+82 KR / +998 UZ) with OTP verification and Telegram OAuth.
+    \item \textbf{AI implementation:} Integrated a Retrieval-Augmented Generation (RAG) system over
+the menu database so the AI chatbot answers natural-language dish queries with real-time,
+context-aware recommendations.
+    \item \textbf{Self-improvement loop:} User feedback and order patterns are collected and fed back
+into the recommendation model, allowing the AI to continuously improve suggestion quality over time.
+    \item Stack: Next.js, LLM API, RAG, Vercel.
+\end{itemize}
+
+\medskip
+
+\textbf{Hamyon} --- Personal Finance Manager (\textit{``Pulingiz nazoratda''} --- Your money under control) \hfill {\large\textbf{\href{https://hamyon-six.vercel.app/}{Live}}}
+\begin{itemize}
+    \item Built real-time expense tracking, budget monitoring, and category-based spending analysis.
+    \item \textbf{AI implementation:} Integrated a RAG-powered AI chatbot over the user's financial
+transaction history, enabling natural-language queries (e.g.\ ``How much did I spend on
+food this month?'') and AI-generated budget insights.
+    \item \textbf{Self-improvement loop:} The AI learns from user corrections and preference signals to
+continuously refine its categorization accuracy and financial advice quality.
+    \item Stack: Next.js, Supabase, LLM API, RAG, Vercel.
+\end{itemize}
+
+\medskip
+
+\textbf{Kotib} --- AI-Powered Personal Secretary (\textit{``Aqlli shaxsiy kotib''}) \hfill {\large\textbf{\href{https://kotib-rouge.vercel.app/}{Live}}}
+\begin{itemize}
+    \item Built the full AI assistant and chatbot core: natural-language task creation, scheduling,
+and intelligent note management.
+    \item \textbf{AI implementation:} Designed a multi-step agent pipeline --- user message $\rightarrow$ intent
+classification $\rightarrow$ action routing (create task / set reminder / generate note / query history)
+--- powered by an LLM with Graph RAG over the user's personal knowledge base.
+    \item \textbf{Self-improvement loop:} Tracks completed vs.\ missed tasks, analyses usage patterns,
+and autonomously adjusts proactive suggestions and reminder timing based on observed
+behaviour.
+    \item Implemented persistent conversational memory maintaining full context across all sessions.
+    \item Stack: Next.js, LLM API, Graph RAG, Vercel.
+\end{itemize}
+
+%====================
+\section*{Tools \& Frameworks}
+\begin{itemize}
+    \item \textbf{LLM Fine-Tuning \& Adaptation:} Supervised Fine-Tuning (SFT), LoRA, QLoRA, Direct
+Preference Optimization (DPO), instruction tuning, continual pre-training, iterative
+feedback-driven training pipelines
+    \item \textbf{Model Serving \& Inference Optimization:} vLLM and TGI inference serving (PagedAttention),
+dynamic LoRA adapter hot-swapping, quantization (AWQ, GPTQ, GGUF), speculative decoding, local
+LLM deployment (Ollama, llama.cpp)
+    \item \textbf{RAG \& Vector Engineering:} Standard RAG, GraphRAG (knowledge graph integration), hybrid
+search (dense vector + sparse BM25), cross-encoder reranking (Cohere, BGE), hierarchical chunking
+and parent-child retrieval, vision-based layout parsing (LlamaParse, Unstructured.io), vector
+databases (pgvector, Qdrant, Milvus)
+    \item \textbf{Agentic AI \& Orchestration:} LangChain, LangGraph, multi-agent architectures (Supervisor,
+Router, Network), Mixture of Agents (MoA), plan-and-execute frameworks, self-correction and
+reflection loops, human-in-the-loop state persistence, tool use (Model Context Protocol, function
+calling)
+    \item \textbf{Production, Evaluation \& Security:} LLM-as-a-Judge evaluation (Ragas, DeepEval), LangSmith
+observability and tracing, input/output guardrails (NeMo Guardrails, Llama Guard), prompt
+injection and jailbreak defense, semantic caching (GPTCache), token tracking and cost optimization
+    \item \textbf{Self-Improving AI Systems:}
+    \begin{itemize}
+        \item \textit{Feedback Collection:} Human feedback pipelines (thumbs up/down, ratings, corrections), preference data collection, user behaviour logging
+        \item \textit{RLHF \& Alignment:} Reinforcement Learning from Human Feedback (RLHF), reward model training, Proximal Policy Optimization (PPO), Direct Preference Optimization (DPO)
+        \item \textit{Iterative Fine-Tuning:} Converting model outputs + human corrections into new
+training data; continual/online learning loops; automated retraining triggers
+        \item \textit{Self-Reflection \& Critique:} Chain-of-Thought self-correction, Constitutional AI (model
+critiques and revises its own outputs), LLM-as-Judge automated evaluation
+        \item \textit{Knowledge \& Memory Updates:} RAG knowledge base refresh from new interactions,
+Graph RAG graph expansion, persistent long-term conversational memory
+        \item \textit{Prompt Optimization:} Behaviour-based prompt adjustment, automated prompt engineering (DSPy-style), A/B testing of prompt variants
+        \item \textit{Synthetic Data Generation:} LLM-generated training examples, self-play data creation, data augmentation for low-resource tasks
+        \item \textit{Active Learning:} Model flags low-confidence outputs for human review; uncertainty
+sampling to minimise labelling cost
+    \end{itemize}
+    \item \textbf{Model Hubs \& Testing:} Hugging Face (Transformers, PEFT, datasets, model hub),
+NVIDIA (CUDA, GPU-accelerated inference, NGC model registry, TensorRT)
+    \item \textbf{ML / DL Frameworks:} Python, PyTorch, TensorFlow, Scikit-learn, XGBoost, LightGBM,
+Pandas, NumPy
+    \item \textbf{Backend \& DevOps:} FastAPI, Docker, GitHub Actions, SQL, Supabase, PostgreSQL
+(pgvector), Vercel, Render, UptimeRobot
+    \item \textbf{Frontend \& Web:} Next.js, React, HTML, CSS, JavaScript
+    \item \textbf{Computer Vision:} YOLO, Roboflow, OpenCV
+    \item \textbf{Research \& Writing:} Overleaf, \LaTeX
+\end{itemize}
+
+%====================
+\section*{Competences}
+\begin{itemize}
+    \item \textbf{Agentic AI Engineering:} End-to-end design and deployment of multi-agent and
+Mixture-of-Agents systems for enterprise use cases.
+    \item \textbf{LLM \& RAG Engineering:} Taking LLM systems from fine-tuning and retrieval design
+through evaluation, guardrails, and production serving.
+    \item \textbf{Team Leadership:} Leading engineering teams, conducting code reviews, and setting
+technical direction.
+    \item \textbf{Research and Continuous Learning:} Eager to explore new AI tools and create models
+that contribute to science and industry.
+    \item \textbf{Collaborative Development:} Works effectively in team environments using Git and
+GitHub.
+    \item \textbf{Presentations:} Skilled at presenting complex ideas clearly to both technical and
+non-technical audiences.
+    \item \textbf{Data Manipulation:} Proficient in SQL for handling and processing large datasets.
+\end{itemize}
+
+%====================
+\section*{Languages}
+English (Fluent), Uzbek (Native), Turkish (Advanced), Russian (Intermediate), Korean (Conversational)
+
+\end{document}

@@ -108,7 +108,7 @@ export default function Home() {
           <div className="footer-grid">
             <div>
               <h3>Let&apos;s build something autonomous.</h3>
-              <p>{profile.name} — {profile.title}. Open to AI Engineer, AI Agent Engineer and Automation roles.</p>
+              <p>{profile.name} — {profile.title}. Open to LLM, RAG, Agentic AI and ML Engineer roles.</p>
             </div>
             <div className="footer-links">
               <a className="btn btn-ghost" href={profile.links.email}>Email</a>
