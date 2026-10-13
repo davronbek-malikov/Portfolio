@@ -307,9 +307,9 @@ export const mlProjects = [
   {
     id: "llm-engineering",
     n: "12",
-    title: "LLM Course Assistant",
+    title: "Ustoz",
     rarity: "mythic",
-    cls: "LLM Post-Training · SFT · LoRA / QLoRA",
+    cls: "Uzbek LLM Tutor · Post-Training · SFT · LoRA / QLoRA",
     flavor: "A 0.5B model that passed 5 of 68 test questions before training — and 32 after, trained on a laptop CPU.",
     motif: "forge",
     group: "llm",
@@ -408,6 +408,6 @@ export const profile = {
     email: "mailto:davronbekmalikov96@gmail.com",
     github: "https://github.com/davronbek-malikov",
     linkedin: "https://www.linkedin.com/in/davronbek-malikov",
-    cv: "/cv.pdf", // TODO: drop your CV into /public/cv.pdf
+    cv: "/Davronbek_Malikov_CV.pdf", // same file as /cv.pdf (kept for old links); new name avoids stale browser caches
   },
 };

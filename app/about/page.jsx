@@ -120,8 +120,8 @@ const publications = [
 
 const selectedProjects = [
   {
-    title: "LLM Course Assistant",
-    sub: "LLM Post-Training · SFT · LoRA / QLoRA",
+    title: "Ustoz",
+    sub: "Uzbek LLM Tutor · Post-Training · SFT · LoRA / QLoRA",
     period: "2026",
     demo: null,
     github: "https://github.com/davronbek-malikov/Post_Training",

@@ -28,9 +28,10 @@ export default function Home() {
           </Reveal>
           <Reveal delay={60}>
             <h1>
-              I create <span className="grad">AI models</span> and build{" "}
+              I fine-tune <span className="grad">LLMs</span>, build{" "}
+              <span className="grad">RAG pipelines</span> and ship{" "}
               <span className="grad">autonomous agents</span>
-              <br /> — and the platforms that ship them.
+              <br /> — on a foundation of ML research.
             </h1>
           </Reveal>
           <Reveal delay={120}>
