@@ -119,6 +119,22 @@ export default function Motif({ kind }) {
           <path d="M150 26 l10 -8 l10 8" fill="none" stroke={stroke} strokeWidth="1.6" />
         </svg>
       );
+    case "pitch":
+      return (
+        <svg {...common}>
+          <rect x="40" y="14" width="240" height="90" rx="4" fill="none" stroke={stroke} strokeWidth="1.3" opacity="0.6" />
+          <line x1="160" y1="14" x2="160" y2="104" stroke={stroke} strokeWidth="1" opacity="0.5" />
+          <circle cx="160" cy="59" r="14" fill="none" stroke={stroke} strokeWidth="1" opacity="0.5" />
+          <rect x="40" y="38" width="26" height="42" fill="none" stroke={stroke} strokeWidth="1" opacity="0.5" />
+          <rect x="254" y="38" width="26" height="42" fill="none" stroke={stroke} strokeWidth="1" opacity="0.5" />
+          {[ [92,36],[118,82],[200,30],[228,74] ].map(([x,y],i)=>(
+            <circle key={i} cx={x} cy={y} r="3.2" fill={stroke} opacity="0.45" />
+          ))}
+          <circle cx="206" cy="58" r="5" fill={stroke} />
+          <circle cx="206" cy="58" r="12" fill="none" stroke={stroke} strokeWidth="1.4" />
+          <circle cx="206" cy="58" r="20" fill="none" stroke={stroke} strokeWidth="0.6" opacity="0.45" strokeDasharray="2 3" />
+        </svg>
+      );
     case "ml":
       return (
         <svg {...common}>

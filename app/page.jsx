@@ -1,4 +1,4 @@
-import { profile, mlProjects, productProjects } from "../data/projects";
+import { profile, llmProjects, mlProjects, productProjects } from "../data/projects";
 import Reveal from "../components/Reveal";
 import Card from "../components/Card";
 
@@ -54,8 +54,33 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ML PROJECTS SHOWCASE */}
+      {/* LLM & RAG PROJECTS SHOWCASE */}
       <section className="ml-showcase" id="projects">
+        <div className="container">
+          <Reveal as="div" className="showcase-eyebrow">LLM & RAG Projects</Reveal>
+          <Reveal delay={40}>
+            <h2 className="showcase-title">LLM Systems <span className="grad">Agents, RAG & Post-Training</span></h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="showcase-sub">
+              <strong>Touchline</strong> — an AI scouting copilot: a Claude agent orchestrated with LangGraph
+              searches 50,000 players through typed tools, pauses for the scout to approve a shortlist, and
+              writes reports where every claim is cited, all traced and evaluated in LangSmith.{" "}
+              <strong>Ustoz</strong> — an Uzbek LLM tutor post-trained from Qwen2.5 with SFT, LoRA and QLoRA.
+            </p>
+          </Reveal>
+          <div className="showcase-grid">
+            {llmProjects.map((p, i) => (
+              <Reveal key={p.id} delay={i * 60}>
+                <Card project={p} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ML PROJECTS SHOWCASE */}
+      <section className="ml-showcase" id="ml">
         <div className="container">
           <Reveal as="div" className="showcase-eyebrow">ML Projects</Reveal>
           <Reveal delay={40}>
@@ -66,7 +91,7 @@ export default function Home() {
               Two projects live on the same soccer dataset: <strong>Soccer Player Salary Predictor</strong> — a
               supervised ML pipeline with SHAP explainability and Optuna tuning — and{" "}
               <strong>TacticalDNA</strong> — unsupervised clustering that matched a blind, made-up stat line to
-              prime Messi at 98% similarity. Computer Vision and LLM Engineering coming next.
+              prime Messi at 98% similarity. Computer Vision coming next.
             </p>
           </Reveal>
           <div className="showcase-grid">

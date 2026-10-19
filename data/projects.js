@@ -225,13 +225,67 @@ export const ecosystem = {
 };
 
 // ----------------------------------------------------------------------------
+//  LLM & RAG PROJECTS  —  LLM systems: agents, retrieval, post-training, evaluation.
+//  Rendered first on the homepage.
+// ----------------------------------------------------------------------------
+export const llmProjects = [
+  {
+    id: "touchline",
+    n: "09",
+    title: "Touchline",
+    rarity: "mythic",
+    cls: "AI Scouting Copilot · Agentic RAG · LangGraph · LangSmith",
+    flavor: "Describe the player you need. Get a ranked shortlist and a cited report — the AI never makes a number up.",
+    motif: "pitch",
+    group: "llm",
+    stats: { PWR: 90, SCL: 84, AUT: 88, INT: 94, PLH: 86 },
+    abilities: [
+      "Plain-language scouting briefs → Claude fills typed tool forms; Python builds the query — the model never writes SQL",
+      "LangGraph agent with 7 strict tools (search, profile, similar, compare, notes, shortlist) and an 8-round cap",
+      "Human-in-the-loop: pauses with a shortlist via interrupt(), resumes from a checkpoint — even after a restart",
+      "Cited scouting reports: every style claim links to its source passage (Claude citations over Qdrant hybrid search)",
+      "Warehouse of 50,149 players (Transfermarkt) + 297 StatsBomb matches → 18 per-90 metrics for 594 players",
+      "120-question golden set in LangSmith: filter accuracy, precision/recall@10, numeric grounding, invented-player check",
+      "102 automated tests · ChatGPT-style Next.js app with voice, file uploads, folders and a model picker",
+    ],
+    stack: ["Claude API", "LangGraph", "LangSmith", "Qdrant", "DuckDB", "FastAPI", "Next.js", "Postgres"],
+    status: { state: "beta", label: "IN DEVELOPMENT" },
+    links: { github: "https://github.com/davronbek-malikov/touchline" },
+  },
+  {
+    id: "llm-engineering",
+    n: "10",
+    title: "Ustoz",
+    rarity: "mythic",
+    cls: "Uzbek LLM Tutor · Post-Training · SFT · LoRA / QLoRA",
+    flavor: "A 0.5B model that passed 5 of 68 test questions before training — and 32 after, trained on a laptop CPU.",
+    motif: "forge",
+    group: "llm",
+    stats: { PWR: 82, SCL: 62, AUT: 60, INT: 92, PLH: 76 },
+    abilities: [
+      "Spec-first: a written model spec defines the behaviour; training data and evaluation both follow it",
+      "SFT dataset of 1,189 Uzbek chat examples — concepts used in the test are filtered out of training",
+      "LoRA on a laptop CPU: rank 16, 8.8M of 503M parameters trained (1.75%), 151 minutes",
+      "QLoRA on a Kaggle GPU: 4-bit NF4 base, rank 64, best epoch kept once validation loss turned upward",
+      "68 held-out questions across 8 task types: base 5/68 → 32/68 for both adapters",
+      "Lists 3/10 → 10/10 · arithmetic 0/12 → 7/12 · admits \"I don't know\" 0/5 → 4/5",
+      "Loss on answer tokens only; stops on <|endoftext|> because the base model never trained <|im_end|>",
+      "Local FastAPI chat UI with token streaming — switch between base and each adapter live",
+    ],
+    stack: ["Python", "PyTorch", "Hugging Face", "PEFT", "LoRA/QLoRA", "bitsandbytes", "FastAPI", "Kaggle"],
+    status: { state: "proven", label: "CODE ON GITHUB" },
+    links: { github: "https://github.com/davronbek-malikov/Post_Training" },
+  },
+];
+
+// ----------------------------------------------------------------------------
 //  ML SHOWCASE  —  coming-soon placeholder cards for ML project categories.
 //  Each card will link to its own repo once the project is ready.
 // ----------------------------------------------------------------------------
 export const mlProjects = [
   {
     id: "supervised-ml",
-    n: "09",
+    n: "11",
     title: "Soccer Salary Predictor",
     rarity: "epic",
     cls: "Supervised ML · Regression · Sports Analytics",
@@ -258,7 +312,7 @@ export const mlProjects = [
   },
   {
     id: "unsupervised-ml",
-    n: "10",
+    n: "12",
     title: "TacticalDNA",
     rarity: "epic",
     cls: "Unsupervised ML · Clustering · Sports Analytics",
@@ -284,7 +338,7 @@ export const mlProjects = [
   },
   {
     id: "computer-vision",
-    n: "11",
+    n: "13",
     title: "Computer Vision",
     rarity: "legendary",
     cls: "Object Detection · Image Classification",
@@ -304,30 +358,6 @@ export const mlProjects = [
     status: { state: "rnd", label: "COMING SOON" },
     links: {},
   },
-  {
-    id: "llm-engineering",
-    n: "12",
-    title: "Ustoz",
-    rarity: "mythic",
-    cls: "Uzbek LLM Tutor · Post-Training · SFT · LoRA / QLoRA",
-    flavor: "A 0.5B model that passed 5 of 68 test questions before training — and 32 after, trained on a laptop CPU.",
-    motif: "forge",
-    group: "llm",
-    stats: { PWR: 82, SCL: 62, AUT: 60, INT: 92, PLH: 76 },
-    abilities: [
-      "Spec-first: a written model spec defines the behaviour; training data and evaluation both follow it",
-      "SFT dataset of 1,189 Uzbek chat examples — concepts used in the test are filtered out of training",
-      "LoRA on a laptop CPU: rank 16, 8.8M of 503M parameters trained (1.75%), 151 minutes",
-      "QLoRA on a Kaggle GPU: 4-bit NF4 base, rank 64, best epoch kept once validation loss turned upward",
-      "68 held-out questions across 8 task types: base 5/68 → 32/68 for both adapters",
-      "Lists 3/10 → 10/10 · arithmetic 0/12 → 7/12 · admits \"I don't know\" 0/5 → 4/5",
-      "Loss on answer tokens only; stops on <|endoftext|> because the base model never trained <|im_end|>",
-      "Local FastAPI chat UI with token streaming — switch between base and each adapter live",
-    ],
-    stack: ["Python", "PyTorch", "Hugging Face", "PEFT", "LoRA/QLoRA", "bitsandbytes", "FastAPI", "Kaggle"],
-    status: { state: "proven", label: "CODE ON GITHUB" },
-    links: { github: "https://github.com/davronbek-malikov/Post_Training" },
-  },
 ];
 
 // ----------------------------------------------------------------------------
@@ -337,7 +367,7 @@ export const mlProjects = [
 export const productProjects = [
   {
     id: "palov",
-    n: "13",
+    n: "14",
     title: "Palov",
     rarity: "rare",
     cls: "Full-Stack · RAG · AI Chatbot",
@@ -357,7 +387,7 @@ export const productProjects = [
   },
   {
     id: "hamyon",
-    n: "14",
+    n: "15",
     title: "Hamyon",
     rarity: "rare",
     cls: "Personal Finance · RAG · AI Insights",
@@ -377,7 +407,7 @@ export const productProjects = [
   },
   {
     id: "kotib",
-    n: "15",
+    n: "16",
     title: "Kotib",
     rarity: "epic",
     cls: "AI Agent · Graph RAG · Conversational Memory",

@@ -120,6 +120,20 @@ const publications = [
 
 const selectedProjects = [
   {
+    title: "Touchline",
+    sub: "AI Scouting Copilot · Agentic RAG · LangGraph · LangSmith · Claude",
+    period: "2026",
+    demo: null,
+    github: "https://github.com/davronbek-malikov/touchline",
+    bullets: [
+      "A scout describes the player they need in plain words; a Claude agent orchestrated with LangGraph turns the brief into typed tool calls over a DuckDB warehouse of 50,149 players — the model never writes SQL.",
+      "Joined Transfermarkt market data with 297 StatsBomb matches (18 per-90 metrics and percentiles for 594 players), linking 87.5% of players across sources.",
+      "Human-in-the-loop shortlist approval via LangGraph interrupt() with persisted checkpoints; cited scouting reports built on Qdrant hybrid search over scout notes and Wikipedia.",
+      "120-question golden set in LangSmith with automatic checks for filter accuracy, precision/recall@10, numeric grounding and invented players; 102 automated tests.",
+    ],
+    stack: ["Claude API", "LangGraph", "LangSmith", "Qdrant", "DuckDB", "FastAPI", "Next.js", "Postgres"],
+  },
+  {
     title: "Ustoz",
     sub: "Uzbek LLM Tutor · Post-Training · SFT · LoRA / QLoRA",
     period: "2026",
