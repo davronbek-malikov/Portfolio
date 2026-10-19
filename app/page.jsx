@@ -66,7 +66,7 @@ export default function Home() {
               <strong>Touchline</strong> — an AI scouting copilot: a Claude agent orchestrated with LangGraph
               searches 50,000 players through typed tools, pauses for the scout to approve a shortlist, and
               writes reports where every claim is cited, all traced and evaluated in LangSmith.{" "}
-              <strong>Ustoz</strong> — an Uzbek LLM tutor post-trained from Qwen2.5 with SFT, LoRA and QLoRA.
+              <strong>Ustoz</strong> — an Uzbek LLM tutor post-trained from Qwen2.5 with SFT, LoRA/QLoRA and DPO: 15/68 → 44/68 on a held-out test.
             </p>
           </Reveal>
           <div className="showcase-grid">
