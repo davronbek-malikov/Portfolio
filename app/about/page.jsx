@@ -134,18 +134,18 @@ const selectedProjects = [
     stack: ["Claude API", "LangGraph", "LangSmith", "Qdrant", "DuckDB", "FastAPI", "Next.js", "Postgres"],
   },
   {
-    title: "Ustoz",
-    sub: "Uzbek LLM Tutor · Post-Training · SFT · LoRA / QLoRA · DPO",
+    title: "TeachHelp",
+    sub: "Post-Training · SFT · DPO · RLHF (PPO / RLOO) · Uzbek–English teaching assistant",
     period: "2026",
-    demo: null,
+    demo: "https://teach-help.vercel.app",
     github: "https://github.com/davronbek-malikov/Post_Training",
     bullets: [
-      "Post-trained Qwen2.5 base models (0.5B and 1.5B) into an Uzbek-language assistant for an LLM course, working from a written model spec that the data and evaluation both follow.",
-      "Compared 10 model variants on one 68-question held-out test across 8 task types: model size, LoRA vs QLoRA, three SFT datasets and two DPO rounds. SFT took Qwen2.5-1.5B from 15/68 to 44/68.",
-      "Implemented DPO from scratch on top of the SFT adapter: sampled answers, rule-based preference labels, frozen reference log-probabilities. DPO v1 regressed (length bias in 63% of pairs); v2 fixed it with length-matched pairs, an SFT loss term and a lower learning rate.",
-      "DPO v2 scores 44/68 with every harmful and cheating request refused (8/8), \"Bilmayman\" 5/5 and no refusal text leaking into normal answers. FastAPI chat UI with streaming; Docker image for a Hugging Face Space.",
+      "Took a pretrained Qwen2.5 base model through the full post-training pipeline — SFT, DPO, RLHF, deployment — and measured all 14 models on the same 68-question held-out test, working from a written model spec.",
+      "SFT took Qwen2.5-1.5B from 15/68 to 44/68 (LoRA vs QLoRA compared under identical settings). DPO implemented from scratch: v1 learned \"shorter is better\" (40/68); v2 fixed it with length-balanced pairs and an SFT loss term (44/68, final model).",
+      "Classic RLHF with a reward model and PPO, then RLOO, across four judges (own 0.5B and 1.5B reward models, Skywork-Reward-V2, Gemini as a live judge), with reward-hacking and length-bias checks. RLHF reached 39–41/68: in this setting it was only as good as its judge, and DPO was simpler and better.",
+      "Deployed as TeachHelp: a Claude-style chat in English and Uzbek on Vercel, served from a Kaggle GPU over a Cloudflare tunnel (~2–3 s per answer), plus a fully local version with all models.",
     ],
-    stack: ["Python", "PyTorch", "Hugging Face", "PEFT", "LoRA/QLoRA", "DPO", "bitsandbytes", "FastAPI"],
+    stack: ["Python", "PyTorch", "Transformers", "PEFT", "LoRA/QLoRA", "DPO", "PPO / RLOO", "Kaggle", "Vercel"],
   },
   {
     title: "Soccer Player Salary Predictor",
@@ -216,7 +216,7 @@ const selectedProjects = [
 ];
 
 const tools = [
-  { cat: "LLM Fine-Tuning", items: ["SFT", "LoRA / QLoRA", "DPO", "Hugging Face PEFT", "Instruction Tuning"] },
+  { cat: "LLM Post-Training", items: ["SFT", "LoRA / QLoRA", "DPO", "RLHF (PPO / RLOO)", "Reward Modeling", "Hugging Face PEFT", "Instruction Tuning"] },
   { cat: "Model Serving & Inference", items: ["vLLM", "TGI", "Ollama", "llama.cpp", "AWQ / GPTQ / GGUF", "LoRA Hot-Swapping", "Speculative Decoding"] },
   { cat: "RAG & Vector Engineering", items: ["GraphRAG", "Hybrid Search (Dense + BM25)", "Cross-Encoder Reranking", "Hierarchical Chunking", "pgvector", "Qdrant", "Milvus", "LlamaParse", "Unstructured.io"] },
   { cat: "Agentic AI & Orchestration", items: ["LangChain", "LangGraph", "MCP", "Function Calling", "Multi-Agent (Supervisor / Router / Network)", "Plan-and-Execute", "Reflection Loops", "Human-in-the-Loop"] },

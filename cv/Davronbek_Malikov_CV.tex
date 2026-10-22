@@ -189,26 +189,24 @@ logical thinking skills.
 %====================
 \section*{Projects}
 
-\textbf{Ustoz} --- Uzbek LLM Tutor, Post-Trained from Qwen2.5 (SFT, LoRA, QLoRA, DPO) \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]}
+\textbf{TeachHelp} --- Post-Training an LLM into an Uzbek--English Teaching Assistant (SFT, DPO, RLHF) \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]} $\cdot$ {\large\textbf{\href{https://teach-help.vercel.app}{Live}}}
 \begin{itemize}
-    \item Post-trained pretrained Qwen2.5 base models (0.5B and 1.5B) into an Uzbek-language chat assistant for
-students of an LLM course; 10 model variants compared on one 68-question held-out test across 8 task types.
-    \item \textbf{Spec-first workflow:} a written model spec defines language, answer style, tasks,
-limits, and the success test; training data is written to follow it and every model is judged against it.
-    \item \textbf{SFT:} three dataset versions (up to 1,583 examples) with test-leakage filtering (exact and
-near-duplicate, similarity $\geq$ 0.98); LoRA vs QLoRA under identical settings on a Kaggle GPU.
-Qwen2.5-1.5B: base 15/68 $\rightarrow$ 44/68; validation loss showed overfitting after epoch 2, so the best epoch was kept.
-    \item \textbf{DPO from scratch} on top of the SFT LoRA adapter: 8 sampled answers per prompt, rule-based
-chosen/rejected labelling, reference log-probabilities computed once (one model in memory), $\beta = 0.1$.
-    \item \textbf{Failure analysis:} DPO v1 dropped to 40/68 --- length bias (chosen shorter in 63\% of pairs)
-and a falling chosen reward; v2 fixed it with length-matched pairs, an added SFT loss term, and a lower
-learning rate (2e-5 $\rightarrow$ 5e-6).
-    \item \textbf{DPO v2:} 44/68 with harmful and cheating requests refused 8/8, ``I don't know'' 5/5, and no
-refusal text leaking into normal answers.
-    \item \textbf{Earlier 0.5B run on a laptop CPU:} LoRA rank 16, 1.75\% of parameters trained, 5/68 $\rightarrow$ 32/68.
-    \item \textbf{Serving:} FastAPI chat UI with token streaming and live switching between models; Docker image
-for a Hugging Face Space (CPU).
-    \item Stack: Python, PyTorch, Hugging Face Transformers, PEFT, bitsandbytes, FastAPI, Kaggle.
+    \item Took a pretrained Qwen2.5 base model through the full pipeline --- base $\rightarrow$ SFT $\rightarrow$ DPO
+$\rightarrow$ RLHF $\rightarrow$ deployment --- and measured all 14 models on the same 68-question held-out test across 8 task types.
+    \item \textbf{Spec-first workflow:} a written model spec defines language, answer style, tasks, limits, and the
+success test; training data is written to follow it and every model is judged against it.
+    \item \textbf{SFT:} Qwen2.5-1.5B 15/68 $\rightarrow$ 44/68; three dataset versions (up to 1,583 examples) with
+test-leakage filtering; LoRA vs QLoRA under identical settings (4-bit cost only 2 points).
+    \item \textbf{DPO from scratch:} sampled answers, rule-based chosen/rejected labels, frozen reference log-probabilities.
+v1 learned ``shorter is better'' (chosen shorter in 63\% of pairs, 40/68); v2 fixed it with length-balanced pairs and an
+SFT loss term: \textbf{44/68}, all harmful and cheating requests refused (8/8) --- the final model.
+    \item \textbf{RLHF (InstructGPT recipe):} Bradley--Terry reward model + PPO with KL penalty and GAE, then RLOO; four judges
+(own 0.5B and 1.5B reward models, Skywork-Reward-V2, Gemini Flash-Lite as live judge, accuracy 0.72--0.90).
+Reward-hacking monitoring with a hidden rule score and a length-bias gate. Result 39--41/68: the policy was only as
+good as its judge, and DPO was simpler and better.
+    \item \textbf{Deployment:} TeachHelp, a Claude-style chat in English and Uzbek on Vercel, served from a Kaggle GPU over
+a Cloudflare tunnel ($\sim$2--3 s per answer); fully local version with all 14 models.
+    \item Stack: Python, PyTorch, Hugging Face Transformers, PEFT, bitsandbytes, FastAPI, Kaggle, Vercel.
 \end{itemize}
 
 \medskip
