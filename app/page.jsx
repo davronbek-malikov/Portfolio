@@ -1,4 +1,4 @@
-import { profile, llmProjects, mlProjects, productProjects } from "../data/projects";
+import { profile, llmProjects, mlProjects, productProjects, publications } from "../data/projects";
 import Reveal from "../components/Reveal";
 import Card from "../components/Card";
 
@@ -14,6 +14,7 @@ export default function Home() {
           </div>
           <div className="nav-links">
             <a href="/about">About</a>
+            <a href="#publications">Publications</a>
             <a href="#contact">Contact</a>
           </div>
           <a className="nav-cta" href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a>
@@ -126,6 +127,40 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* PUBLICATIONS */}
+      <section className="ml-showcase" id="publications">
+        <div className="container">
+          <Reveal as="div" className="showcase-eyebrow">Publications</Reveal>
+          <Reveal delay={40}>
+            <h2 className="showcase-title">Research <span className="grad">Publications</span></h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="showcase-sub">
+              Five first-author papers in SCIE journals, a KSCIE journal and an international conference — machine
+              learning for soccer analytics (salaries, performance, injuries) and mathematics for distributed systems.
+            </p>
+          </Reveal>
+          <div className="pub-list">
+              {publications.map((p, i) => (
+                <Reveal key={i} delay={i * 30} className="pub-item">
+                  <span className="pub-num">0{i + 1}</span>
+                  <div className="pub-body">
+                    <a className="pub-title" href={p.link} target="_blank" rel="noreferrer">{p.title}</a>
+                    <div className="pub-meta">
+                      <span className="pub-venue">{p.venue} · {p.year}</span>
+                      <span className="pub-role">{p.role}</span>
+                      {p.highlight && <span className="pub-highlight">{p.highlight}</span>}
+                      <a className="pub-link" href={p.link} target="_blank" rel="noreferrer">
+                        {p.link.endsWith(".pdf") ? "PDF ↗" : "Read paper ↗"}
+                      </a>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
         </div>
       </section>
 

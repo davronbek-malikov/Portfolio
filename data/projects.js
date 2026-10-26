@@ -453,6 +453,52 @@ export const productProjects = [
   },
 ];
 
+// ----------------------------------------------------------------------------
+//  PUBLICATIONS  —  shown on the homepage and the About page.
+// ----------------------------------------------------------------------------
+export const publications = [
+  {
+    title: "Predicting Soccer Player Salaries with Both Traditional and Automated Machine Learning Approaches",
+    venue: "SCIE Journal · Applied Sciences",
+    year: "2025",
+    highlight: "17% increased prediction accuracy",
+    role: "First author",
+    link: "https://doi.org/10.3390/app15148108",
+  },
+  {
+    title: "Beyond xG: A Dual Prediction Model for Analyzing Player Performance Through Expected and Actual Goals in European Soccer Leagues",
+    venue: "SCIE Journal · Applied Sciences",
+    year: "2024",
+    highlight: "12% improvement on player performance prediction",
+    role: "First author",
+    link: "https://doi.org/10.3390/app142210390",
+  },
+  {
+    title: "Comparative Evaluation of Machine Learning Models for Predicting Soccer Injury Types",
+    venue: "KSCIE Journal",
+    year: "2024",
+    highlight: "Novel injury prediction model using constructed features",
+    role: "First author",
+    link: "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003072688",
+  },
+  {
+    title: "The Application of Machine Learning on the Injury Prediction of Soccer Players",
+    venue: "ISE@APSEC · CEUR-WS",
+    year: "2022",
+    highlight: "Injury prediction without GPS technology",
+    role: "First author",
+    link: "https://ceur-ws.org/Vol-3362/ISE2022_short02_Malikov_Application.pdf",
+  },
+  {
+    title: "On the construction and properties of lattice-group structure in Cartesian product spaces",
+    venue: "Journal of Computer Science",
+    year: "2020",
+    highlight: "",
+    role: "First author",
+    link: "https://doi.org/10.3844/jcssp.2020.402.421",
+  },
+];
+
 export const profile = {
   name: "Davronbek Malikov",
   title: "PhD in AI Engineering",

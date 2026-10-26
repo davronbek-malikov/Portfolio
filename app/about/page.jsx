@@ -1,5 +1,5 @@
 import Reveal from "../../components/Reveal";
-import { profile } from "../../data/projects";
+import { profile, publications } from "../../data/projects";
 
 const education = [
   {
@@ -77,44 +77,6 @@ const experience = [
       "Taught advanced mathematics and analytical reasoning for university entrance exams, the SAT, and other international mathematics exams.",
       "Developed customized teaching materials to strengthen students' problem-solving and logical thinking skills.",
     ],
-  },
-];
-
-const publications = [
-  {
-    title: "Predicting Soccer Player Salaries with Both Traditional and Automated Machine Learning Approaches",
-    venue: "SCIE Journal · Applied Sciences",
-    highlight: "17% increased prediction accuracy",
-    role: "First author",
-    link: "https://doi.org/10.3390/app15148108",
-  },
-  {
-    title: "Beyond xG: A Dual Prediction Model for Analyzing Player Performance Through Expected and Actual Goals in European Soccer Leagues",
-    venue: "SCIE Journal · Applied Sciences",
-    highlight: "12% improvement on player performance prediction",
-    role: "First author",
-    link: "https://doi.org/10.3390/app142210390",
-  },
-  {
-    title: "Comparative Evaluation of Machine Learning Models for Predicting Soccer Injury Types",
-    venue: "KSCIE Journal",
-    highlight: "Novel injury prediction model using constructed features",
-    role: "First author",
-    link: "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003072688",
-  },
-  {
-    title: "The Application of Machine Learning on the Injury Prediction of Soccer Players",
-    venue: "ISE@APSEC · CEUR-WS",
-    highlight: "Injury prediction without GPS technology",
-    role: "First author",
-    link: "https://ceur-ws.org/Vol-3362/ISE2022_short02_Malikov_Application.pdf",
-  },
-  {
-    title: "On the construction and properties of lattice-group structure in Cartesian product spaces",
-    venue: "Journal of Computer Science",
-    highlight: "",
-    role: "First author",
-    link: "https://thescipub.com/abstract/jcssp.2020.402.421",
   },
 ];
 
@@ -361,13 +323,13 @@ export default function About() {
                 <Reveal key={i} delay={i * 30} className="pub-item">
                   <span className="pub-num">0{i + 1}</span>
                   <div className="pub-body">
-                    <p className="pub-title">{p.title}</p>
+                    <a className="pub-title" href={p.link} target="_blank" rel="noreferrer">{p.title}</a>
                     <div className="pub-meta">
-                      <span className="pub-venue">{p.venue}</span>
+                      <span className="pub-venue">{p.venue} · {p.year}</span>
                       <span className="pub-role">{p.role}</span>
                       {p.highlight && <span className="pub-highlight">{p.highlight}</span>}
                       <a className="pub-link" href={p.link} target="_blank" rel="noreferrer">
-                        {p.link.endsWith(".pdf") ? "PDF ↗" : "DOI ↗"}
+                        {p.link.endsWith(".pdf") ? "PDF ↗" : "Read paper ↗"}
                       </a>
                     </div>
                   </div>
