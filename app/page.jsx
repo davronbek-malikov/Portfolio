@@ -49,6 +49,7 @@ export default function Home() {
             <div className="hero-actions">
               <a className="btn btn-primary" href="/about">About me →</a>
               <a className="btn btn-ghost" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>
+              <a className="btn btn-ghost" href="#publications">Publications</a>
             </div>
           </Reveal>
 
@@ -175,6 +176,7 @@ export default function Home() {
             <div className="footer-links">
               <a className="btn btn-ghost" href={profile.links.email}>Email</a>
               <a className="btn btn-ghost" href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+              <a className="btn btn-ghost" href="#publications">Publications</a>
               <a className="btn btn-primary" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>
             </div>
           </div>
