@@ -34,7 +34,7 @@ const experience = [
   {
     role: "Independent Researcher — Sports Analytics",
     org: "Self-directed Research",
-    period: "2025 – 2026",
+    period: "2020 – 2025",
     bullets: [
       "Research on LLMs and Deep Learning applied to soccer analytics.",
       "Models for performance evaluation, salary prediction, and tactical analysis.",
@@ -44,7 +44,7 @@ const experience = [
   {
     role: "Independent AI Educator",
     org: "Online & Private Instruction",
-    period: "2023 – 2026",
+    period: "2020 – 2025",
     bullets: [
       "Design and deliver advanced courses in AI, ML, Deep Learning, and LLMs.",
       "Mentor students and professionals on building end-to-end AI systems.",
