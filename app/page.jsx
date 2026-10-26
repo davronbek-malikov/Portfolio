@@ -14,6 +14,7 @@ export default function Home() {
           </div>
           <div className="nav-links">
             <a href="/about">About</a>
+            <a href="#projects">Projects</a>
             <a href="#publications">Publications</a>
             <a href="#contact">Contact</a>
           </div>
@@ -49,6 +50,7 @@ export default function Home() {
             <div className="hero-actions">
               <a className="btn btn-primary" href="/about">About me →</a>
               <a className="btn btn-ghost" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>
+              <a className="btn btn-primary" href="#projects">Projects ↓</a>
               <a className="btn btn-ghost" href="#publications">Publications</a>
             </div>
           </Reveal>
