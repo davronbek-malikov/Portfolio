@@ -33,7 +33,7 @@ LLM Engineer \textbar\ RAG Engineer \textbar\ Agentic AI Engineer \textbar\ ML E
 Seoul, South Korea \\[1mm]
 \textbf{
   \href{mailto:davronbekmalikov96@gmail.com}{davronbekmalikov96@gmail.com}
-  \textbar\ +82-10-2822-2901
+  \textbar\ +82-10-2474-2901
   \textbar\ \href{https://www.linkedin.com/in/davronbek-malikov}{LinkedIn}
   \textbar\ \href{https://davronbek-portfolio.vercel.app}{Portfolio}
 }
@@ -54,7 +54,7 @@ Qdrant, Milvus).
     \item \textbf{Agentic AI Engineering:} Multi-agent architectures (Supervisor, Router, Network),
 plan-and-execute and self-correction loops, human-in-the-loop workflows, and tool use through MCP
 and function calling. Currently leading the AI engineering team at TripleH, shipping agents for
-legal intelligence, financial analysis, meeting automation, and enterprise digital twins.
+legal research, financial analysis, meeting automation, and per-employee AI assistants.
     \item \textbf{ML Engineering:} Supervised and unsupervised machine learning on tabular data and
 Computer Vision, grounded in advanced mathematics, with 5 first-author publications in SCIE
 journals and international conferences.
@@ -86,28 +86,30 @@ Fergana State University, Uzbekistan
 \textbf{AI Engineer \& Team Lead} \hfill Dec 2025--Present \\
 TripleH, Seoul, South Korea
 \begin{itemize}
-    \item Lead the AI engineering team designing and shipping production-grade autonomous agent
-systems.
-    \item Architected and delivered the following AI products:
+    \item Leading the AI engineering team that designs, builds, and ships production-grade autonomous agent
+systems for enterprise clients.
+    \item \textbf{Core stack:} open-weight local LLMs (Llama 4, Qwen3) served on-premise; post-training (SFT,
+LoRA/QLoRA) and alignment (DPO); RAG over vector databases (pgvector, Qdrant) with hybrid search; agent
+orchestration with LangGraph and LangChain; tracing and evaluation with LangSmith.
+    \item Architected and delivered:
     \begin{itemize}
-        \item \textbf{VIP Agent} --- Centralized AI Orchestration Platform that manages and controls a
-network of specialized sub-agents (market reports, financial RAG brain, KakaoTalk
-chatbot) from a unified control hub.
-        \item \textbf{Law Agent} --- Smart Legal Chatbot implementing Mixture of Decisions: routes
-queries across multiple LLMs simultaneously, aggregates results, and applies a citability filter for Korean Supreme Court precedents.
-        \item \textbf{Meeting Agent} --- Smart Meeting Agent powered by Voice Recognition: real-time
-on-premise audio transcription, automatic structuring into agenda-based minutes,
-and 4-format export (PDF, DOCX, Markdown, JSON).
-        \item \textbf{Enterprise System} --- On-premise deployment platform enabling all agents to run
-entirely locally without external API calls, ensuring full data privacy and compliance
-for enterprise clients.
-        \item \textbf{Digital Workers} --- Per-employee AI agents (Digital Twins) that learn each worker's
-tasks, communication style, and workflows, then act autonomously on their behalf.
+        \item \textbf{Multi-Agent Orchestration Platform} --- Architected a central control hub that plans, routes,
+and monitors a network of specialized sub-agents: automated market reports, a financial-document RAG
+assistant, and a chatbot integrated with enterprise messenger apps.
+        \item \textbf{Legal Research Assistant} --- Engineered a multi-LLM ensemble that sends each query to several
+models in parallel, aggregates their answers, and verifies every cited regional legal precedent before it
+reaches the user.
+        \item \textbf{Meeting Intelligence Agent} --- Built on-premise speech-to-text with real-time transcription,
+automatic agenda-based minutes, and export to PDF, DOCX, Markdown, and JSON.
+        \item \textbf{On-Premise AI Platform} --- Developed a deployment platform that runs every agent fully
+locally on open-weight models with no external API calls: zero data leakage and strict privacy and
+compliance for enterprise clients.
+        \item \textbf{Personal AI Assistants} --- Built per-employee assistants that learn each user's tasks,
+communication style, and workflows to automate routine work.
     \end{itemize}
-    \item Drive end-to-end development from research and prototyping to on-premise and cloud
-deployment.
-    \item Establish engineering standards, conduct code reviews, and mentor junior engineers on
-LLM integration and agent design.
+    \item Driving end-to-end delivery, from research and prototyping to on-premise and cloud deployment.
+    \item Setting engineering standards, running code reviews, and mentoring junior engineers on LLM
+integration and agent design.
 \end{itemize}
 
 \medskip
@@ -188,6 +190,26 @@ logical thinking skills.
 
 %====================
 \section*{Projects}
+
+\textbf{Touchline} --- AI Scouting Copilot for Football (Claude, LangGraph, RAG, LangSmith) \hfill \href{https://github.com/davronbek-malikov/touchline}{[GitHub]}
+\begin{itemize}
+    \item Built an AI scouting assistant: a scout describes the player they need in plain language and gets a
+ranked shortlist and cited scouting reports.
+    \item \textbf{Agent:} Claude orchestrated with LangGraph over 7 strict, typed tools (search, profile, similar
+players, compare, notes, shortlist); the model never writes SQL --- Python validates arguments and builds
+the queries; 8-round tool cap per question.
+    \item \textbf{Human-in-the-loop:} the agent pauses with a proposed shortlist (LangGraph \texttt{interrupt()})
+and resumes from a persisted checkpoint once the scout approves.
+    \item \textbf{RAG:} Qdrant hybrid search (dense bge-small + BM25) over scout notes and Wikipedia; reports
+use Claude citations, so every playing-style claim links to its source passage.
+    \item \textbf{Data:} DuckDB warehouse of 50,149 players (Transfermarkt) joined with 297 StatsBomb matches
+$\rightarrow$ 18 per-90 metrics and percentiles for 594 players; 87.5\% of players linked across sources.
+    \item \textbf{Evaluation:} 120-question golden set in LangSmith with automatic checks (filter accuracy,
+precision/recall@10, numeric grounding, invented-player detection); 102 automated tests.
+    \item Stack: Python, Claude API, LangGraph, LangSmith, Qdrant, DuckDB, FastAPI, Next.js, PostgreSQL.
+\end{itemize}
+
+\medskip
 
 \textbf{TeachHelp} --- Post-Training an LLM into an Uzbek--English Teaching Assistant (SFT, DPO, RLHF) \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]} $\cdot$ {\large\textbf{\href{https://teach-help.vercel.app}{Live}}}
 \begin{itemize}

@@ -27,7 +27,7 @@ const experience = [
     period: "Dec 2025 – Present",
     bullets: [
       "Lead the AI engineering team building autonomous agent systems and enterprise AI products.",
-      "Architect and ship production-grade AI agents including VIP Agent, Law Agent, Meeting Agent, and Digital Twins.",
+      "Architect and ship production-grade AI agents for enterprise clients: multi-agent orchestration, legal research, meeting intelligence, and per-employee assistants.",
       "Drive end-to-end development from research and prototyping to deployment on cloud and on-prem infrastructure.",
     ],
   },
@@ -259,8 +259,8 @@ export default function About() {
                 Engineering. I build LLM systems end to end: fine-tuning (LoRA/QLoRA, DPO) and
                 inference serving, RAG and GraphRAG pipelines with hybrid search and reranking, and
                 multi-agent systems with evaluation and guardrails built in. Currently leading the AI
-                team at TripleH — shipping agents for legal intelligence, financial analysis, meeting
-                automation, and enterprise digital twins. Grounded in advanced mathematics and
+                team at TripleH — shipping agents for legal research, financial analysis, meeting
+                automation, and per-employee AI assistants. Grounded in advanced mathematics and
                 machine learning research, with 5 first-author publications in SCIE journals and
                 international conferences.
               </p>
