@@ -278,6 +278,30 @@ export const llmProjects = [
       github: "https://github.com/davronbek-malikov/Post_Training",
     },
   },
+  {
+    id: "portiq",
+    n: "11",
+    title: "Portiq",
+    rarity: "legendary",
+    cls: "Multi-Agent System · LangGraph · Kafka · A2A · pgvector",
+    flavor: "Your door to the right job: 11 agents find jobs in Uzbekistan, Korea and worldwide, map your skill gaps and run company-specific mock interviews.",
+    motif: "hub",
+    group: "llm",
+    stats: { PWR: 88, SCL: 90, AUT: 92, INT: 88, PLH: 84 },
+    abilities: [
+      "LangGraph orchestrator plans each conversation: language → mode → country → asks only for what's missing → routes the work",
+      "11 agents over Kafka topics and A2A (Agent Cards + JSON-RPC): profile, match, company research, interviewer, roadmap, judge…",
+      "Judge agent checks every output and sends weak work back for a retry before the user sees it",
+      "Job pipeline: Remotive, Saramin, hh.uz and Telegram channels → normaliser (so'm / ₩ / $ salaries, dedup) → scam filter → Postgres + pgvector",
+      "Explainable match %: skills you have and miss, salary and visa fit; CV parsing from PDF, DOCX and TXT",
+      "Mock interviews: 11 rounds (intro … stress … salary … reverse) in Uzbek, Russian, Korean and English, scored on a STAR rubric",
+      "30/60/90-day skill-gap roadmap with free official resources; company briefs from Wikipedia + Google News, every line sourced",
+      "Claude, Gemini or Ollama — with deterministic fallbacks; Jaeger tracing across agents, unit tests, end-to-end script and evals",
+    ],
+    stack: ["LangGraph", "Kafka", "A2A", "FastAPI", "Postgres + pgvector", "Redis", "Next.js", "Docker", "Jaeger"],
+    status: { state: "live", label: "LIVE PREVIEW · BACKEND LOCAL" },
+    links: { demo: "https://portiq-gamma.vercel.app" },
+  },
 ];
 
 // ----------------------------------------------------------------------------
@@ -287,7 +311,7 @@ export const llmProjects = [
 export const mlProjects = [
   {
     id: "supervised-ml",
-    n: "11",
+    n: "12",
     title: "Soccer Salary Predictor",
     rarity: "epic",
     cls: "Supervised ML · Regression · Sports Analytics",
@@ -314,7 +338,7 @@ export const mlProjects = [
   },
   {
     id: "unsupervised-ml",
-    n: "12",
+    n: "13",
     title: "TacticalDNA",
     rarity: "epic",
     cls: "Unsupervised ML · Clustering · Sports Analytics",
@@ -340,7 +364,7 @@ export const mlProjects = [
   },
   {
     id: "computer-vision",
-    n: "13",
+    n: "14",
     title: "Computer Vision",
     rarity: "legendary",
     cls: "Object Detection · Image Classification",
@@ -369,7 +393,7 @@ export const mlProjects = [
 export const productProjects = [
   {
     id: "palov",
-    n: "14",
+    n: "15",
     title: "Palov",
     rarity: "rare",
     cls: "Full-Stack · RAG · AI Chatbot",
@@ -389,7 +413,7 @@ export const productProjects = [
   },
   {
     id: "hamyon",
-    n: "15",
+    n: "16",
     title: "Hamyon",
     rarity: "rare",
     cls: "Personal Finance · RAG · AI Insights",
@@ -409,7 +433,7 @@ export const productProjects = [
   },
   {
     id: "kotib",
-    n: "16",
+    n: "17",
     title: "Kotib",
     rarity: "epic",
     cls: "AI Agent · Graph RAG · Conversational Memory",

@@ -211,6 +211,27 @@ a Cloudflare tunnel ($\sim$2--3 s per answer); fully local version with all 14 m
 
 \medskip
 
+\textbf{Portiq} --- Multi-Agent Job Hub (LangGraph, Kafka, A2A, pgvector) \hfill {\large\textbf{\href{https://portiq-gamma.vercel.app}{Live}}}
+\begin{itemize}
+    \item Built a multi-agent job hub for Uzbekistan, Korea and worldwide (incl.\ Telegram job channels) in Uzbek,
+Russian, Korean and English: job matching, skill-gap roadmaps and company-specific mock interviews.
+    \item \textbf{Orchestration:} a LangGraph orchestrator plans each conversation (language $\rightarrow$ mode $\rightarrow$
+country $\rightarrow$ only the missing questions) and routes tasks to 11 agents over Kafka; agents call each other over
+A2A (Agent Cards + JSON-RPC).
+    \item \textbf{Quality gate:} a Judge agent checks every output and sends weak work back for a retry before the user sees it;
+interview answers scored on a rubric (knowledge, STAR structure, clarity, fit).
+    \item \textbf{Job pipeline:} Remotive, Saramin, hh.uz and Telegram connectors $\rightarrow$ normaliser (so'm / won / \$
+salary parsing, dedup) $\rightarrow$ multilingual scam filter $\rightarrow$ Postgres + pgvector with an explainable match score
+(skills you have and miss, salary, visa).
+    \item \textbf{Agents:} CV parsing (PDF/DOCX/TXT), 11-round mock interviews in 4 languages, 30/60/90-day roadmaps,
+company briefs from Wikipedia and Google News with every line sourced.
+    \item \textbf{Engineering:} Claude, Gemini or Ollama with deterministic fallbacks; Jaeger tracing across agents; Docker Compose
+stack; unit tests, an end-to-end script and evals (scam precision/recall, rubric pairwise accuracy).
+    \item Stack: Python, LangGraph, Kafka, FastAPI, PostgreSQL + pgvector, Redis, Next.js, Docker, Jaeger.
+\end{itemize}
+
+\medskip
+
 \textbf{Soccer Player Salary Predictor} --- Industry-level ML Pipeline \hfill \href{https://github.com/davronbek-malikov/soccer-xG-salary_prediction}{[GitHub]} $\cdot$ {\large\textbf{\href{https://soccer-xg-salary-prediction.onrender.com}{Live}}}
 \begin{itemize}
     \item Built an end-to-end supervised ML pipeline predicting professional soccer players' annual

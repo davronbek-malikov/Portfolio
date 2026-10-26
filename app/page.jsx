@@ -66,7 +66,8 @@ export default function Home() {
               <strong>Touchline</strong> — an AI scouting copilot: a Claude agent orchestrated with LangGraph
               searches 50,000 players through typed tools, pauses for the scout to approve a shortlist, and
               writes reports where every claim is cited, all traced and evaluated in LangSmith.{" "}
-              <strong>TeachHelp</strong> — a full post-training journey on Qwen2.5: SFT, DPO and RLHF with four reward models, all measured on the same held-out test (15/68 → 44/68), deployed as an English–Uzbek teaching assistant.
+              <strong>TeachHelp</strong> — a full post-training journey on Qwen2.5: SFT, DPO and RLHF with four reward models, all measured on the same held-out test (15/68 → 44/68), deployed as an English–Uzbek teaching assistant.{" "}
+              <strong>Portiq</strong> — a multi-agent job hub: a LangGraph orchestrator, 11 agents over Kafka and A2A, and a Judge agent that sends weak work back for a retry.
             </p>
           </Reveal>
           <div className="showcase-grid">
