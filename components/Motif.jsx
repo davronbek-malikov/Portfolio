@@ -119,6 +119,38 @@ export default function Motif({ kind }) {
           <path d="M150 26 l10 -8 l10 8" fill="none" stroke={stroke} strokeWidth="1.6" />
         </svg>
       );
+    case "learn":
+      return (
+        <svg {...common}>
+          <path d="M160 34 Q125 22 92 30 L92 92 Q125 84 160 96 Z" fill="none" stroke={stroke} strokeWidth="1.4" opacity="0.7" />
+          <path d="M160 34 Q195 22 228 30 L228 92 Q195 84 160 96 Z" fill="none" stroke={stroke} strokeWidth="1.4" opacity="0.7" />
+          <line x1="160" y1="34" x2="160" y2="96" stroke={stroke} strokeWidth="1.2" />
+          {[46,58,70].map((y,i)=>(<line key={"l"+i} x1="104" y1={y} x2="148" y2={y-2} stroke={stroke} strokeWidth="0.8" opacity="0.45" />))}
+          {[ [190,48],[212,62],[190,76] ].map(([x,y],i)=>(<circle key={"n"+i} cx={x} cy={y} r="3.6" fill={stroke} opacity="0.85" />))}
+          <line x1="190" y1="48" x2="212" y2="62" stroke={stroke} strokeWidth="0.9" opacity="0.6" />
+          <line x1="212" y1="62" x2="190" y2="76" stroke={stroke} strokeWidth="0.9" opacity="0.6" />
+          <line x1="190" y1="48" x2="190" y2="76" stroke={stroke} strokeWidth="0.9" opacity="0.6" />
+          <path d="M160 12 l3 6 l6 1 l-5 4 l1 6 l-5 -3 l-5 3 l1 -6 l-5 -4 l6 -1 z" fill={stroke} opacity="0.9" />
+        </svg>
+      );
+    case "tactics":
+      return (
+        <svg {...common}>
+          <rect x="60" y="14" width="200" height="90" rx="6" fill="none" stroke={stroke} strokeWidth="1.2" opacity="0.5" />
+          {[ [96,40],[96,78],[132,59] ].map(([x,y],i)=>(
+            <circle key={"o"+i} cx={x} cy={y} r="6" fill="none" stroke={stroke} strokeWidth="1.5" />
+          ))}
+          {[ [200,34],[214,70],[176,88] ].map(([x,y],i)=>(
+            <g key={"x"+i} opacity="0.75">
+              <line x1={x-5} y1={y-5} x2={x+5} y2={y+5} stroke={stroke} strokeWidth="1.6" />
+              <line x1={x+5} y1={y-5} x2={x-5} y2={y+5} stroke={stroke} strokeWidth="1.6" />
+            </g>
+          ))}
+          <path d="M138 56 Q165 40 186 40" fill="none" stroke={stroke} strokeWidth="1.4" strokeDasharray="3 3" />
+          <path d="M182 36 l6 4 l-7 3" fill="none" stroke={stroke} strokeWidth="1.4" />
+          <path d="M102 82 Q150 100 196 74" fill="none" stroke={stroke} strokeWidth="1.2" opacity="0.6" />
+        </svg>
+      );
     case "pitch":
       return (
         <svg {...common}>

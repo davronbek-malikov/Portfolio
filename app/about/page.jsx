@@ -82,6 +82,34 @@ const experience = [
 
 const selectedProjects = [
   {
+    title: "ERA Academy",
+    sub: "AI EdTech Platform · Multi-Agent Engine · RAG · pgvector",
+    period: "2026",
+    demo: "https://era-academy.vercel.app",
+    github: "https://github.com/malikov-davronbek/ERA/tree/phase-1-foundation",
+    bullets: [
+      "A full learning platform (course → module → lesson → subskill, progress tracking, onboarding, admin CMS) with one shared AI agent engine behind three assistants: Student Tutor, Teacher Assistant and Admin Assistant.",
+      "Provider adapters for Claude (official Anthropic SDK), OpenAI and local Ollama models, with SSE streaming, usage and cost limits, and safe error handling.",
+      "RAG knowledge base: uploaded PDF, DOCX, TXT and Markdown are chunked, embedded and stored in pgvector; the permission check runs inside the retrieval query, and answers cite their sources.",
+      "Security-first: prompt-injection defence, server-only secrets, signed private storage; 206 automated tests across authorization, HTTP security, the AI engine and RAG, all passing.",
+    ],
+    stack: ["Next.js 15", "TypeScript", "Prisma", "PostgreSQL + pgvector", "Supabase", "Claude API", "Ollama"],
+  },
+  {
+    title: "TACTIQ",
+    sub: "Football Intelligence · RAG · Qdrant · Investigation Agent (in development)",
+    period: "2026",
+    demo: null,
+    github: "https://github.com/davronbek-malikov/TACTIQ",
+    bullets: [
+      "An evidence-first football intelligence platform for coaches, scouts and analysts: answers come with sources and an explicit statement of what the evidence can and cannot support.",
+      "Phase 1 built: a hand-written document indexing pipeline — loading (PDF per page, DOCX, TXT, Markdown), metadata, cleaning, token-based chunking, Sentence-Transformers embeddings and idempotent storage in Qdrant.",
+      "Stable UUID5 IDs so re-ingestion never duplicates; metadata such as match, team and player IDs is never guessed; unit and integration tests for every step.",
+      "Planned: hybrid retrieval with RRF and reranking, a SQL analytics engine, an investigation agent, a FastAPI and Next.js app, and video intelligence with YOLO tracking.",
+    ],
+    stack: ["Python", "Qdrant", "Sentence Transformers", "PyMuPDF", "Docker", "pytest"],
+  },
+  {
     title: "Touchline",
     sub: "AI Scouting Copilot · Agentic RAG · LangGraph · LangSmith · Claude",
     period: "2026",

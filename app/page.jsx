@@ -67,11 +67,12 @@ export default function Home() {
           </Reveal>
           <Reveal delay={80}>
             <p className="showcase-sub">
-              <strong>Touchline</strong> — an AI scouting copilot: a Claude agent orchestrated with LangGraph
-              searches 50,000 players through typed tools, pauses for the scout to approve a shortlist, and
-              writes reports where every claim is cited, all traced and evaluated in LangSmith.{" "}
-              <strong>TeachHelp</strong> — a full post-training journey on Qwen2.5: SFT, DPO and RLHF with four reward models, all measured on the same held-out test (15/68 → 44/68), deployed as an English–Uzbek teaching assistant.{" "}
-              <strong>Portiq</strong> — a multi-agent job hub: a LangGraph orchestrator, 11 agents over Kafka and A2A, and a Judge agent that sends weak work back for a retry.
+              <strong>ERA Academy</strong> — an AI learning platform with one agent engine behind three
+              assistants and permission-aware RAG. <strong>TACTIQ</strong> — evidence-first football
+              intelligence, phase 1: the indexing pipeline into Qdrant. <strong>Touchline</strong> — a Claude
+              scouting agent on LangGraph with cited reports, traced in LangSmith. <strong>TeachHelp</strong> — SFT,
+              DPO and RLHF on Qwen2.5, 15/68 → 44/68. <strong>Portiq</strong> — 11 agents over Kafka and A2A with a
+              Judge agent.
             </p>
           </Reveal>
           <div className="showcase-grid">

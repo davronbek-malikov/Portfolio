@@ -29,8 +29,58 @@ export const RARITY_ORDER = ["mythic", "legendary", "epic", "rare", "common"];
 // ----------------------------------------------------------------------------
 export const llmProjects = [
   {
-    id: "touchline",
+    id: "era-academy",
     n: "09",
+    title: "ERA Academy",
+    rarity: "mythic",
+    cls: "AI EdTech Platform · Multi-Agent Engine · RAG · pgvector",
+    flavor: "One AI engine, three assistants — student tutor, teacher and admin — and each one only ever sees what its user is allowed to see.",
+    motif: "learn",
+    group: "llm",
+    stats: { PWR: 90, SCL: 88, AUT: 82, INT: 90, PLH: 92 },
+    abilities: [
+      "Full learning platform: course → module → lesson → subskill, progress tracking, goal-based onboarding and an admin CMS",
+      "One shared AI agent engine powers 3 agents — Student Tutor, Teacher Assistant, Admin Assistant — streamed over SSE",
+      "Provider adapters for Claude (official Anthropic SDK), OpenAI and local Ollama models such as Qwen2.5, with usage and cost limits",
+      "RAG knowledge base: PDF, DOCX, TXT, MD → chunking → embeddings (Voyage, OpenAI or Ollama) → pgvector, answers cite sources [S1]…",
+      "Permission-aware retrieval: the access rule runs inside the SQL query, so no one retrieves another course's or a teacher's private files",
+      "Prompt-injection defence: documents and selections fenced as data — authorization, not the prompt, is the real control",
+      "\"Ask ERA AI\": select any text in a lesson and get an explanation grounded in that lesson",
+      "206 automated tests (authorization, HTTP security, AI engine, RAG) all passing, plus headless-browser UI checks",
+    ],
+    stack: ["Next.js 15", "TypeScript", "Prisma", "PostgreSQL + pgvector", "Supabase", "Claude API", "Ollama", "Vercel"],
+    status: { state: "live", label: "LIVE" },
+    links: {
+      demo: "https://era-academy.vercel.app",
+      github: "https://github.com/malikov-davronbek/ERA/tree/phase-1-foundation",
+    },
+  },
+  {
+    id: "tactiq",
+    n: "10",
+    title: "TACTIQ",
+    rarity: "legendary",
+    cls: "Football Intelligence · RAG · Qdrant · Investigation Agent",
+    flavor: "Ask football questions. Get evidence, not guesses.",
+    motif: "tactics",
+    group: "llm",
+    stats: { PWR: 80, SCL: 78, AUT: 72, INT: 86, PLH: 80 },
+    abilities: [
+      "Evidence-first analysis for coaches, scouts and analysts: answers with sources and a clear statement of what the evidence can't support",
+      "Built: document indexing pipeline — load (PDF per page, DOCX, TXT, MD) → metadata → cleaning → token-based chunking → embeddings → Qdrant",
+      "Stable UUID5 document and chunk IDs: re-ingesting never duplicates, and stale chunks are removed",
+      "Metadata is never guessed: match, team and player IDs come only from human-written sidecar files",
+      "Sentence-Transformers embeddings (all-MiniLM-L6-v2, L2-normalised), dimension read from real model output and validated",
+      "Hand-written pipeline (no LangChain) so every step is visible and testable; unit and integration tests for each step",
+      "Next: hybrid retrieval with RRF and reranking, a SQL analytics engine, an investigation agent, then V2 video intelligence (YOLO + tracking)",
+    ],
+    stack: ["Python", "Qdrant", "Sentence Transformers", "Hugging Face", "PyMuPDF", "python-docx", "Docker", "pytest"],
+    status: { state: "rnd", label: "IN DEVELOPMENT · PHASE 1" },
+    links: { github: "https://github.com/davronbek-malikov/TACTIQ" },
+  },
+  {
+    id: "touchline",
+    n: "11",
     title: "Touchline",
     rarity: "mythic",
     cls: "AI Scouting Copilot · Agentic RAG · LangGraph · LangSmith",
@@ -53,7 +103,7 @@ export const llmProjects = [
   },
   {
     id: "llm-engineering",
-    n: "10",
+    n: "12",
     title: "TeachHelp",
     rarity: "mythic",
     cls: "Post-Training · SFT · DPO · RLHF (PPO / RLOO) · Uzbek–English",
@@ -79,7 +129,7 @@ export const llmProjects = [
   },
   {
     id: "portiq",
-    n: "11",
+    n: "13",
     title: "Portiq",
     rarity: "legendary",
     cls: "Multi-Agent System · LangGraph · Kafka · A2A · pgvector",
@@ -110,7 +160,7 @@ export const llmProjects = [
 export const mlProjects = [
   {
     id: "supervised-ml",
-    n: "12",
+    n: "14",
     title: "Soccer Salary Predictor",
     rarity: "epic",
     cls: "Supervised ML · Regression · Sports Analytics",
@@ -137,7 +187,7 @@ export const mlProjects = [
   },
   {
     id: "unsupervised-ml",
-    n: "13",
+    n: "15",
     title: "TacticalDNA",
     rarity: "epic",
     cls: "Unsupervised ML · Clustering · Sports Analytics",
@@ -163,7 +213,7 @@ export const mlProjects = [
   },
   {
     id: "computer-vision",
-    n: "14",
+    n: "16",
     title: "Computer Vision",
     rarity: "legendary",
     cls: "Object Detection · Image Classification",
@@ -192,7 +242,7 @@ export const mlProjects = [
 export const productProjects = [
   {
     id: "palov",
-    n: "15",
+    n: "17",
     title: "Palov",
     rarity: "rare",
     cls: "Full-Stack · RAG · AI Chatbot",
@@ -212,7 +262,7 @@ export const productProjects = [
   },
   {
     id: "hamyon",
-    n: "16",
+    n: "18",
     title: "Hamyon",
     rarity: "rare",
     cls: "Personal Finance · RAG · AI Insights",
@@ -232,7 +282,7 @@ export const productProjects = [
   },
   {
     id: "kotib",
-    n: "17",
+    n: "19",
     title: "Kotib",
     rarity: "epic",
     cls: "AI Agent · Graph RAG · Conversational Memory",
