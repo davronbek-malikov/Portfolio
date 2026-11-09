@@ -42,24 +42,27 @@ Seoul, South Korea \\[1mm]
 %====================
 \section*{Summary}
 \begin{itemize}
-    \item LLM Engineer, RAG Engineer, Agentic AI Engineer, and ML Engineer with a Ph.D. in AI
-Convergence Engineering. I build LLM systems end to end: fine-tuning and inference serving,
-retrieval, agent orchestration, evaluation, and deployment on cloud and on-premise infrastructure.
-    \item \textbf{LLM Engineering:} Supervised fine-tuning and parameter-efficient adaptation (LoRA/QLoRA),
-preference optimization (DPO), quantization (AWQ, GPTQ, GGUF), and local inference serving
-(vLLM, TGI, Ollama, llama.cpp).
-    \item \textbf{RAG Engineering:} Standard RAG and GraphRAG pipelines with hybrid search (dense vectors
-+ sparse BM25), cross-encoder reranking, hierarchical chunking, and vector databases (pgvector,
-Qdrant, Milvus).
-    \item \textbf{Agentic AI Engineering:} Multi-agent architectures (Supervisor, Router, Network),
-plan-and-execute and self-correction loops, human-in-the-loop workflows, and tool use through MCP
-and function calling. Currently leading the AI engineering team at TripleH, shipping agents for
-legal research, financial analysis, meeting automation, and per-employee AI assistants.
-    \item \textbf{ML Engineering:} Supervised and unsupervised machine learning on tabular data and
-Computer Vision, grounded in advanced mathematics, with 5 first-author publications in SCIE
-journals and international conferences.
-    \item \textbf{Production, Evaluation \& Security:} LLM-as-a-Judge evaluation (Ragas, DeepEval),
-input/output guardrails, prompt-injection defense, semantic caching, and token and cost tracking.
+    \item LLM Engineer, RAG Engineer, Agentic AI Engineer, and ML Engineer with a Ph.D. in AI Convergence Engineering.
+I build LLM systems end to end --- post-training, retrieval, agent orchestration, evaluation, observability, and
+deployment on cloud and on-premise infrastructure. Currently leading the AI engineering team at TripleH, shipping
+agents for legal research, financial analysis, meeting automation, and per-employee AI assistants.
+    \item \textbf{LLM Engineering \& Post-Training:} SFT and parameter-efficient fine-tuning (LoRA/QLoRA), preference
+alignment (DPO) and RLHF (reward modeling, PPO, RLOO); quantization (AWQ, GPTQ, GGUF); local and high-throughput
+serving (vLLM, TGI, Ollama, llama.cpp); structured outputs, function calling, and prompt caching.
+    \item \textbf{RAG Engineering:} Hybrid RAG (dense vectors + sparse BM25 with Reciprocal Rank Fusion), cross-encoder
+reranking, hierarchical and parent-child chunking, GraphRAG, metadata filtering, permission-aware retrieval, and
+source-grounded answers with citations; vector databases (pgvector, Qdrant, Milvus).
+    \item \textbf{Agentic AI Engineering:} LangGraph and LangChain; multi-agent architectures (Supervisor, Router,
+Network), plan-and-execute and self-correction loops, human-in-the-loop interrupts with persistent checkpoints,
+Judge/critic agents, and tool use through MCP, A2A, and strict, schema-validated function calling.
+    \item \textbf{Evaluation \& Observability:} golden test sets and LLM-as-a-Judge calibrated against human ratings;
+RAG metrics (faithfulness, context precision/recall, hallucination rate) with Ragas and DeepEval; tracing, datasets,
+and experiments in LangSmith; local Arize Phoenix dashboards for on-premise monitoring; OpenTelemetry and Jaeger
+distributed tracing; token-cost and latency budgets; CI evaluation gates.
+    \item \textbf{Production \& Security:} FastAPI (async, SSE streaming), REST API and PostgreSQL schema design, Redis
+caching, Kafka, Docker; input/output guardrails, prompt-injection defense, rate limits, and spend caps.
+    \item \textbf{ML Engineering:} supervised and unsupervised machine learning on tabular data and Computer Vision,
+grounded in advanced mathematics, with 5 first-author publications in SCIE journals and international conferences.
 \end{itemize}
 
 %====================
@@ -89,8 +92,8 @@ TripleH, Seoul, South Korea
     \item Leading the AI engineering team that designs, builds, and ships production-grade autonomous agent
 systems for enterprise clients.
     \item \textbf{Core stack:} open-weight local LLMs (Llama 4, Qwen3) served on-premise; post-training (SFT,
-LoRA/QLoRA) and alignment (DPO); RAG over vector databases (pgvector, Qdrant) with hybrid search; agent
-orchestration with LangGraph and LangChain; tracing and evaluation with LangSmith.
+LoRA/QLoRA) and alignment (DPO); hybrid-search RAG over vector databases (pgvector, Qdrant); agent orchestration
+with LangGraph and LangChain; RAG and agent monitoring with LangSmith tracing and local Arize Phoenix dashboards.
     \item Architected and delivered:
     \begin{itemize}
         \item \textbf{Multi-Agent Orchestration Platform} --- Architected a central control hub that plans, routes,
@@ -191,21 +194,67 @@ logical thinking skills.
 %====================
 \section*{Projects}
 
-\textbf{Touchline} --- AI Scouting Copilot for Football (Claude, LangGraph, RAG, LangSmith) \hfill \href{https://github.com/davronbek-malikov/touchline}{[GitHub]}
+\textbf{ERA Academy} --- AI EdTech Platform with a Multi-Agent Engine and Permission-Aware RAG \hfill \href{https://github.com/malikov-davronbek/ERA/tree/phase-1-foundation}{[GitHub]} $\cdot$ {\large\textbf{\href{https://era-academy.vercel.app}{Live}}}
 \begin{itemize}
-    \item Built an AI scouting assistant: a scout describes the player they need in plain language and gets a
-ranked shortlist and cited scouting reports.
-    \item \textbf{Agent:} Claude orchestrated with LangGraph over 7 strict, typed tools (search, profile, similar
-players, compare, notes, shortlist); the model never writes SQL --- Python validates arguments and builds
-the queries; 8-round tool cap per question.
-    \item \textbf{Human-in-the-loop:} the agent pauses with a proposed shortlist (LangGraph \texttt{interrupt()})
-and resumes from a persisted checkpoint once the scout approves.
-    \item \textbf{RAG:} Qdrant hybrid search (dense bge-small + BM25) over scout notes and Wikipedia; reports
-use Claude citations, so every playing-style claim links to its source passage.
-    \item \textbf{Data:} DuckDB warehouse of 50,149 players (Transfermarkt) joined with 297 StatsBomb matches
+    \item Built a full learning platform (course $\rightarrow$ module $\rightarrow$ lesson $\rightarrow$ subskill, progress
+tracking, goal-based onboarding, admin CMS) on one shared, provider-agnostic AI agent engine behind three
+role-scoped assistants: Student Tutor, Teacher Assistant, and Admin Assistant.
+    \item \textbf{Agent engine:} orchestrator, centralized prompt manager, conversation manager, and SSE token streaming;
+provider adapters for Claude (official Anthropic SDK, server-side refusal fallback), OpenAI, and local Ollama models
+(Qwen2.5); request cancellation, and answers persisted in one transaction only after a completed response.
+    \item \textbf{RAG pipeline:} PDF, DOCX, TXT, and Markdown ingestion with MIME and magic-byte validation and SHA-256
+de-duplication $\rightarrow$ heading-aware chunking with overlap and page ranges $\rightarrow$ batched embeddings
+(Voyage, OpenAI, or Ollama) $\rightarrow$ pgvector cosine top-K with a minimum-score threshold; answers cite their
+sources (document, page, section).
+    \item \textbf{Permission-aware retrieval:} role and enrollment rules enforced inside the single retrieval SQL query, so
+restricted documents never reach the prompt; prompt-injection defense by fencing and neutralizing tags in documents
+and user selections.
+    \item \textbf{Monitoring \& cost control:} per-request usage tracking (provider-reported tokens, cost, duration, and
+success/failed/blocked status), burst and daily request and token limits, and an admin analytics dashboard.
+    \item \textbf{Testing:} 206 automated tests across authorization, HTTP security, the AI engine, and RAG, all passing;
+headless-browser UI checks across three user roles.
+    \item Stack: Next.js 15, TypeScript, Prisma, PostgreSQL + pgvector, Supabase, Claude API, Ollama, Tailwind CSS, Vercel.
+\end{itemize}
+
+\medskip
+
+\textbf{TACTIQ} --- Evidence-First Football Intelligence Platform (RAG, Qdrant) \textit{--- in development} \hfill \href{https://github.com/davronbek-malikov/TACTIQ}{[GitHub]}
+\begin{itemize}
+    \item Designing an AI platform where coaches, scouts, and analysts ask football questions and get answers backed by
+sources, with an explicit statement of what the evidence cannot support.
+    \item \textbf{Phase 1 (built):} hand-written document indexing pipeline --- loading (PDF per page, DOCX, TXT,
+Markdown) $\rightarrow$ metadata $\rightarrow$ cleaning $\rightarrow$ token-based chunking with the embedding model's own
+tokenizer (offset-mapped, so original text is preserved) $\rightarrow$ L2-normalized Sentence-Transformers embeddings
+$\rightarrow$ Qdrant with cosine distance and payload indexes.
+    \item Stable UUID5 document and chunk IDs make re-ingestion idempotent (stale chunks removed); match, team, and player
+metadata is never guessed, only read from human-written sidecar files; unit and integration tests for every step.
+    \item \textbf{Next:} hybrid retrieval (BM25 + dense, RRF) with cross-encoder reranking, RAG evaluation (retrieval
+recall, faithfulness) with LangSmith tracing, a SQL football-analytics engine, an investigation agent, and video
+intelligence with YOLO tracking.
+    \item Stack: Python, Qdrant, Sentence Transformers, Hugging Face, PyMuPDF, python-docx, Docker, pytest.
+\end{itemize}
+
+\medskip
+
+\textbf{Touchline} --- AI Scouting Copilot for Football (Claude, LangGraph, Hybrid RAG, LangSmith) \hfill \href{https://github.com/davronbek-malikov/touchline}{[GitHub]}
+\begin{itemize}
+    \item Built an AI scouting copilot: a scout describes the player they need in plain language and gets a ranked
+shortlist and cited scouting reports.
+    \item \textbf{Agent:} Claude (official Anthropic SDK) orchestrated with LangGraph over 7 strict, schema-validated tools
+executed in parallel; the model never writes SQL --- Python validates arguments and builds the queries; 8-round tool
+cap, prompt caching, refusal fallback, and optional local models through Ollama.
+    \item \textbf{Human-in-the-loop:} the agent pauses with a proposed shortlist (LangGraph \texttt{interrupt()}) and
+resumes from a persisted checkpoint (SQLite locally, PostgreSQL in production), even after a server restart.
+    \item \textbf{Hybrid RAG:} Qdrant dense (bge-small via FastEmbed) and BM25 sparse vectors fused with Reciprocal Rank
+Fusion and filtered by player; passages go to Claude as citable documents, so every playing-style claim links to its
+source.
+    \item \textbf{Data engineering:} DuckDB warehouse of 50,149 players (Transfermarkt) joined with 297 StatsBomb matches
 $\rightarrow$ 18 per-90 metrics and percentiles for 594 players; 87.5\% of players linked across sources.
-    \item \textbf{Evaluation:} 120-question golden set in LangSmith with automatic checks (filter accuracy,
-precision/recall@10, numeric grounding, invented-player detection); 102 automated tests.
+    \item \textbf{Evaluation \& monitoring:} every run traced in LangSmith (tool calls, tokens, latency, cost); 120-question
+golden set run as LangSmith experiments with automatic checks (filter accuracy, precision/recall@10, numeric
+grounding, invented-player detection); user thumbs-up/down logged as LangSmith feedback.
+    \item \textbf{Production:} FastAPI with SSE streaming of agent steps, per-visitor rate limits and daily spend caps;
+Next.js chat app with voice input, file uploads, and model selection; 102 automated tests.
     \item Stack: Python, Claude API, LangGraph, LangSmith, Qdrant, DuckDB, FastAPI, Next.js, PostgreSQL.
 \end{itemize}
 
@@ -217,15 +266,16 @@ precision/recall@10, numeric grounding, invented-player detection); 102 automate
 $\rightarrow$ RLHF $\rightarrow$ deployment --- and measured all 14 models on the same 68-question held-out test across 8 task types.
     \item \textbf{Spec-first workflow:} a written model spec defines language, answer style, tasks, limits, and the
 success test; training data is written to follow it and every model is judged against it.
-    \item \textbf{SFT:} Qwen2.5-1.5B 15/68 $\rightarrow$ 44/68; three dataset versions (up to 1,583 examples) with
-test-leakage filtering; LoRA vs QLoRA under identical settings (4-bit cost only 2 points).
+    \item \textbf{SFT:} Qwen2.5-1.5B 15/68 $\rightarrow$ 44/68; three dataset versions (up to 1,583 examples) with exact and
+near-duplicate test-leakage filtering; LoRA vs QLoRA (4-bit NF4) under identical settings, gradient checkpointing to fit
+a 16 GB GPU, best epoch selected on validation loss.
     \item \textbf{DPO from scratch:} sampled answers, rule-based chosen/rejected labels, frozen reference log-probabilities.
 v1 learned ``shorter is better'' (chosen shorter in 63\% of pairs, 40/68); v2 fixed it with length-balanced pairs and an
 SFT loss term: \textbf{44/68}, all harmful and cheating requests refused (8/8) --- the final model.
     \item \textbf{RLHF (InstructGPT recipe):} Bradley--Terry reward model + PPO with KL penalty and GAE, then RLOO; four judges
-(own 0.5B and 1.5B reward models, Skywork-Reward-V2, Gemini Flash-Lite as live judge, accuracy 0.72--0.90).
-Reward-hacking monitoring with a hidden rule score and a length-bias gate. Result 39--41/68: the policy was only as
-good as its judge, and DPO was simpler and better.
+(own 0.5B and 1.5B reward models, Skywork-Reward-V2, Gemini Flash-Lite as live judge, accuracy 0.72--0.90); policy,
+reference, reward, and value models placed across two GPUs. Reward-hacking monitoring with a hidden rule score and a
+length-bias gate. Result 39--41/68: the policy was only as good as its judge, and DPO was simpler and better.
     \item \textbf{Deployment:} TeachHelp, a Claude-style chat in English and Uzbek on Vercel, served from a Kaggle GPU over
 a Cloudflare tunnel ($\sim$2--3 s per answer); fully local version with all 14 models.
     \item Stack: Python, PyTorch, Hugging Face Transformers, PEFT, bitsandbytes, FastAPI, Kaggle, Vercel.
@@ -243,13 +293,14 @@ A2A (Agent Cards + JSON-RPC).
     \item \textbf{Quality gate:} a Judge agent checks every output and sends weak work back for a retry before the user sees it;
 interview answers scored on a rubric (knowledge, STAR structure, clarity, fit).
     \item \textbf{Job pipeline:} Remotive, Saramin, hh.uz and Telegram connectors $\rightarrow$ normaliser (so'm / won / \$
-salary parsing, dedup) $\rightarrow$ multilingual scam filter $\rightarrow$ Postgres + pgvector with an explainable match score
-(skills you have and miss, salary, visa).
+salary parsing, dedup) $\rightarrow$ multilingual scam filter $\rightarrow$ Postgres + pgvector semantic search with an
+explainable match score (skills you have and miss, salary, visa).
     \item \textbf{Agents:} CV parsing (PDF/DOCX/TXT), 11-round mock interviews in 4 languages, 30/60/90-day roadmaps,
 company briefs from Wikipedia and Google News with every line sourced.
-    \item \textbf{Engineering:} Claude, Gemini or Ollama with deterministic fallbacks; Jaeger tracing across agents; Docker Compose
-stack; unit tests, an end-to-end script and evals (scam precision/recall, rubric pairwise accuracy).
-    \item Stack: Python, LangGraph, Kafka, FastAPI, PostgreSQL + pgvector, Redis, Next.js, Docker, Jaeger.
+    \item \textbf{Observability \& engineering:} distributed tracing across all agents with OpenTelemetry and a Jaeger dashboard;
+Kafka topics inspected in Redpanda Console; Claude, Gemini or Ollama with deterministic fallbacks; Docker Compose stack;
+unit tests, an end-to-end script and evals (scam precision/recall, rubric pairwise accuracy).
+    \item Stack: Python, LangGraph, Kafka, FastAPI, PostgreSQL + pgvector, Redis, OpenTelemetry, Jaeger, Next.js, Docker.
 \end{itemize}
 
 \medskip
@@ -348,23 +399,25 @@ behaviour.
 %====================
 \section*{Tools \& Frameworks}
 \begin{itemize}
-    \item \textbf{LLM Fine-Tuning \& Adaptation:} Supervised Fine-Tuning (SFT), LoRA, QLoRA, Direct
-Preference Optimization (DPO), instruction tuning, continual pre-training, iterative
+    \item \textbf{LLM Post-Training \& Adaptation:} Supervised Fine-Tuning (SFT), LoRA, QLoRA, Direct Preference
+Optimization (DPO), RLHF (reward modeling, PPO, RLOO), instruction tuning, continual pre-training, iterative
 feedback-driven training pipelines
     \item \textbf{Model Serving \& Inference Optimization:} vLLM and TGI inference serving (PagedAttention),
-dynamic LoRA adapter hot-swapping, quantization (AWQ, GPTQ, GGUF), speculative decoding, local
+dynamic LoRA adapter hot-swapping, quantization (AWQ, GPTQ, GGUF), speculative decoding, prompt caching, local
 LLM deployment (Ollama, llama.cpp)
-    \item \textbf{RAG \& Vector Engineering:} Standard RAG, GraphRAG (knowledge graph integration), hybrid
-search (dense vector + sparse BM25), cross-encoder reranking (Cohere, BGE), hierarchical chunking
-and parent-child retrieval, vision-based layout parsing (LlamaParse, Unstructured.io), vector
-databases (pgvector, Qdrant, Milvus)
+    \item \textbf{RAG \& Vector Engineering:} Standard RAG, Hybrid RAG (dense + BM25 with RRF fusion), GraphRAG
+(knowledge graph integration), cross-encoder reranking (Cohere, BGE), hierarchical chunking and parent-child
+retrieval, metadata and permission filtering, vision-based layout parsing (LlamaParse, Unstructured.io), embeddings
+(Sentence Transformers, FastEmbed, Voyage), vector databases (pgvector, Qdrant, Milvus)
     \item \textbf{Agentic AI \& Orchestration:} LangChain, LangGraph, multi-agent architectures (Supervisor,
 Router, Network), Mixture of Agents (MoA), plan-and-execute frameworks, self-correction and
-reflection loops, human-in-the-loop state persistence, tool use (Model Context Protocol, function
-calling)
-    \item \textbf{Production, Evaluation \& Security:} LLM-as-a-Judge evaluation (Ragas, DeepEval), LangSmith
-observability and tracing, input/output guardrails (NeMo Guardrails, Llama Guard), prompt
-injection and jailbreak defense, semantic caching (GPTCache), token tracking and cost optimization
+reflection loops, human-in-the-loop interrupts and checkpointing, tool use (Model Context Protocol, A2A, function
+calling, structured outputs)
+    \item \textbf{Evaluation \& Observability:} LangSmith (tracing, datasets, experiments, feedback), Arize Phoenix (local
+tracing and RAG-evaluation dashboards), OpenTelemetry and Jaeger distributed tracing, LLM-as-a-Judge, Ragas and DeepEval
+(faithfulness, context precision/recall, hallucination rate), golden test sets, token-cost and latency tracking
+    \item \textbf{Guardrails \& Security:} input/output guardrails (NeMo Guardrails, Llama Guard), prompt injection and
+jailbreak defense, permission-aware retrieval, semantic caching (GPTCache), rate limits and spend caps
     \item \textbf{Self-Improving AI Systems:}
     \begin{itemize}
         \item \textit{Feedback Collection:} Human feedback pipelines (thumbs up/down, ratings, corrections), preference data collection, user behaviour logging
@@ -384,9 +437,9 @@ sampling to minimise labelling cost
 NVIDIA (CUDA, GPU-accelerated inference, NGC model registry, TensorRT)
     \item \textbf{ML / DL Frameworks:} Python, PyTorch, TensorFlow, Scikit-learn, XGBoost, LightGBM,
 Pandas, NumPy
-    \item \textbf{Backend \& DevOps:} FastAPI, Docker, GitHub Actions, SQL, Supabase, PostgreSQL
-(pgvector), Vercel, Render, UptimeRobot
-    \item \textbf{Frontend \& Web:} Next.js, React, HTML, CSS, JavaScript
+    \item \textbf{Backend \& DevOps:} FastAPI (async, SSE), REST API design, Docker, Docker Compose, GitHub Actions, SQL,
+PostgreSQL (pgvector), Supabase, Redis, Kafka, DuckDB, Vercel, Render, UptimeRobot
+    \item \textbf{Frontend \& Web:} Next.js, React, TypeScript, HTML, CSS, JavaScript
     \item \textbf{Computer Vision:} YOLO, Roboflow, OpenCV
     \item \textbf{Research \& Writing:} Overleaf, \LaTeX
 \end{itemize}
@@ -397,7 +450,7 @@ Pandas, NumPy
     \item \textbf{Agentic AI Engineering:} End-to-end design and deployment of multi-agent and
 Mixture-of-Agents systems for enterprise use cases.
     \item \textbf{LLM \& RAG Engineering:} Taking LLM systems from fine-tuning and retrieval design
-through evaluation, guardrails, and production serving.
+through evaluation, monitoring, guardrails, and production serving.
     \item \textbf{Team Leadership:} Leading engineering teams, conducting code reviews, and setting
 technical direction.
     \item \textbf{Research and Continuous Learning:} Eager to explore new AI tools and create models

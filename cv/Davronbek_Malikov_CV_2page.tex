@@ -1,0 +1,178 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+
+% Section formatting with line, tight spacing
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+% No paragraph indentation, no page numbers
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% Let long unbreakable terms wrap instead of overflowing the margin
+\setlength{\emergencystretch}{3em}
+
+% Compact lists
+\setlist[itemize]{noitemsep, topsep=1pt, leftmargin=1.2em}
+
+% Name command
+\newcommand{\name}[1]{{\Huge\bfseries #1}}
+
+\begin{document}
+
+%====================
+% HEADER
+%====================
+\begin{center}
+\name{Davronbek Malikov} \\[1.5mm]
+LLM Engineer \textbar\ RAG Engineer \textbar\ Agentic AI Engineer \textbar\ ML Engineer \textbar\ Ph.D. \\
+Seoul, South Korea \\[0.5mm]
+\textbf{
+  \href{mailto:davronbekmalikov96@gmail.com}{davronbekmalikov96@gmail.com}
+  \textbar\ +82-10-2474-2901
+  \textbar\ \href{https://www.linkedin.com/in/davronbek-malikov}{LinkedIn}
+  \textbar\ \href{https://davronbek-portfolio.vercel.app}{Portfolio}
+}
+\end{center}
+
+%====================
+\section*{Summary}
+LLM, RAG, and Agentic AI Engineer with a Ph.D. in AI Convergence Engineering and 5 first-author publications. Leading
+the AI engineering team at TripleH, shipping on-premise multi-agent systems for enterprise clients. I build LLM systems
+end to end --- post-training (SFT, DPO, RLHF), hybrid RAG, LangGraph agents, evaluation and observability (LangSmith,
+Arize Phoenix) --- and deploy them on cloud and on-premise infrastructure.
+
+%====================
+\section*{Skills}
+\begin{itemize}
+    \item \textbf{LLM \& Post-Training:} SFT, LoRA/QLoRA, DPO, RLHF (reward modeling, PPO, RLOO); quantization (AWQ, GPTQ,
+GGUF); serving (vLLM, TGI, Ollama, llama.cpp); open-weight models (Llama 4, Qwen3) and Claude/OpenAI APIs; structured
+outputs, function calling, prompt caching.
+    \item \textbf{RAG:} hybrid search (dense + BM25, Reciprocal Rank Fusion), cross-encoder reranking, hierarchical and
+parent-child chunking, GraphRAG, permission-aware retrieval, cited answers; pgvector, Qdrant, Milvus.
+    \item \textbf{Agentic AI:} LangGraph, LangChain; Supervisor/Router/Network multi-agent patterns, human-in-the-loop
+checkpoints, Judge agents, MCP, A2A.
+    \item \textbf{Evaluation \& Observability:} LangSmith (tracing, datasets, experiments), Arize Phoenix, OpenTelemetry and
+Jaeger, Ragas, DeepEval, LLM-as-a-Judge, golden test sets, token-cost and latency tracking; guardrails and
+prompt-injection defense.
+    \item \textbf{Engineering:} Python, TypeScript, PyTorch, Hugging Face (Transformers, PEFT), FastAPI (async, SSE),
+PostgreSQL, Redis, Kafka, Docker, GitHub Actions, Next.js, Vercel.
+    \item \textbf{Machine Learning:} Scikit-learn, XGBoost, LightGBM, SHAP, Optuna, clustering, Computer Vision (YOLO, OpenCV).
+\end{itemize}
+
+%====================
+\section*{Experience}
+
+\textbf{AI Engineer \& Team Lead} --- TripleH, Seoul \hfill Dec 2025--Present
+\begin{itemize}
+    \item Lead the AI engineering team building production autonomous agent systems for enterprise clients, from research
+and prototyping to on-premise and cloud deployment; set engineering standards, run code reviews, and mentor engineers.
+    \item \textbf{Multi-Agent Orchestration Platform:} central hub that plans, routes, and monitors specialized sub-agents
+(automated market reports, a financial-document RAG assistant, an enterprise-messenger chatbot).
+    \item \textbf{Legal Research Assistant:} multi-LLM ensemble that queries several models in parallel, aggregates their
+answers, and verifies every cited regional legal precedent before it reaches the user.
+    \item \textbf{On-Premise AI Platform:} every agent runs locally on open-weight LLMs (Llama 4, Qwen3) with no external API
+calls --- zero data leakage; also delivered a meeting-intelligence agent (on-premise speech-to-text, agenda-based minutes)
+and per-employee AI assistants.
+    \item \textbf{Stack:} SFT/LoRA and DPO, hybrid-search RAG (pgvector, Qdrant), LangGraph and LangChain, monitoring with
+LangSmith and Arize Phoenix.
+\end{itemize}
+
+\textbf{Independent Researcher (Sports Analytics) \& AI Educator} --- Self-directed and online \hfill 2020--2025
+\begin{itemize}
+    \item Researched ML and LLMs for soccer analytics (performance, salary, tactics); taught ML, deep learning, and LLM
+courses and mentored students on end-to-end AI projects.
+\end{itemize}
+
+\textbf{Graduate Researcher} --- Gyeongsang National University, South Korea \hfill 2018--2025
+\begin{itemize}
+    \item Big Data Systems Software Lab (2022--2025): ML for soccer analytics --- salary, performance, and injury prediction.
+Distributed Systems Lab (2018--2021): mathematics for distributed systems. 5 first-author papers (see Publications).
+\end{itemize}
+
+\textbf{Mathematics Instructor} --- Fergana, Uzbekistan \hfill 2014--2017
+\begin{itemize}
+    \item Prepared students for university entrance exams, the SAT, and international mathematics exams.
+\end{itemize}
+
+%====================
+\section*{Selected Projects}
+
+\textbf{ERA Academy} --- AI EdTech platform, multi-agent engine, permission-aware RAG \hfill \href{https://github.com/malikov-davronbek/ERA/tree/phase-1-foundation}{[GitHub]} $\cdot$ \href{https://era-academy.vercel.app}{\textbf{[Live]}}
+\begin{itemize}
+    \item One provider-agnostic agent engine behind three role-scoped assistants (tutor, teacher, admin): Claude, OpenAI,
+and local Ollama adapters, SSE streaming, usage tracking, and cost and rate limits.
+    \item RAG: validated PDF/DOCX/Markdown ingestion $\rightarrow$ heading-aware chunking $\rightarrow$ embeddings $\rightarrow$
+pgvector; access rules enforced inside the retrieval SQL query, cited answers, prompt-injection defense.
+    \item 206 automated tests (authorization, HTTP security, AI engine, RAG), all passing. Next.js 15, Prisma, PostgreSQL.
+\end{itemize}
+
+\textbf{Touchline} --- AI scouting copilot (Claude, LangGraph, hybrid RAG, LangSmith) \hfill \href{https://github.com/davronbek-malikov/touchline}{[GitHub]}
+\begin{itemize}
+    \item Claude agent on LangGraph over 7 schema-validated tools (the model never writes SQL), with human-in-the-loop
+shortlist approval that resumes from a persisted checkpoint.
+    \item Hybrid RAG (dense + BM25, RRF) in Qdrant with Claude citations; DuckDB warehouse of 50,149 players joined with
+StatsBomb event data (18 per-90 metrics for 594 players).
+    \item Every run traced in LangSmith; 120-question golden set run as LangSmith experiments (filter accuracy,
+precision/recall@10, numeric grounding, invented-player detection); 102 automated tests.
+\end{itemize}
+
+\textbf{TeachHelp} --- Post-training an LLM into an Uzbek--English teaching assistant \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]} $\cdot$ \href{https://teach-help.vercel.app}{\textbf{[Live]}}
+\begin{itemize}
+    \item Full post-training of Qwen2.5 (SFT $\rightarrow$ DPO $\rightarrow$ RLHF), 14 models compared on one 68-question
+held-out test; SFT raised Qwen2.5-1.5B from 15/68 to 44/68.
+    \item DPO from scratch: diagnosed v1's length bias (chosen shorter in 63\% of pairs) and fixed it in v2 with
+length-balanced pairs and an SFT loss term --- 44/68, all harmful and cheating requests refused.
+    \item RLHF with Bradley--Terry reward models and PPO/RLOO across 4 judges, with reward-hacking checks; deployed as an
+English--Uzbek chat on Vercel with a Kaggle GPU backend.
+\end{itemize}
+
+\textbf{Portiq} --- Multi-agent job hub (LangGraph, Kafka, A2A, pgvector) \hfill \href{https://portiq-gamma.vercel.app}{\textbf{[Live]}}
+\begin{itemize}
+    \item LangGraph orchestrator routes tasks to 11 agents over Kafka and A2A; a Judge agent sends weak output back for retry.
+    \item Job pipeline (Saramin, hh.uz, Telegram) $\rightarrow$ normalisation and scam filter $\rightarrow$ pgvector match
+scoring; mock interviews in 4 languages; OpenTelemetry and Jaeger tracing across agents.
+\end{itemize}
+
+\textbf{Soccer Salary Predictor \& TacticalDNA} --- supervised and unsupervised ML \hfill \href{https://github.com/davronbek-malikov/soccer-xG-salary_prediction}{[GitHub]} $\cdot$ \href{https://github.com/davronbek-malikov/tactical-dna}{[GitHub]}
+\begin{itemize}
+    \item Leakage-safe salary pipeline with a stacking ensemble, Optuna tuning, and SHAP explanations (17\% accuracy gain,
+SCIE 2025). TacticalDNA clusters 6,314 player-seasons; a blind stat line matched prime Messi at 98\% cosine similarity.
+\end{itemize}
+
+\textit{More on the portfolio: TACTIQ (evidence-first football RAG, in development), and RAG-powered apps Palov, Hamyon,
+and Kotib --- \href{https://davronbek-portfolio.vercel.app}{davronbek-portfolio.vercel.app}}
+
+%====================
+\section*{Publications (first author)}
+\begin{itemize}
+    \item \textit{Predicting Soccer Player Salaries with Both Traditional and Automated Machine Learning Approaches.}
+Applied Sciences (SCIE), 2025. \href{https://doi.org/10.3390/app15148108}{[DOI]}
+    \item \textit{Beyond xG: A Dual Prediction Model for Analyzing Player Performance Through Expected and Actual Goals in
+European Soccer Leagues.} Applied Sciences (SCIE), 2024. \href{https://doi.org/10.3390/app142210390}{[DOI]}
+    \item \textit{Comparative Evaluation of Machine Learning Models for Predicting Soccer Injury Types.} KSCIE, 2024.
+\href{https://doi.org/10.21289/KSIC.2024.27.2.257}{[DOI]}
+    \item \textit{The Application of Machine Learning on the Injury Prediction of Soccer Players.} ISE@APSEC, 2022.
+\href{https://ceur-ws.org/Vol-3362/ISE2022_short02_Malikov_Application.pdf}{[PDF]}
+    \item \textit{On the Construction and Properties of Lattice-Group Structure in Cartesian Product Spaces.} Journal of
+Computer Science, 2020. \href{https://doi.org/10.3844/jcssp.2020.402.421}{[DOI]}
+\end{itemize}
+
+%====================
+\section*{Education}
+\textbf{Ph.D. in AI Convergence Engineering}, Gyeongsang National University, Republic of Korea \hfill 2020--2025 \\
+Thesis: \textit{Advancements in Soccer Analytics: Players' Goals and Salary Prediction Models with Machine Learning} \\
+\textbf{Master of Informatics}, Gyeongsang National University, Republic of Korea \hfill 2018--2020 \\
+\textbf{Bachelor of Mathematics}, Fergana State University, Uzbekistan \hfill 2014--2018
+
+%====================
+\section*{Languages}
+English (Fluent), Uzbek (Native), Turkish (Advanced), Russian (Intermediate), Korean (Conversational)
+
+\end{document}
