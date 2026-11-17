@@ -382,6 +382,6 @@ export const profile = {
     email: "mailto:davronbekmalikov96@gmail.com",
     github: "https://github.com/davronbek-malikov",
     linkedin: "https://www.linkedin.com/in/davronbek-malikov",
-    cv: "/Davronbek_Malikov_CV.pdf?v=20261109", // same file as /cv.pdf (kept for old links); new name avoids stale browser caches
+    cv: "/Davronbek_Malikov_CV.pdf?v=20261117", // same file as /cv.pdf (kept for old links); new name avoids stale browser caches
   },
 };
