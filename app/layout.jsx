@@ -6,7 +6,7 @@ export const metadata = {
   title: `${profile.name} — ${profile.title}`,
   description: profile.tagline,
   openGraph: {
-    title: `${profile.name} — AI Agent Engineer`,
+    title: `${profile.name} — LLM, ML & Deep Learning Engineer`,
     description: profile.tagline,
     type: "website",
   },

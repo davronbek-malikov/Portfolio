@@ -36,7 +36,7 @@ const experience = [
     org: "Self-directed Research",
     period: "2020 – 2025",
     bullets: [
-      "Research on LLMs and Deep Learning applied to soccer analytics.",
+      "Research on machine learning, deep learning and LLMs applied to soccer analytics.",
       "Models for performance evaluation, salary prediction, and tactical analysis.",
       "Preparing submissions to SCIE and AI-focused journals.",
     ],
@@ -46,7 +46,7 @@ const experience = [
     org: "Online & Private Instruction",
     period: "2020 – 2025",
     bullets: [
-      "Design and deliver advanced courses in AI, ML, Deep Learning, and LLMs.",
+      "Design and deliver advanced courses in machine learning, deep learning, computer vision and LLMs.",
       "Mentor students and professionals on building end-to-end AI systems.",
       "Focus on practical applications of AI in industry and academia.",
     ],
@@ -56,7 +56,7 @@ const experience = [
     org: "Big Data Systems Software Lab, Gyeongsang National University",
     period: "2022 – 2025",
     bullets: [
-      "ML applications in soccer analytics — goals, salaries, and injury prediction.",
+      "ML for soccer analytics — salary prediction with traditional ML and AutoML, a dual expected/actual-goals model, and injury-type prediction.",
       "Published 4 first-author papers in SCIE and international conference proceedings.",
     ],
   },
@@ -152,6 +152,19 @@ const selectedProjects = [
     stack: ["LangGraph", "Kafka", "A2A", "FastAPI", "Postgres + pgvector", "Redis", "Next.js", "Docker"],
   },
   {
+    title: "LLM from Scratch",
+    sub: "Deep Learning · GPT-style Transformer in PyTorch · Pretraining (in progress)",
+    period: "2026",
+    demo: null,
+    github: "https://github.com/davronbek-malikov/LLM_Model",
+    bullets: [
+      "Implemented a decoder-only Transformer from first principles in PyTorch — multi-head causal self-attention, MLP blocks and weight tying — verified with shape, random-init loss, overfit-one-batch and causality tests.",
+      "Built the full pretraining pipeline: cleaning, filtering, exact and MinHash near-duplicate detection, a trained BPE tokenizer and binary token datasets.",
+      "Training loop with linear warmup + cosine decay, gradient accumulation and clipping, bf16/fp16 mixed precision and resumable checkpoints; perplexity evaluation and temperature/top-k/top-p sampling.",
+    ],
+    stack: ["Python", "PyTorch", "BPE Tokenizer", "Hugging Face Datasets", "Kaggle / Colab GPU"],
+  },
+  {
     title: "Soccer Player Salary Predictor",
     sub: "Supervised ML · Regression · Sports Analytics",
     period: "2024 – 2025",
@@ -225,9 +238,10 @@ const tools = [
   { cat: "RAG & Vector Engineering", items: ["GraphRAG", "Hybrid Search (Dense + BM25)", "Cross-Encoder Reranking", "Hierarchical Chunking", "pgvector", "Qdrant", "Milvus", "LlamaParse", "Unstructured.io"] },
   { cat: "Agentic AI & Orchestration", items: ["LangChain", "LangGraph", "MCP", "Function Calling", "Multi-Agent (Supervisor / Router / Network)", "Plan-and-Execute", "Reflection Loops", "Human-in-the-Loop", "Kafka", "A2A Protocol"] },
   { cat: "Evaluation & Security", items: ["LLM-as-a-Judge", "Ragas", "DeepEval", "LangSmith", "NeMo Guardrails", "Llama Guard", "Prompt Injection Defense", "Semantic Caching", "Token & Cost Tracking"] },
-  { cat: "ML / DL", items: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "XGBoost", "LightGBM", "Pandas", "NumPy", "Streamlit"] },
-  { cat: "Deployment & DevOps", items: ["Docker", "Vercel", "Render", "UptimeRobot", "GitHub Actions", "GitHub"] },
-  { cat: "Computer Vision", items: ["YOLO", "Roboflow", "OpenCV"] },
+  { cat: "Machine Learning", items: ["Scikit-learn", "XGBoost", "LightGBM", "Random Forest", "Stacking Ensembles", "AutoML", "Optuna", "SHAP", "Feature Engineering", "Pandas", "NumPy"] },
+  { cat: "Deep Learning", items: ["PyTorch", "TensorFlow / Keras", "CNNs", "RNN / LSTM", "Transformers (from scratch)", "Transfer Learning", "Mixed Precision", "Multi-GPU Training"] },
+  { cat: "MLOps & Deployment", items: ["MLflow", "Weights & Biases", "DVC", "Docker", "GitHub Actions", "FastAPI Serving", "ONNX", "TensorRT", "Gradio", "Streamlit", "Vercel", "Render"] },
+  { cat: "Computer Vision", items: ["Image Classification", "Object Detection (YOLO)", "Segmentation (U-Net, Mask R-CNN)", "Object Tracking", "OCR", "OpenCV", "Roboflow"] },
   { cat: "Web & Viz", items: ["HTML", "CSS", "JavaScript"] },
   { cat: "Research", items: ["Overleaf", "LaTeX"] },
 ];
@@ -242,7 +256,7 @@ const languages = [
 
 export const metadata = {
   title: "About — Davronbek Malikov",
-  description: "PhD in AI Engineering. LLM Engineer, RAG Engineer, Agentic AI Engineer, and ML Engineer.",
+  description: "PhD in AI Engineering. LLM, RAG and Agentic AI Engineer, and ML, Deep Learning and Computer Vision Engineer.",
 };
 
 export default function About() {
@@ -275,7 +289,8 @@ export default function About() {
                 <span className="role-chip">LLM Engineer</span>
                 <span className="role-chip">RAG Engineer</span>
                 <span className="role-chip">Agentic AI Engineer</span>
-                <span className="role-chip">ML Engineer</span>
+                <span className="role-chip">ML & Deep Learning Engineer</span>
+                <span className="role-chip">Computer Vision</span>
               </div>
             </Reveal>
             <Reveal delay={120}>
@@ -283,13 +298,14 @@ export default function About() {
             </Reveal>
             <Reveal delay={160}>
               <p className="about-summary">
-                LLM Engineer, RAG Engineer, Agentic AI Engineer, and ML Engineer with a PhD in AI
-                Engineering. I build LLM systems end to end: fine-tuning (LoRA/QLoRA, DPO) and
-                inference serving, RAG and GraphRAG pipelines with hybrid search and reranking, and
-                multi-agent systems with evaluation and guardrails built in. Currently leading the AI
-                team at TripleH — shipping agents for legal research, financial analysis, meeting
-                automation, and per-employee AI assistants. Grounded in advanced mathematics and
-                machine learning research, with 5 first-author publications in SCIE journals and
+                AI engineer with a PhD in AI Engineering, working across the full stack: classical machine
+                learning, deep learning, computer vision and LLM systems. I take models from data to
+                production — data pipelines, feature engineering, training and tuning, explainability,
+                evaluation, deployment and monitoring. On the LLM side I build post-training pipelines (SFT,
+                DPO, RLHF), hybrid RAG and multi-agent systems; on the ML side, from published tabular ML
+                research to a GPT-style Transformer written from scratch in PyTorch. Currently leading the AI
+                team at TripleH — shipping agents for legal research, financial analysis, meeting automation,
+                and per-employee AI assistants. 5 first-author publications in SCIE journals and
                 international conferences.
               </p>
             </Reveal>
@@ -438,7 +454,7 @@ export default function About() {
           <div className="container about-cta">
             <Reveal>
               <h2>Open to new opportunities</h2>
-              <p>LLM Engineer · RAG Engineer · Agentic AI Engineer · ML Engineer</p>
+              <p>LLM · RAG · Agentic AI · ML & Deep Learning · Computer Vision</p>
               <div className="hero-actions" style={{ marginTop: 24 }}>
                 <a className="btn btn-primary" href={profile.links.email}>Get in touch</a>
                 <a className="btn btn-ghost" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>

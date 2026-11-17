@@ -21,8 +21,9 @@
 % Compact lists
 \setlist[itemize]{noitemsep, topsep=1pt, leftmargin=1.2em}
 
-% Name command
+% Name command and project-group heading
 \newcommand{\name}[1]{{\Huge\bfseries #1}}
+\newcommand{\group}[1]{\vspace{2pt}{\normalsize\bfseries\itshape #1}\par\vspace{2pt}}
 
 \begin{document}
 
@@ -31,7 +32,7 @@
 %====================
 \begin{center}
 \name{Davronbek Malikov} \\[1.5mm]
-LLM Engineer \textbar\ RAG Engineer \textbar\ Agentic AI Engineer \textbar\ ML Engineer \textbar\ Ph.D. \\
+LLM \& RAG Engineer \textbar\ Agentic AI Engineer \textbar\ ML \& Deep Learning Engineer \textbar\ Computer Vision \textbar\ Ph.D. \\
 Seoul, South Korea \\[0.5mm]
 \textbf{
   \href{mailto:davronbekmalikov96@gmail.com}{davronbekmalikov96@gmail.com}
@@ -43,27 +44,30 @@ Seoul, South Korea \\[0.5mm]
 
 %====================
 \section*{Summary}
-LLM, RAG, and Agentic AI Engineer with a Ph.D. in AI Convergence Engineering and 5 first-author publications. Leading
-the AI engineering team at TripleH, shipping on-premise multi-agent systems for enterprise clients. I build LLM systems
-end to end --- post-training (SFT, DPO, RLHF), hybrid RAG, LangGraph agents, evaluation and observability (LangSmith,
-Arize Phoenix) --- and deploy them on cloud and on-premise infrastructure.
+AI Engineer with a Ph.D. in AI Convergence Engineering and 5 first-author publications, working across the full stack ---
+classical machine learning, deep learning, computer vision, and LLM systems. I take models from data to production: data
+pipelines, feature engineering, training and tuning, explainability, evaluation, deployment, and monitoring. Currently leading
+the AI engineering team at TripleH, shipping on-premise multi-agent LLM systems; independently built a GPT-style Transformer
+from scratch and a full post-training pipeline (SFT, DPO, RLHF).
 
 %====================
 \section*{Skills}
 \begin{itemize}
-    \item \textbf{LLM \& Post-Training:} SFT, LoRA/QLoRA, DPO, RLHF (reward modeling, PPO, RLOO); quantization (AWQ, GPTQ,
-GGUF); serving (vLLM, TGI, Ollama, llama.cpp); open-weight models (Llama 4, Qwen3) and Claude/OpenAI APIs; structured
-outputs, function calling, prompt caching.
-    \item \textbf{RAG:} hybrid search (dense + BM25, Reciprocal Rank Fusion), cross-encoder reranking, hierarchical and
-parent-child chunking, GraphRAG, permission-aware retrieval, cited answers; pgvector, Qdrant, Milvus.
-    \item \textbf{Agentic AI:} LangGraph, LangChain; Supervisor/Router/Network multi-agent patterns, human-in-the-loop
-checkpoints, Judge agents, MCP, A2A.
-    \item \textbf{Evaluation \& Observability:} LangSmith (tracing, datasets, experiments), Arize Phoenix, OpenTelemetry and
-Jaeger, Ragas, DeepEval, LLM-as-a-Judge, golden test sets, token-cost and latency tracking; guardrails and
-prompt-injection defense.
-    \item \textbf{Engineering:} Python, TypeScript, PyTorch, Hugging Face (Transformers, PEFT), FastAPI (async, SSE),
-PostgreSQL, Redis, Kafka, Docker, GitHub Actions, Next.js, Vercel.
-    \item \textbf{Machine Learning:} Scikit-learn, XGBoost, LightGBM, SHAP, Optuna, clustering, Computer Vision (YOLO, OpenCV).
+    \item \textbf{Machine Learning:} supervised and unsupervised learning (regression, classification, clustering), feature
+engineering, ensembles and stacking (XGBoost, LightGBM, Random Forest), AutoML, Bayesian hyperparameter optimization
+(Optuna), explainability (SHAP), leakage-safe validation, statistical analysis; Scikit-learn, Pandas, NumPy.
+    \item \textbf{Deep Learning:} PyTorch, TensorFlow/Keras; CNNs, RNN/LSTM, Transformers (attention implemented from
+scratch), transfer learning; mixed precision (bf16/fp16), gradient accumulation and clipping, warmup + cosine LR schedules,
+checkpointing, multi-GPU training.
+    \item \textbf{Computer Vision:} image classification, object detection (YOLO), segmentation (U-Net, Mask R-CNN), object
+tracking, OCR; OpenCV, Roboflow, data annotation and augmentation.
+    \item \textbf{MLOps \& Deployment:} MLflow, Weights \& Biases, DVC, model registry, Docker, GitHub Actions CI/CD, FastAPI
+model serving, ONNX and TensorRT optimization, quantization, Gradio and Streamlit demos, uptime monitoring.
+    \item \textbf{LLM \& RAG:} SFT, LoRA/QLoRA, DPO, RLHF (reward modeling, PPO, RLOO); vLLM, Ollama, llama.cpp; quantization
+(AWQ, GPTQ, GGUF); hybrid RAG (dense + BM25, RRF), cross-encoder reranking, GraphRAG; pgvector, Qdrant, Milvus.
+    \item \textbf{Agentic AI \& Observability:} LangGraph, LangChain, multi-agent patterns, human-in-the-loop checkpoints, MCP,
+A2A; LangSmith, Arize Phoenix, OpenTelemetry and Jaeger; Ragas, DeepEval, LLM-as-a-Judge, guardrails.
+    \item \textbf{Engineering:} Python, TypeScript, SQL, PostgreSQL, Redis, Kafka, Hugging Face (Transformers, PEFT), Next.js, Vercel.
 \end{itemize}
 
 %====================
@@ -78,22 +82,21 @@ and prototyping to on-premise and cloud deployment; set engineering standards, r
     \item \textbf{Legal Research Assistant:} multi-LLM ensemble that queries several models in parallel, aggregates their
 answers, and verifies every cited regional legal precedent before it reaches the user.
     \item \textbf{On-Premise AI Platform:} every agent runs locally on open-weight LLMs (Llama 4, Qwen3) with no external API
-calls --- zero data leakage; also delivered a meeting-intelligence agent (on-premise speech-to-text, agenda-based minutes)
-and per-employee AI assistants.
-    \item \textbf{Stack:} SFT/LoRA and DPO, hybrid-search RAG (pgvector, Qdrant), LangGraph and LangChain, monitoring with
-LangSmith and Arize Phoenix.
+calls --- zero data leakage; also a meeting-intelligence agent (on-premise speech-to-text) and per-employee AI assistants.
+Stack: SFT/LoRA and DPO, hybrid RAG (pgvector, Qdrant), LangGraph, LangSmith and Arize Phoenix monitoring.
 \end{itemize}
 
 \textbf{Independent Researcher (Sports Analytics) \& AI Educator} --- Self-directed and online \hfill 2020--2025
 \begin{itemize}
-    \item Researched ML and LLMs for soccer analytics (performance, salary, tactics); taught ML, deep learning, and LLM
-courses and mentored students on end-to-end AI projects.
+    \item Researched ML, deep learning, and LLMs for soccer analytics; taught machine learning, deep learning, computer
+vision, and LLM courses and mentored students on end-to-end AI projects.
 \end{itemize}
 
 \textbf{Graduate Researcher} --- Gyeongsang National University, South Korea \hfill 2018--2025
 \begin{itemize}
-    \item Big Data Systems Software Lab (2022--2025): ML for soccer analytics --- salary, performance, and injury prediction.
-Distributed Systems Lab (2018--2021): mathematics for distributed systems. 5 first-author papers (see Publications).
+    \item Big Data Systems Software Lab (2022--2025): ML for soccer analytics --- salary prediction with traditional ML and
+AutoML, a dual expected/actual-goals performance model, and injury-type prediction from engineered features. Distributed
+Systems Lab (2018--2021): mathematics for distributed systems. 5 first-author papers (see Publications).
 \end{itemize}
 
 \textbf{Mathematics Instructor} --- Fergana, Uzbekistan \hfill 2014--2017
@@ -104,46 +107,59 @@ Distributed Systems Lab (2018--2021): mathematics for distributed systems. 5 fir
 %====================
 \section*{Selected Projects}
 
+\group{LLM \& Agentic Systems}
+
 \textbf{ERA Academy} --- AI EdTech platform, multi-agent engine, permission-aware RAG \hfill \href{https://github.com/malikov-davronbek/ERA/tree/phase-1-foundation}{[GitHub]} $\cdot$ \href{https://era-academy.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
-    \item One provider-agnostic agent engine behind three role-scoped assistants (tutor, teacher, admin): Claude, OpenAI,
-and local Ollama adapters, SSE streaming, usage tracking, and cost and rate limits.
-    \item RAG: validated PDF/DOCX/Markdown ingestion $\rightarrow$ heading-aware chunking $\rightarrow$ embeddings $\rightarrow$
-pgvector; access rules enforced inside the retrieval SQL query, cited answers, prompt-injection defense.
-    \item 206 automated tests (authorization, HTTP security, AI engine, RAG), all passing. Next.js 15, Prisma, PostgreSQL.
+    \item One provider-agnostic agent engine behind three role-scoped assistants (tutor, teacher, admin): Claude, OpenAI, and
+local Ollama adapters, SSE streaming, usage tracking, and cost and rate limits.
+    \item RAG over uploaded course files with pgvector; access rules enforced inside the retrieval SQL query, cited answers,
+prompt-injection defense; 206 automated tests, all passing.
 \end{itemize}
 
 \textbf{Touchline} --- AI scouting copilot (Claude, LangGraph, hybrid RAG, LangSmith) \hfill \href{https://github.com/davronbek-malikov/touchline}{[GitHub]}
 \begin{itemize}
-    \item Claude agent on LangGraph over 7 schema-validated tools (the model never writes SQL), with human-in-the-loop
-shortlist approval that resumes from a persisted checkpoint.
-    \item Hybrid RAG (dense + BM25, RRF) in Qdrant with Claude citations; DuckDB warehouse of 50,149 players joined with
-StatsBomb event data (18 per-90 metrics for 594 players).
-    \item Every run traced in LangSmith; 120-question golden set run as LangSmith experiments (filter accuracy,
-precision/recall@10, numeric grounding, invented-player detection); 102 automated tests.
+    \item Claude agent on LangGraph over 7 schema-validated tools with human-in-the-loop shortlist approval; hybrid RAG
+(dense + BM25, RRF) in Qdrant with cited reports; DuckDB warehouse of 50,149 players plus StatsBomb event data.
+    \item Every run traced in LangSmith; 120-question golden set run as experiments (filter accuracy, precision/recall@10,
+numeric grounding, invented-player detection); 102 automated tests.
 \end{itemize}
 
 \textbf{TeachHelp} --- Post-training an LLM into an Uzbek--English teaching assistant \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]} $\cdot$ \href{https://teach-help.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
-    \item Full post-training of Qwen2.5 (SFT $\rightarrow$ DPO $\rightarrow$ RLHF), 14 models compared on one 68-question
-held-out test; SFT raised Qwen2.5-1.5B from 15/68 to 44/68.
-    \item DPO from scratch: diagnosed v1's length bias (chosen shorter in 63\% of pairs) and fixed it in v2 with
-length-balanced pairs and an SFT loss term --- 44/68, all harmful and cheating requests refused.
-    \item RLHF with Bradley--Terry reward models and PPO/RLOO across 4 judges, with reward-hacking checks; deployed as an
-English--Uzbek chat on Vercel with a Kaggle GPU backend.
+    \item Qwen2.5 through SFT $\rightarrow$ DPO $\rightarrow$ RLHF, 14 models on one 68-question held-out test: SFT raised
+Qwen2.5-1.5B from 15/68 to 44/68; DPO from scratch, with v1's length bias diagnosed and fixed in v2 (44/68, refusals 8/8).
+    \item RLHF with Bradley--Terry reward models and PPO/RLOO across 4 judges, with reward-hacking checks.
 \end{itemize}
 
 \textbf{Portiq} --- Multi-agent job hub (LangGraph, Kafka, A2A, pgvector) \hfill \href{https://portiq-gamma.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
-    \item LangGraph orchestrator routes tasks to 11 agents over Kafka and A2A; a Judge agent sends weak output back for retry.
-    \item Job pipeline (Saramin, hh.uz, Telegram) $\rightarrow$ normalisation and scam filter $\rightarrow$ pgvector match
-scoring; mock interviews in 4 languages; OpenTelemetry and Jaeger tracing across agents.
+    \item LangGraph orchestrator routes 11 agents over Kafka and A2A, with a Judge agent, pgvector job matching, and
+OpenTelemetry and Jaeger tracing.
 \end{itemize}
 
-\textbf{Soccer Salary Predictor \& TacticalDNA} --- supervised and unsupervised ML \hfill \href{https://github.com/davronbek-malikov/soccer-xG-salary_prediction}{[GitHub]} $\cdot$ \href{https://github.com/davronbek-malikov/tactical-dna}{[GitHub]}
+\group{Machine Learning \& Deep Learning}
+
+\textbf{LLM from Scratch} --- GPT-style Transformer in PyTorch \textit{(pretraining in progress)} \hfill \href{https://github.com/davronbek-malikov/LLM_Model}{[GitHub]}
 \begin{itemize}
-    \item Leakage-safe salary pipeline with a stacking ensemble, Optuna tuning, and SHAP explanations (17\% accuracy gain,
-SCIE 2025). TacticalDNA clusters 6,314 player-seasons; a blind stat line matched prime Messi at 98\% cosine similarity.
+    \item Implemented a decoder-only Transformer from first principles: multi-head causal self-attention, MLP blocks, weight
+tying; verified with shape, initial-loss, overfit-one-batch, and causality tests.
+    \item Full pretraining pipeline: cleaning, filtering, exact and MinHash near-duplicate detection, BPE tokenizer, binary
+token datasets; warmup + cosine LR, gradient accumulation and clipping, bf16/fp16 mixed precision, resumable checkpoints;
+perplexity evaluation and temperature/top-k/top-p sampling.
+\end{itemize}
+
+\textbf{Soccer Player Salary Predictor} --- end-to-end supervised ML \hfill \href{https://github.com/davronbek-malikov/soccer-xG-salary_prediction}{[GitHub]} $\cdot$ \href{https://soccer-xg-salary-prediction.onrender.com}{\textbf{[Live]}}
+\begin{itemize}
+    \item Leakage-safe pipeline on 8 seasons of Bundesliga, La Liga, and Serie A data: 21 engineered features, baseline
+$\rightarrow$ gradient boosting (XGBoost, LightGBM) $\rightarrow$ stacking and voting ensembles, Optuna Bayesian tuning.
+    \item SHAP global and local explanations; Gradio demo on Render with uptime monitoring; 17\% accuracy gain (SCIE 2025).
+\end{itemize}
+
+\textbf{TacticalDNA} --- unsupervised player-archetype discovery \hfill \href{https://github.com/davronbek-malikov/tactical-dna}{[GitHub]} $\cdot$ \href{https://soccer-player-clustering.onrender.com}{\textbf{[Live]}}
+\begin{itemize}
+    \item Clustered 6,314 player-seasons on per-90 features; KMeans, Agglomerative, DBSCAN, and Gaussian Mixture compared on
+Silhouette, Davies--Bouldin, and Calinski--Harabasz; a blind stat line matched prime Messi at 98\% cosine similarity.
 \end{itemize}
 
 \textit{More on the portfolio: TACTIQ (evidence-first football RAG, in development), and RAG-powered apps Palov, Hamyon,

@@ -30,10 +30,9 @@ export default function Home() {
           </Reveal>
           <Reveal delay={60}>
             <h1>
-              I fine-tune <span className="grad">LLMs</span>, build{" "}
-              <span className="grad">RAG pipelines</span> and ship{" "}
-              <span className="grad">autonomous agents</span>
-              <br /> — on a foundation of ML research.
+              I build <span className="grad">ML</span>, <span className="grad">deep learning</span>{" "}
+              and <span className="grad">LLM systems</span>
+              <br /> — from data to production.
             </h1>
           </Reveal>
           <Reveal delay={120}>
@@ -88,16 +87,17 @@ export default function Home() {
       {/* ML PROJECTS SHOWCASE */}
       <section className="ml-showcase" id="ml">
         <div className="container">
-          <Reveal as="div" className="showcase-eyebrow">ML Projects</Reveal>
+          <Reveal as="div" className="showcase-eyebrow">ML & Deep Learning Projects</Reveal>
           <Reveal delay={40}>
-            <h2 className="showcase-title">Machine Learning <span className="grad">Research & Projects</span></h2>
+            <h2 className="showcase-title">Machine Learning <span className="grad">& Deep Learning</span></h2>
           </Reveal>
           <Reveal delay={80}>
             <p className="showcase-sub">
-              Two projects live on the same soccer dataset: <strong>Soccer Player Salary Predictor</strong> — a
-              supervised ML pipeline with SHAP explainability and Optuna tuning — and{" "}
-              <strong>TacticalDNA</strong> — unsupervised clustering that matched a blind, made-up stat line to
-              prime Messi at 98% similarity. Computer Vision coming next.
+              <strong>LLM from Scratch</strong> — a GPT-style Transformer written by hand in PyTorch, with its own
+              tokenizer, data pipeline and training loop. <strong>Soccer Player Salary Predictor</strong> — a supervised
+              ML pipeline with stacking ensembles, Optuna tuning and SHAP explainability (SCIE 2025).{" "}
+              <strong>TacticalDNA</strong> — unsupervised clustering that matched a blind stat line to prime Messi at 98%
+              similarity. Computer Vision coming next.
             </p>
           </Reveal>
           <div className="showcase-grid">
@@ -174,7 +174,7 @@ export default function Home() {
           <div className="footer-grid">
             <div>
               <h3>Let&apos;s build something autonomous.</h3>
-              <p>{profile.name} — {profile.title}. Open to LLM, RAG, Agentic AI and ML Engineer roles.</p>
+              <p>{profile.name} — {profile.title}. Open to LLM, RAG, Agentic AI, ML, Deep Learning and Computer Vision Engineer roles.</p>
             </div>
             <div className="footer-links">
               <a className="btn btn-ghost" href={profile.links.email}>Email</a>

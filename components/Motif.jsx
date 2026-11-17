@@ -151,6 +151,23 @@ export default function Motif({ kind }) {
           <path d="M102 82 Q150 100 196 74" fill="none" stroke={stroke} strokeWidth="1.2" opacity="0.6" />
         </svg>
       );
+    case "transformer":
+      return (
+        <svg {...common}>
+          {[0,1,2].map((i)=>(
+            <g key={i}>
+              <rect x={100+i*40} y="20" width="30" height="78" rx="6" fill="none" stroke={stroke} strokeWidth="1.3" opacity={0.5+i*0.2} />
+              <line x1={104+i*40} y1="46" x2={126+i*40} y2="46" stroke={stroke} strokeWidth="0.9" opacity="0.5" />
+              <line x1={104+i*40} y1="72" x2={126+i*40} y2="72" stroke={stroke} strokeWidth="0.9" opacity="0.5" />
+            </g>
+          ))}
+          {[33,59,85].map((y,i)=>(<circle key={"in"+i} cx="70" cy={y} r="4" fill="none" stroke={stroke} strokeWidth="1.3" />))}
+          {[33,59,85].map((y,i)=>(<line key={"a"+i} x1="74" y1={y} x2="100" y2="59" stroke={stroke} strokeWidth="0.8" opacity="0.45" />))}
+          <line x1="220" y1="59" x2="246" y2="59" stroke={stroke} strokeWidth="1.4" />
+          <path d="M242 54 l6 5 l-6 5" fill="none" stroke={stroke} strokeWidth="1.4" />
+          <circle cx="258" cy="59" r="5" fill={stroke} />
+        </svg>
+      );
     case "pitch":
       return (
         <svg {...common}>

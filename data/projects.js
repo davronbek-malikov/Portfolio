@@ -159,8 +159,31 @@ export const llmProjects = [
 // ----------------------------------------------------------------------------
 export const mlProjects = [
   {
-    id: "supervised-ml",
+    id: "llm-from-scratch",
     n: "14",
+    title: "LLM from Scratch",
+    rarity: "legendary",
+    cls: "Deep Learning · Transformer · PyTorch · Pretraining",
+    flavor: "Every layer written by hand — attention, tokenizer, training loop — and made to pass four sanity checks before a single training step.",
+    motif: "transformer",
+    group: "dl",
+    stats: { PWR: 82, SCL: 70, AUT: 60, INT: 92, PLH: 84 },
+    abilities: [
+      "GPT-style decoder-only Transformer implemented from first principles in PyTorch: multi-head causal self-attention, MLP blocks, weight tying",
+      "Verified before training with 4 sanity checks: tensor shapes, random-init loss, overfit one batch, causality",
+      "Data pipeline: cleaning, filtering, exact and MinHash near-duplicate detection on Hugging Face text data",
+      "Trained its own BPE tokenizer (8k vocabulary) and packed the corpus into binary train/validation token files",
+      "Training loop: linear warmup + cosine decay, gradient accumulation (effective batch 128) and clipping, bf16/fp16 mixed precision",
+      "Resumable checkpoints (weights, optimizer, step) for Kaggle/Colab sessions; perplexity evaluation; temperature, top-k and top-p sampling",
+      "One YAML config names the whole experiment: architecture and training hyperparameters together",
+    ],
+    stack: ["Python", "PyTorch", "Transformers (from scratch)", "BPE Tokenizer", "Hugging Face Datasets", "Kaggle / Colab GPU"],
+    status: { state: "rnd", label: "PRETRAINING IN PROGRESS" },
+    links: { github: "https://github.com/davronbek-malikov/LLM_Model" },
+  },
+  {
+    id: "supervised-ml",
+    n: "15",
     title: "Soccer Salary Predictor",
     rarity: "epic",
     cls: "Supervised ML · Regression · Sports Analytics",
@@ -187,7 +210,7 @@ export const mlProjects = [
   },
   {
     id: "unsupervised-ml",
-    n: "15",
+    n: "16",
     title: "TacticalDNA",
     rarity: "epic",
     cls: "Unsupervised ML · Clustering · Sports Analytics",
@@ -213,7 +236,7 @@ export const mlProjects = [
   },
   {
     id: "computer-vision",
-    n: "16",
+    n: "17",
     title: "Computer Vision",
     rarity: "legendary",
     cls: "Object Detection · Image Classification",
@@ -242,7 +265,7 @@ export const mlProjects = [
 export const productProjects = [
   {
     id: "palov",
-    n: "17",
+    n: "18",
     title: "Palov",
     rarity: "rare",
     cls: "Full-Stack · RAG · AI Chatbot",
@@ -262,7 +285,7 @@ export const productProjects = [
   },
   {
     id: "hamyon",
-    n: "18",
+    n: "19",
     title: "Hamyon",
     rarity: "rare",
     cls: "Personal Finance · RAG · AI Insights",
@@ -282,7 +305,7 @@ export const productProjects = [
   },
   {
     id: "kotib",
-    n: "19",
+    n: "20",
     title: "Kotib",
     rarity: "epic",
     cls: "AI Agent · Graph RAG · Conversational Memory",
@@ -351,10 +374,10 @@ export const publications = [
 export const profile = {
   name: "Davronbek Malikov",
   title: "PhD in AI Engineering",
-  roles: ["LLM Engineer", "RAG Engineer", "Agentic AI Engineer", "ML Engineer"],
+  roles: ["LLM Engineer", "RAG Engineer", "Agentic AI Engineer", "ML & Deep Learning Engineer", "Computer Vision"],
   tagline:
-    "LLM, RAG, Agentic AI and ML engineer. I fine-tune and serve models, build retrieval pipelines and multi-agent systems, and ship them to production — from a single reusable chatbot core to self-hosted enterprise deployments.",
-  setName: "Agent Constellation",
+    "AI engineer across the full stack — classical machine learning, deep learning, computer vision and LLM systems. I take models from data to production: pipelines, training, evaluation, deployment and monitoring — from published ML research to multi-agent LLM platforms.",
+  setName: "LLM · ML · Deep Learning",
   links: {
     email: "mailto:davronbekmalikov96@gmail.com",
     github: "https://github.com/davronbek-malikov",
