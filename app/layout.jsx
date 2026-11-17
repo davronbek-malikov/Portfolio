@@ -3,10 +3,10 @@ import { profile } from "../data/projects";
 import Providers from "../components/Providers";
 
 export const metadata = {
-  title: `${profile.name} — ${profile.title}`,
+  title: `${profile.name} | ${profile.title}`,
   description: profile.tagline,
   openGraph: {
-    title: `${profile.name} — LLM, ML & Deep Learning Engineer`,
+    title: `${profile.name} | LLM, ML & Deep Learning Engineer`,
     description: profile.tagline,
     type: "website",
   },

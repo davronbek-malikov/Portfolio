@@ -1,10 +1,10 @@
-# Davronbek Malikov — Portfolio (“Agent Constellation”)
+# Davronbek Malikov: Portfolio
 
 A minimalist, dark-mode portfolio that presents AI projects as **collectible
 trading cards** with holographic tilt, scored on 5 axes, plus an ecosystem map
 showing how they connect into one system.
 
-Built with **Next.js 14 (App Router)** and hand-written CSS — no UI framework, so
+Built with **Next.js 14 (App Router)** and hand-written CSS, with no UI framework, so
 the production build is fast and dependency-light. Deploys to **Vercel** with zero
 config.
 
@@ -36,7 +36,7 @@ Everything renders from **one file**: `data/projects.js`.
   title: "Churn Prediction Model",
   rarity: "epic",                 // mythic | legendary | epic | rare | common
   cls: "ML Engineer / Modeling",
-  flavor: "Predicts who leaves — before they do.",
+  flavor: "Predicts who leaves, before they do.",
   motif: "ml",                    // picks the hero illustration (see Motif.jsx)
   group: "ml",                    // agent | platform | rnd | ml
   stats: { PWR: 80, SCL: 70, AUT: 50, INT: 88, PLH: 75 },
@@ -84,7 +84,7 @@ Drop your CV as `public/cv.pdf`. The “Download CV” buttons already point to 
 2. Go to **vercel.com → Add New → Project → Import** your repo.
 3. Vercel auto-detects Next.js. Leave all defaults (Build: `next build`,
    Install: `npm install`). Click **Deploy**.
-4. Done — you get a `*.vercel.app` URL. Every future `git push` auto-deploys.
+4. Done: you get a `*.vercel.app` URL. Every future `git push` auto-deploys.
 
 > Want a custom domain? Vercel → Project → Settings → Domains.
 

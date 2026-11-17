@@ -32,7 +32,7 @@ export default function Home() {
             <h1>
               I build <span className="grad">ML</span>, <span className="grad">deep learning</span>{" "}
               and <span className="grad">LLM systems</span>
-              <br /> — from data to production.
+              <br /> from data to production.
             </h1>
           </Reveal>
           <Reveal delay={120}>
@@ -66,11 +66,11 @@ export default function Home() {
           </Reveal>
           <Reveal delay={80}>
             <p className="showcase-sub">
-              <strong>ERA Academy</strong> — an AI learning platform with one agent engine behind three
-              assistants and permission-aware RAG. <strong>TACTIQ</strong> — evidence-first football
-              intelligence, phase 1: the indexing pipeline into Qdrant. <strong>Touchline</strong> — a Claude
-              scouting agent on LangGraph with cited reports, traced in LangSmith. <strong>TeachHelp</strong> — SFT,
-              DPO and RLHF on Qwen2.5, 15/68 → 44/68. <strong>Portiq</strong> — 11 agents over Kafka and A2A with a
+              <strong>ERA Academy</strong>: an AI learning platform with one agent engine behind three
+              assistants and permission-aware RAG. <strong>TACTIQ</strong>: evidence-first football
+              intelligence, phase 1: the indexing pipeline into Qdrant. <strong>Touchline</strong>: a Claude
+              scouting agent on LangGraph with cited reports, traced in LangSmith. <strong>TeachHelp</strong>: SFT,
+              DPO and RLHF on Qwen2.5, 15/68 → 44/68. <strong>Portiq</strong>: 11 agents over Kafka and A2A with a
               Judge agent.
             </p>
           </Reveal>
@@ -93,10 +93,10 @@ export default function Home() {
           </Reveal>
           <Reveal delay={80}>
             <p className="showcase-sub">
-              <strong>LLM from Scratch</strong> — a GPT-style Transformer written by hand in PyTorch, with its own
-              tokenizer, data pipeline and training loop. <strong>Soccer Player Salary Predictor</strong> — a supervised
+              <strong>LLM from Scratch</strong>: a GPT-style Transformer written by hand in PyTorch, with its own
+              tokenizer, data pipeline and training loop. <strong>Soccer Player Salary Predictor</strong>: a supervised
               ML pipeline with stacking ensembles, Optuna tuning and SHAP explainability (SCIE 2025).{" "}
-              <strong>TacticalDNA</strong> — unsupervised clustering that matched a blind stat line to prime Messi at 98%
+              <strong>TacticalDNA</strong>: unsupervised clustering that matched a blind stat line to prime Messi at 98%
               similarity. Computer Vision coming next.
             </p>
           </Reveal>
@@ -143,7 +143,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={80}>
             <p className="showcase-sub">
-              Five first-author papers in SCIE journals, a KSCIE journal and an international conference — machine
+              Five first-author papers in SCIE journals, a KSCIE journal and an international conference, on machine
               learning for soccer analytics (salaries, performance, injuries) and mathematics for distributed systems.
             </p>
           </Reveal>
@@ -174,7 +174,7 @@ export default function Home() {
           <div className="footer-grid">
             <div>
               <h3>Let&apos;s build something autonomous.</h3>
-              <p>{profile.name} — {profile.title}. Open to LLM, RAG, Agentic AI, ML, Deep Learning and Computer Vision Engineer roles.</p>
+              <p>{profile.name}, {profile.title}. Open to LLM, RAG, Agentic AI, ML, Deep Learning and Computer Vision Engineer roles.</p>
             </div>
             <div className="footer-links">
               <a className="btn btn-ghost" href={profile.links.email}>Email</a>

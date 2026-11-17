@@ -6,7 +6,7 @@ const education = [
     degree: "Ph.D. in AI Convergence Engineering",
     school: "Gyeongsang National University, South Korea",
     period: "2020 – 2025",
-    note: "Thesis: Advancements in Soccer Analytics — Players' Goals and Salary Prediction Models with Machine Learning",
+    note: "Thesis: Advancements in Soccer Analytics: Players' Goals and Salary Prediction Models with Machine Learning",
   },
   {
     degree: "Master of Informatics",
@@ -32,7 +32,7 @@ const experience = [
     ],
   },
   {
-    role: "Independent Researcher — Sports Analytics",
+    role: "Independent Researcher in Sports Analytics",
     org: "Self-directed Research",
     period: "2020 – 2025",
     bullets: [
@@ -56,7 +56,7 @@ const experience = [
     org: "Big Data Systems Software Lab, Gyeongsang National University",
     period: "2022 – 2025",
     bullets: [
-      "ML for soccer analytics — salary prediction with traditional ML and AutoML, a dual expected/actual-goals model, and injury-type prediction.",
+      "ML for soccer analytics, covering salary prediction with traditional ML and AutoML, a dual expected/actual-goals model, and injury-type prediction.",
       "Published 4 first-author papers in SCIE and international conference proceedings.",
     ],
   },
@@ -103,7 +103,7 @@ const selectedProjects = [
     github: "https://github.com/davronbek-malikov/TACTIQ",
     bullets: [
       "An evidence-first football intelligence platform for coaches, scouts and analysts: answers come with sources and an explicit statement of what the evidence can and cannot support.",
-      "Phase 1 built: a hand-written document indexing pipeline — loading (PDF per page, DOCX, TXT, Markdown), metadata, cleaning, token-based chunking, Sentence-Transformers embeddings and idempotent storage in Qdrant.",
+      "Phase 1 built: a hand-written document indexing pipeline covering loading (PDF per page, DOCX, TXT, Markdown), metadata, cleaning, token-based chunking, Sentence-Transformers embeddings and idempotent storage in Qdrant.",
       "Stable UUID5 IDs so re-ingestion never duplicates; metadata such as match, team and player IDs is never guessed; unit and integration tests for every step.",
       "Planned: hybrid retrieval with RRF and reranking, a SQL analytics engine, an investigation agent, a FastAPI and Next.js app, and video intelligence with YOLO tracking.",
     ],
@@ -116,7 +116,7 @@ const selectedProjects = [
     demo: null,
     github: "https://github.com/davronbek-malikov/touchline",
     bullets: [
-      "A scout describes the player they need in plain words; a Claude agent orchestrated with LangGraph turns the brief into typed tool calls over a DuckDB warehouse of 50,149 players — the model never writes SQL.",
+      "A scout describes the player they need in plain words; a Claude agent orchestrated with LangGraph turns the brief into typed tool calls over a DuckDB warehouse of 50,149 players; the model never writes SQL.",
       "Joined Transfermarkt market data with 297 StatsBomb matches (18 per-90 metrics and percentiles for 594 players), linking 87.5% of players across sources.",
       "Human-in-the-loop shortlist approval via LangGraph interrupt() with persisted checkpoints; cited scouting reports built on Qdrant hybrid search over scout notes and Wikipedia.",
       "120-question golden set in LangSmith with automatic checks for filter accuracy, precision/recall@10, numeric grounding and invented players; 102 automated tests.",
@@ -130,7 +130,7 @@ const selectedProjects = [
     demo: "https://teach-help.vercel.app",
     github: "https://github.com/davronbek-malikov/Post_Training",
     bullets: [
-      "Took a pretrained Qwen2.5 base model through the full post-training pipeline — SFT, DPO, RLHF, deployment — and measured all 14 models on the same 68-question held-out test, working from a written model spec.",
+      "Took a pretrained Qwen2.5 base model through the full post-training pipeline (SFT, DPO, RLHF, deployment) and measured all 14 models on the same 68-question held-out test, working from a written model spec.",
       "SFT took Qwen2.5-1.5B from 15/68 to 44/68 (LoRA vs QLoRA compared under identical settings). DPO implemented from scratch: v1 learned \"shorter is better\" (40/68); v2 fixed it with length-balanced pairs and an SFT loss term (44/68, final model).",
       "Classic RLHF with a reward model and PPO, then RLOO, across four judges (own 0.5B and 1.5B reward models, Skywork-Reward-V2, Gemini as a live judge), with reward-hacking and length-bias checks. RLHF reached 39–41/68: in this setting it was only as good as its judge, and DPO was simpler and better.",
       "Deployed as TeachHelp: a Claude-style chat in English and Uzbek on Vercel, served from a Kaggle GPU over a Cloudflare tunnel (~2–3 s per answer), plus a fully local version with all models.",
@@ -158,7 +158,7 @@ const selectedProjects = [
     demo: null,
     github: "https://github.com/davronbek-malikov/LLM_Model",
     bullets: [
-      "Implemented a decoder-only Transformer from first principles in PyTorch — multi-head causal self-attention, MLP blocks and weight tying — verified with shape, random-init loss, overfit-one-batch and causality tests.",
+      "Implemented a decoder-only Transformer from first principles in PyTorch (multi-head causal self-attention, MLP blocks and weight tying), verified with shape, random-init loss, overfit-one-batch and causality tests.",
       "Built the full pretraining pipeline: cleaning, filtering, exact and MinHash near-duplicate detection, a trained BPE tokenizer and binary token datasets.",
       "Training loop with linear warmup + cosine decay, gradient accumulation and clipping, bf16/fp16 mixed precision and resumable checkpoints; perplexity evaluation and temperature/top-k/top-p sampling.",
     ],
@@ -173,7 +173,7 @@ const selectedProjects = [
     bullets: [
       "Industry-level ML pipeline: Baseline → Improved (RF, XGBoost, LightGBM) → Ensemble (Stacking + Voting).",
       "21 engineered features without data leakage. Optuna Bayesian tuning (60 trials). SHAP global + local explanations.",
-      "Deployed on Render · kept alive 24/7 via UptimeRobot. Linked to SCIE publication — 17% accuracy improvement.",
+      "Deployed on Render · kept alive 24/7 via UptimeRobot. Linked to SCIE publication: 17% accuracy improvement.",
     ],
     stack: ["Python", "XGBoost", "LightGBM", "SHAP", "Optuna", "Gradio", "Render"],
   },
@@ -184,10 +184,10 @@ const selectedProjects = [
     demo: "https://soccer-player-clustering.onrender.com",
     github: "https://github.com/davronbek-malikov/tactical-dna",
     bullets: [
-      "A blind stat line — 25 goals, 15 assists, no name attached — matched to prime Messi's 2019/20 season at 98% similarity.",
-      "Algorithm bake-off (KMeans, Agglomerative, DBSCAN, Gaussian Mixture) over 6,314 qualified player-seasons — scored on Silhouette, Davies-Bouldin & Calinski-Harabasz.",
+      "A blind stat line (25 goals, 15 assists, no name attached) matched to prime Messi's 2019/20 season at 98% similarity.",
+      "Algorithm bake-off (KMeans, Agglomerative, DBSCAN, Gaussian Mixture) over 6,314 qualified player-seasons, scored on Silhouette, Davies-Bouldin & Calinski-Harabasz.",
       "Rule-based archetype naming from cluster centroids: Elite Complete Forward, Clinical Poacher, Deep-Lying Playmaker & more.",
-      "Cosine-similarity engine + interactive Streamlit demo — classify any real or hypothetical player and find their statistical twins.",
+      "Cosine-similarity engine + interactive Streamlit demo: classify any real or hypothetical player and find their statistical twins.",
     ],
     stack: ["Python", "Scikit-learn", "Streamlit", "Plotly", "Render"],
   },
@@ -199,7 +199,7 @@ const selectedProjects = [
     github: null,
     bullets: [
       "Halal Uzbek food platform for South Korea with multi-country OTP auth (+82 KR / +998 UZ).",
-      "RAG system over menu database — AI chatbot answers dish queries with context-aware recommendations.",
+      "RAG system over menu database: the AI chatbot answers dish queries with context-aware recommendations.",
       "Self-improvement loop: user feedback feeds back into the model continuously.",
     ],
     stack: ["Next.js", "RAG", "LLM API", "Vercel"],
@@ -255,7 +255,7 @@ const languages = [
 ];
 
 export const metadata = {
-  title: "About — Davronbek Malikov",
+  title: "About | Davronbek Malikov",
   description: "PhD in AI Engineering. LLM, RAG and Agentic AI Engineer, and ML, Deep Learning and Computer Vision Engineer.",
 };
 
@@ -300,11 +300,11 @@ export default function About() {
               <p className="about-summary">
                 AI engineer with a PhD in AI Engineering, working across the full stack: classical machine
                 learning, deep learning, computer vision and LLM systems. I take models from data to
-                production — data pipelines, feature engineering, training and tuning, explainability,
+                production: data pipelines, feature engineering, training and tuning, explainability,
                 evaluation, deployment and monitoring. On the LLM side I build post-training pipelines (SFT,
                 DPO, RLHF), hybrid RAG and multi-agent systems; on the ML side, from published tabular ML
                 research to a GPT-style Transformer written from scratch in PyTorch. Currently leading the AI
-                team at TripleH — shipping agents for legal research, financial analysis, meeting automation,
+                team at TripleH, shipping agents for legal research, financial analysis, meeting automation,
                 and per-employee AI assistants. 5 first-author publications in SCIE journals and
                 international conferences.
               </p>

@@ -1,4 +1,4 @@
-// Abstract glowing AI motifs — one per project class. Pure inline SVG so they
+// Abstract glowing AI motifs, one per project class. Pure inline SVG so they
 // inherit the card's rarity color via currentColor / the --ra variable.
 // Add a new `case` here when you add a project with a new `motif` keyword.
 

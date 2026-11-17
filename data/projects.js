@@ -1,5 +1,5 @@
 // ============================================================================
-//  PROJECTS DATA  —  single source of truth for the whole portfolio.
+//  PROJECTS DATA: single source of truth for the whole portfolio.
 //  To add a new card (e.g. a Machine Learning Engineering project) just append
 //  a new object to the `projects` array below. Everything renders automatically.
 //
@@ -24,7 +24,7 @@
 export const RARITY_ORDER = ["mythic", "legendary", "epic", "rare", "common"];
 
 // ----------------------------------------------------------------------------
-//  LLM & RAG PROJECTS  —  LLM systems: agents, retrieval, post-training, evaluation.
+//  LLM & RAG PROJECTS: LLM systems: agents, retrieval, post-training, evaluation.
 //  Rendered first on the homepage.
 // ----------------------------------------------------------------------------
 export const llmProjects = [
@@ -34,17 +34,17 @@ export const llmProjects = [
     title: "ERA Academy",
     rarity: "mythic",
     cls: "AI EdTech Platform · Multi-Agent Engine · RAG · pgvector",
-    flavor: "One AI engine, three assistants — student tutor, teacher and admin — and each one only ever sees what its user is allowed to see.",
+    flavor: "One AI engine, three assistants (student tutor, teacher and admin), and each one only ever sees what its user is allowed to see.",
     motif: "learn",
     group: "llm",
     stats: { PWR: 90, SCL: 88, AUT: 82, INT: 90, PLH: 92 },
     abilities: [
       "Full learning platform: course → module → lesson → subskill, progress tracking, goal-based onboarding and an admin CMS",
-      "One shared AI agent engine powers 3 agents — Student Tutor, Teacher Assistant, Admin Assistant — streamed over SSE",
+      "One shared AI agent engine powers 3 agents (Student Tutor, Teacher Assistant, Admin Assistant), streamed over SSE",
       "Provider adapters for Claude (official Anthropic SDK), OpenAI and local Ollama models such as Qwen2.5, with usage and cost limits",
       "RAG knowledge base: PDF, DOCX, TXT, MD → chunking → embeddings (Voyage, OpenAI or Ollama) → pgvector, answers cite sources [S1]…",
       "Permission-aware retrieval: the access rule runs inside the SQL query, so no one retrieves another course's or a teacher's private files",
-      "Prompt-injection defence: documents and selections fenced as data — authorization, not the prompt, is the real control",
+      "Prompt-injection defence: documents and selections fenced as data; authorization, not the prompt, is the real control",
       "\"Ask ERA AI\": select any text in a lesson and get an explanation grounded in that lesson",
       "206 automated tests (authorization, HTTP security, AI engine, RAG) all passing, plus headless-browser UI checks",
     ],
@@ -67,7 +67,7 @@ export const llmProjects = [
     stats: { PWR: 80, SCL: 78, AUT: 72, INT: 86, PLH: 80 },
     abilities: [
       "Evidence-first analysis for coaches, scouts and analysts: answers with sources and a clear statement of what the evidence can't support",
-      "Built: document indexing pipeline — load (PDF per page, DOCX, TXT, MD) → metadata → cleaning → token-based chunking → embeddings → Qdrant",
+      "Built a document indexing pipeline: load (PDF per page, DOCX, TXT, MD) → metadata → cleaning → token-based chunking → embeddings → Qdrant",
       "Stable UUID5 document and chunk IDs: re-ingesting never duplicates, and stale chunks are removed",
       "Metadata is never guessed: match, team and player IDs come only from human-written sidecar files",
       "Sentence-Transformers embeddings (all-MiniLM-L6-v2, L2-normalised), dimension read from real model output and validated",
@@ -84,14 +84,14 @@ export const llmProjects = [
     title: "Touchline",
     rarity: "mythic",
     cls: "AI Scouting Copilot · Agentic RAG · LangGraph · LangSmith",
-    flavor: "Describe the player you need. Get a ranked shortlist and a cited report — the AI never makes a number up.",
+    flavor: "Describe the player you need. Get a ranked shortlist and a cited report. The AI never makes a number up.",
     motif: "pitch",
     group: "llm",
     stats: { PWR: 90, SCL: 84, AUT: 88, INT: 94, PLH: 86 },
     abilities: [
-      "Plain-language scouting briefs → Claude fills typed tool forms; Python builds the query — the model never writes SQL",
+      "Plain-language scouting briefs → Claude fills typed tool forms; Python builds the query, so the model never writes SQL",
       "LangGraph agent with 7 strict tools (search, profile, similar, compare, notes, shortlist) and an 8-round cap",
-      "Human-in-the-loop: pauses with a shortlist via interrupt(), resumes from a checkpoint — even after a restart",
+      "Human-in-the-loop: pauses with a shortlist via interrupt(), resumes from a checkpoint, even after a restart",
       "Cited scouting reports: every style claim links to its source passage (Claude citations over Qdrant hybrid search)",
       "Warehouse of 50,149 players (Transfermarkt) + 297 StatsBomb matches → 18 per-90 metrics for 594 players",
       "120-question golden set in LangSmith: filter accuracy, precision/recall@10, numeric grounding, invented-player check",
@@ -107,7 +107,7 @@ export const llmProjects = [
     title: "TeachHelp",
     rarity: "mythic",
     cls: "Post-Training · SFT · DPO · RLHF (PPO / RLOO) · Uzbek–English",
-    flavor: "From a base model that only continues text to a teaching assistant — SFT, DPO and RLHF, every stage measured on the same 68 questions.",
+    flavor: "From a base model that only continues text to a teaching assistant: SFT, DPO and RLHF, every stage measured on the same 68 questions.",
     motif: "forge",
     group: "llm",
     stats: { PWR: 88, SCL: 68, AUT: 64, INT: 96, PLH: 86 },
@@ -116,7 +116,7 @@ export const llmProjects = [
       "SFT: Qwen2.5-1.5B 15/68 → 44/68; LoRA vs QLoRA under identical settings (4-bit cost only 2 points)",
       "DPO from scratch: v1 learned \"shorter is better\" (40/68); v2 with length-balanced pairs and an SFT term → 44/68, the final model",
       "Classic RLHF (InstructGPT recipe): reward model + PPO, then RLOO, with 4 judges incl. Skywork-Reward-V2 and Gemini as a live judge",
-      "Reward-hacking checks: a rule score the policy never sees and a length-bias gate — RLHF reached 39–41/68, only as good as its judge",
+      "Reward-hacking checks: a rule score the policy never sees and a length-bias gate. RLHF reached 39–41/68, only as good as its judge",
       "Spec-first: MODEL_SPEC.md defines behaviour; DPO v2 refuses all harmful and cheating requests (8/8), \"Bilmayman\" 5/5",
       "TeachHelp: Claude-style chat in English and Uzbek on Vercel, Kaggle GPU backend over a Cloudflare tunnel (~2–3 s per answer)",
     ],
@@ -145,7 +145,7 @@ export const llmProjects = [
       "Explainable match %: skills you have and miss, salary and visa fit; CV parsing from PDF, DOCX and TXT",
       "Mock interviews: 11 rounds (intro … stress … salary … reverse) in Uzbek, Russian, Korean and English, scored on a STAR rubric",
       "30/60/90-day skill-gap roadmap with free official resources; company briefs from Wikipedia + Google News, every line sourced",
-      "Claude, Gemini or Ollama — with deterministic fallbacks; Jaeger tracing across agents, unit tests, end-to-end script and evals",
+      "Claude, Gemini or Ollama with deterministic fallbacks; Jaeger tracing across agents, unit tests, end-to-end script and evals",
     ],
     stack: ["LangGraph", "Kafka", "A2A", "FastAPI", "Postgres + pgvector", "Redis", "Next.js", "Docker", "Jaeger"],
     status: { state: "live", label: "LIVE PREVIEW · BACKEND LOCAL" },
@@ -154,7 +154,7 @@ export const llmProjects = [
 ];
 
 // ----------------------------------------------------------------------------
-//  ML SHOWCASE  —  coming-soon placeholder cards for ML project categories.
+//  ML SHOWCASE: coming-soon placeholder cards for ML project categories.
 //  Each card will link to its own repo once the project is ready.
 // ----------------------------------------------------------------------------
 export const mlProjects = [
@@ -164,7 +164,7 @@ export const mlProjects = [
     title: "LLM from Scratch",
     rarity: "legendary",
     cls: "Deep Learning · Transformer · PyTorch · Pretraining",
-    flavor: "Every layer written by hand — attention, tokenizer, training loop — and made to pass four sanity checks before a single training step.",
+    flavor: "Every layer written by hand (attention, tokenizer, training loop) and made to pass four sanity checks before a single training step.",
     motif: "transformer",
     group: "dl",
     stats: { PWR: 82, SCL: 70, AUT: 60, INT: 92, PLH: 84 },
@@ -187,7 +187,7 @@ export const mlProjects = [
     title: "Soccer Salary Predictor",
     rarity: "epic",
     cls: "Supervised ML · Regression · Sports Analytics",
-    flavor: "Can xG predict a player's salary? Spoiler: yes — with SHAP to prove it.",
+    flavor: "Can xG predict a player's salary? Spoiler: yes, with SHAP to prove it.",
     motif: "ml",
     group: "supervised-ml",
     stats: { PWR: 85, SCL: 78, AUT: 70, INT: 90, PLH: 80 },
@@ -195,11 +195,11 @@ export const mlProjects = [
     abilities: [
       "Zero data leakage: split first, fit preprocessor on train only, no target imputation",
       "Baseline (Linear/Ridge/Lasso/DT) → Improved (RF/XGBoost/LightGBM/GB) → Ensemble (Stacking + Voting)",
-      "21 engineered features: xG/game, efficiency index, contribution index — target never touched",
+      "21 engineered features: xG/game, efficiency index, contribution index, with the target never touched",
       "Optuna Bayesian tuning (60 trials, TPE sampler) on XGBoost",
-      "SHAP global beeswarm + local waterfall — proves which features drive salary",
+      "SHAP global beeswarm + local waterfall show which features drive salary",
       "Live Gradio demo deployed on Render, kept alive 24/7 via UptimeRobot",
-      "Linked to SCIE publication — 17% accuracy improvement over baseline",
+      "Linked to SCIE publication: 17% accuracy improvement over baseline",
     ],
     stack: ["Python", "XGBoost", "LightGBM", "SHAP", "Optuna", "Gradio", "Render", "Scikit-learn"],
     status: { state: "live", label: "LIVE DEMO" },
@@ -214,15 +214,15 @@ export const mlProjects = [
     title: "TacticalDNA",
     rarity: "epic",
     cls: "Unsupervised ML · Clustering · Sports Analytics",
-    flavor: "No name attached, just 25 goals and 15 assists — the model matched it to prime Messi at 98% similarity.",
+    flavor: "No name attached, just 25 goals and 15 assists, and the model matched it to prime Messi at 98% similarity.",
     motif: "ml",
     group: "unsupervised-ml",
     extraStat: { label: "TWIN MATCH", value: 98 },
     stats: { PWR: 82, SCL: 80, AUT: 65, INT: 92, PLH: 82 },
     abilities: [
-      "6,314 qualified player-seasons (≥900 min) across Bundesliga, La Liga, Serie A — zero salary/target leakage",
+      "6,314 qualified player-seasons (≥900 min) across Bundesliga, La Liga, Serie A, with zero salary/target leakage",
       "Algorithm bake-off: KMeans beats Agglomerative, DBSCAN, and Gaussian Mixture on Silhouette, Davies-Bouldin & Calinski-Harabasz",
-      "DBSCAN empirically collapses to one cluster — documented as a real density finding, not hidden",
+      "DBSCAN empirically collapses to one cluster, documented as a real density finding, not hidden",
       "Rule-based archetype naming from centroids: Elite Complete Forward, Clinical Poacher, Deep-Lying Playmaker & more",
       "Cosine-similarity engine finds each player's closest statistical twins within their own archetype",
       "Interactive Streamlit demo: classify any real or hypothetical player, see radar chart + PCA map",
@@ -246,7 +246,7 @@ export const mlProjects = [
     comingSoon: true,
     stats: { PWR: 85, SCL: 70, AUT: 60, INT: 90, PLH: 72 },
     abilities: [
-      "Object detection with YOLO (v8/v11) — real-time inference",
+      "Object detection with YOLO (v8/v11) and real-time inference",
       "Image classification with CNN and transformer architectures",
       "Custom dataset annotation and management via Roboflow",
       "Transfer learning on domain-specific image datasets",
@@ -259,7 +259,7 @@ export const mlProjects = [
 ];
 
 // ----------------------------------------------------------------------------
-//  PRODUCT PROJECTS  —  full-stack AI products shipped solo (not ML/DS work,
+//  PRODUCT PROJECTS: full-stack AI products shipped solo (not ML/DS work,
 //  but live, in-production apps with real AI features built in).
 // ----------------------------------------------------------------------------
 export const productProjects = [
@@ -269,13 +269,13 @@ export const productProjects = [
     title: "Palov",
     rarity: "rare",
     cls: "Full-Stack · RAG · AI Chatbot",
-    flavor: "Halal Uzbek food, in Korean cities — with an AI chatbot that actually knows the menu.",
+    flavor: "Halal Uzbek food in Korean cities, with an AI chatbot that actually knows the menu.",
     motif: "module",
     group: "products",
     stats: { PWR: 70, SCL: 65, AUT: 55, INT: 75, PLH: 82 },
     abilities: [
       "Multi-country phone auth (+82 KR / +998 UZ) with OTP verification and Telegram OAuth",
-      "RAG system over the menu database — chatbot answers dish queries with real-time recommendations",
+      "RAG system over the menu database: the chatbot answers dish queries with real-time recommendations",
       "Self-improvement loop: user feedback and order patterns continuously refine suggestions",
       "Full-stack food ordering platform connecting the Uzbek community in South Korea to halal cuisine",
     ],
@@ -289,13 +289,13 @@ export const productProjects = [
     title: "Hamyon",
     rarity: "rare",
     cls: "Personal Finance · RAG · AI Insights",
-    flavor: "\"Pulingiz nazoratda\" — your money, under an AI's watch, not just a spreadsheet's.",
+    flavor: "\"Pulingiz nazoratda\": your money, under an AI's watch, not just a spreadsheet's.",
     motif: "quant",
     group: "products",
     stats: { PWR: 68, SCL: 62, AUT: 58, INT: 78, PLH: 80 },
     abilities: [
       "Real-time expense tracking, budget monitoring, category-based spending analysis",
-      "RAG-powered AI chatbot over transaction history — natural-language finance queries",
+      "RAG-powered AI chatbot over transaction history for natural-language finance queries",
       "Self-improvement loop: learns from user corrections to refine categorisation & advice",
       "AI-generated budget insights, not just static charts",
     ],
@@ -309,7 +309,7 @@ export const productProjects = [
     title: "Kotib",
     rarity: "epic",
     cls: "AI Agent · Graph RAG · Conversational Memory",
-    flavor: "A secretary that never forgets — and quietly gets better at guessing what you need next.",
+    flavor: "A secretary that never forgets, and quietly gets better at guessing what you need next.",
     motif: "hub",
     group: "products",
     stats: { PWR: 74, SCL: 68, AUT: 72, INT: 82, PLH: 78 },
@@ -326,7 +326,7 @@ export const productProjects = [
 ];
 
 // ----------------------------------------------------------------------------
-//  PUBLICATIONS  —  shown on the homepage and the About page.
+//  PUBLICATIONS: shown on the homepage and the About page.
 // ----------------------------------------------------------------------------
 export const publications = [
   {
@@ -376,7 +376,7 @@ export const profile = {
   title: "PhD in AI Engineering",
   roles: ["LLM Engineer", "RAG Engineer", "Agentic AI Engineer", "ML & Deep Learning Engineer", "Computer Vision"],
   tagline:
-    "AI engineer across the full stack — classical machine learning, deep learning, computer vision and LLM systems. I take models from data to production: pipelines, training, evaluation, deployment and monitoring — from published ML research to multi-agent LLM platforms.",
+    "AI engineer across the full stack: classical machine learning, deep learning, computer vision and LLM systems. I take models from data to production: pipelines, training, evaluation, deployment and monitoring, from published ML research to multi-agent LLM platforms.",
   setName: "LLM · ML · Deep Learning",
   links: {
     email: "mailto:davronbekmalikov96@gmail.com",
