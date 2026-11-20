@@ -256,7 +256,7 @@ const languages = [
 
 export const metadata = {
   title: "About | Davronbek Malikov",
-  description: "PhD in AI Engineering. LLM, RAG and Agentic AI Engineer, and ML, Deep Learning and Computer Vision Engineer.",
+  description: "ML / LLM & RAG Engineer | Ph.D. in AI Convergence Engineering.",
 };
 
 export default function About() {
@@ -285,12 +285,8 @@ export default function About() {
             </Reveal>
             <Reveal delay={80}>
               <div className="about-titles">
-                <span className="role-chip">PhD in AI Engineering</span>
-                <span className="role-chip">LLM Engineer</span>
-                <span className="role-chip">RAG Engineer</span>
-                <span className="role-chip">Agentic AI Engineer</span>
-                <span className="role-chip">ML & Deep Learning Engineer</span>
-                <span className="role-chip">Computer Vision</span>
+                <span className="role-chip">ML / LLM & RAG Engineer</span>
+                <span className="role-chip">Ph.D. in AI Convergence Engineering</span>
               </div>
             </Reveal>
             <Reveal delay={120}>
@@ -454,7 +450,7 @@ export default function About() {
           <div className="container about-cta">
             <Reveal>
               <h2>Open to new opportunities</h2>
-              <p>LLM · RAG · Agentic AI · ML & Deep Learning · Computer Vision</p>
+              <p>ML / LLM & RAG Engineer | Ph.D.</p>
               <div className="hero-actions" style={{ marginTop: 24 }}>
                 <a className="btn btn-primary" href={profile.links.email}>Get in touch</a>
                 <a className="btn btn-ghost" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>

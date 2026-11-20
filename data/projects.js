@@ -373,11 +373,11 @@ export const publications = [
 
 export const profile = {
   name: "Davronbek Malikov",
-  title: "PhD in AI Engineering",
-  roles: ["LLM Engineer", "RAG Engineer", "Agentic AI Engineer", "ML & Deep Learning Engineer", "Computer Vision"],
+  title: "ML / LLM & RAG Engineer",
+  roles: ["ML / LLM & RAG Engineer", "Ph.D. in AI Convergence Engineering"],
   tagline:
     "AI engineer across the full stack: classical machine learning, deep learning, computer vision and LLM systems. I take models from data to production: pipelines, training, evaluation, deployment and monitoring, from published ML research to multi-agent LLM platforms.",
-  setName: "LLM · ML · Deep Learning",
+  setName: "Ph.D.",
   links: {
     email: "mailto:davronbekmalikov96@gmail.com",
     github: "https://github.com/davronbek-malikov",
