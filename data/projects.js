@@ -376,12 +376,12 @@ export const profile = {
   title: "ML / LLM & RAG Engineer",
   roles: ["ML / LLM & RAG Engineer", "Ph.D. in AI Convergence Engineering"],
   tagline:
-    "AI engineer across the full stack: classical machine learning, deep learning, computer vision and LLM systems. I take models from data to production: pipelines, training, evaluation, deployment and monitoring, from published ML research to multi-agent LLM platforms.",
+    "AI Engineer & Team Lead with a Ph.D., building on-premise multi-agent LLM systems for enterprise clients. I post-train open-weight LLMs (SFT, LoRA/QLoRA, DPO, RLHF), quantize them to run on small servers, build hybrid RAG and GraphRAG knowledge systems, and ship end-to-end ML prediction models.",
   setName: "Ph.D.",
   links: {
     email: "mailto:davronbekmalikov96@gmail.com",
     github: "https://github.com/davronbek-malikov",
     linkedin: "https://www.linkedin.com/in/davronbek-malikov",
-    cv: "/Davronbek_Malikov_CV.pdf?v=20261117b", // same file as /cv.pdf (kept for old links); new name avoids stale browser caches
+    cv: "/Davronbek_Malikov_CV.pdf?v=20261120", // same file as /cv.pdf (kept for old links); new name avoids stale browser caches
   },
 };

@@ -294,15 +294,23 @@ export default function About() {
             </Reveal>
             <Reveal delay={160}>
               <p className="about-summary">
-                AI engineer with a PhD in AI Engineering, working across the full stack: classical machine
-                learning, deep learning, computer vision and LLM systems. I take models from data to
-                production: data pipelines, feature engineering, training and tuning, explainability,
-                evaluation, deployment and monitoring. On the LLM side I build post-training pipelines (SFT,
-                DPO, RLHF), hybrid RAG and multi-agent systems; on the ML side, from published tabular ML
-                research to a GPT-style Transformer written from scratch in PyTorch. Currently leading the AI
-                team at TripleH, shipping agents for legal research, financial analysis, meeting automation,
-                and per-employee AI assistants. 5 first-author publications, including 2 in
-                SCIE journals.
+                Ph.D. in AI Convergence Engineering and AI Engineer &amp; Team Lead at TripleH, leading the
+                design and development of on-premise multi-agent AI systems for enterprise clients: system
+                architecture, LLM orchestration, RAG pipelines, agent workflows, and observability with
+                LangGraph, LangSmith and Arize Phoenix.
+              </p>
+              <p className="about-summary">
+                On the LLM side I post-train models with SFT, LoRA, QLoRA, DPO and RLHF on limited GPU,
+                improving a Qwen2.5-1.5B model&apos;s accuracy on a held-out bilingual (Uzbek/English) teaching
+                test from 22% to 65%. I optimize inference with 4-bit quantization (GGUF, AWQ, GPTQ) so models
+                run on small on-premise servers, and build enterprise knowledge systems with hybrid RAG and
+                GraphRAG.
+              </p>
+              <p className="about-summary">
+                On the ML side I build end-to-end prediction models: feature engineering, leakage-safe
+                validation, XGBoost, LightGBM, stacking ensembles, Optuna tuning and SHAP explainability.
+                Author of 5 first-author papers, including 2 in SCIE journals, with published models improving
+                prediction accuracy by up to 17% and deployed as live apps.
               </p>
             </Reveal>
           </div>
