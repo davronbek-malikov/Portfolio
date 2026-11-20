@@ -45,9 +45,10 @@ Seoul, South Korea \\[0.5mm]
 %====================
 \section*{Summary}
 Ph.D. in AI Convergence Engineering and AI Engineer \& Team Lead at TripleH, leading the team that builds on-premise
-multi-agent LLM systems for enterprise clients. Post-trains LLMs with SFT (LoRA, QLoRA), DPO, and RLHF on limited GPU,
-raising a Qwen2.5 model's test accuracy from 22\% to 65\% using only free Kaggle T4 GPUs. Builds RAG pipelines and
-LangGraph agents, monitored with LangSmith in the cloud and Arize Phoenix on-premise.
+multi-agent LLM systems for enterprise clients. Fine-tunes open-weight LLMs with SFT (LoRA, QLoRA) and DPO on limited GPU
+(raising a Qwen2.5 model's test accuracy from 22\% to 65\%), then compresses them with 4-bit quantization (GGUF, AWQ,
+GPTQ) to run on small on-premise servers via vLLM and Ollama. Builds enterprise knowledge systems with hybrid RAG and
+GraphRAG, LangGraph agents, and LangSmith and Arize Phoenix monitoring.
 
 \smallskip
 Builds end-to-end prediction models: feature engineering, leakage-safe validation, XGBoost, LightGBM, and stacking
