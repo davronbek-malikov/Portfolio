@@ -301,8 +301,8 @@ export default function About() {
                 DPO, RLHF), hybrid RAG and multi-agent systems; on the ML side, from published tabular ML
                 research to a GPT-style Transformer written from scratch in PyTorch. Currently leading the AI
                 team at TripleH, shipping agents for legal research, financial analysis, meeting automation,
-                and per-employee AI assistants. 5 first-author publications in SCIE journals and
-                international conferences.
+                and per-employee AI assistants. 5 first-author publications, including 2 in
+                SCIE journals.
               </p>
             </Reveal>
           </div>
