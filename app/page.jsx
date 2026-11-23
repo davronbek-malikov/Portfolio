@@ -53,6 +53,9 @@ export default function Home() {
               ))}
             </div>
           </Reveal>
+          <Reveal delay={140}>
+            <p className="hero-meta">📍 Seoul, South Korea · E-7-1 work visa · in Korea since 2018</p>
+          </Reveal>
           <Reveal delay={160}>
             <p className="hero-tag">{profile.tagline}</p>
           </Reveal>
@@ -75,7 +78,7 @@ export default function Home() {
               <div className="hero-stat"><div className="num">Ph.D.</div><div className="lbl">AI Convergence Engineering</div></div>
               <div className="hero-stat"><div className="num">5</div><div className="lbl">first-author papers (2 SCIE)</div></div>
               <div className="hero-stat"><div className="num">Team Lead</div><div className="lbl">AI engineering at TripleH</div></div>
-              <div className="hero-stat"><div className="num">10+</div><div className="lbl">AI projects shipped</div></div>
+              <div className="hero-stat"><div className="num">{brain.projectCount}</div><div className="lbl">AI projects ({brain.liveCount} live)</div></div>
             </div>
           </Reveal>
         </div>

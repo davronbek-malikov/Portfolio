@@ -51,7 +51,7 @@ export default function About() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <p className="about-location">📍 Seoul, South Korea</p>
+              <p className="about-location">📍 Seoul, South Korea · E-7-1 work visa · in Korea since 2018</p>
             </Reveal>
             <Reveal delay={160}>
               <p className="about-summary">

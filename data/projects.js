@@ -12,7 +12,8 @@
 //    flavor    one-line italic tagline
 //    motif     short keyword that picks the hero illustration ("hub","module",
 //              "quant","twin","law","meeting","forge","enterprise","ml","custom")
-//    stats     { PWR, SCL, AUT, INT, PLH }  each 0–100
+//    metrics   [{ value, label }]  1-2 real results shown on the card
+//    stats     (legacy, no longer shown)
 //    extraStat optional { label, value } shown as a 6th highlighted meter
 //    abilities array of strings (bullet points)
 //    stack     array of tech chips
@@ -46,6 +47,7 @@ export const llmProjects = [
       "Security by design: prompt-injection defense, with authorization handled in code rather than in the prompt",
       "Production quality: 206 automated tests across authorization, security, the AI engine and RAG, all passing",
     ],
+    metrics: [{ value: "206", label: "automated tests passing" }, { value: "3", label: "role-based AI assistants" }],
     deploy: { mode: "Cloud", text: "Next.js on Vercel; PostgreSQL + pgvector and private file storage on Supabase; Claude API, with local Ollama models supported for on-premise use." },
     stack: ["Next.js 15", "TypeScript", "Prisma", "PostgreSQL + pgvector", "Supabase", "Claude API", "Ollama", "Vercel"],
     status: { state: "live", label: "LIVE" },
@@ -71,6 +73,7 @@ export const llmProjects = [
       "Three LLM providers with automatic fallback (local Qwen2.5 via Ollama, Groq, Gemini); an offline mode switches off every cloud call",
       "Connectors for professional football data (StatsBomb, Wyscout, SkillCorner); every pipeline step is tested and built without heavy frameworks",
     ],
+    metrics: [{ value: "3", label: "LLM providers with fallback" }, { value: "0", label: "cloud calls in offline mode" }],
     deploy: { mode: "On-premise", text: "Runs fully on-premise: Qdrant in Docker, local Qwen2.5 via Ollama, FastAPI and Next.js. Cloud LLMs (Groq, Gemini) are optional and switched off in offline mode." },
     stack: ["Python", "Qdrant", "Sentence Transformers", "FastAPI", "Next.js", "Ollama (Qwen2.5)", "Groq", "Gemini", "Docker", "pytest"],
     status: { state: "beta", label: "IN DEVELOPMENT · WORKING PROTOTYPE" },
@@ -93,6 +96,7 @@ export const llmProjects = [
       "Hybrid RAG (dense + BM25) with citations, so every claim in a report links to its source",
       "Data warehouse of 50,149 players and 297 matches; quality measured in LangSmith on a 120-question benchmark (accuracy, precision/recall, grounding, hallucination checks); 102 automated tests",
     ],
+    metrics: [{ value: "50,149", label: "players in the warehouse" }, { value: "120", label: "question evaluation benchmark" }],
     deploy: { mode: "Local", text: "Not deployed yet. FastAPI backend and Next.js frontend with PostgreSQL, DuckDB and Qdrant; Claude API; tracing in LangSmith." },
     stack: ["Claude API", "LangGraph", "LangSmith", "Qdrant", "DuckDB", "FastAPI", "Next.js", "Postgres"],
     status: { state: "beta", label: "IN DEVELOPMENT" },
@@ -115,6 +119,7 @@ export const llmProjects = [
       "RLHF with reward models (PPO, RLOO) and multiple judges, with reward-hacking safeguards; 14 model versions compared on one benchmark",
       "Shipped as a live chat app in English and Uzbek, answering in about 2 to 3 seconds",
     ],
+    metrics: [{ value: "22% → 65%", label: "held-out accuracy" }, { value: "14", label: "model versions benchmarked" }],
     deploy: { mode: "Hybrid", text: "Chat UI on Vercel; the model is served by a FastAPI backend on a Kaggle T4 GPU, exposed through a Cloudflare tunnel and started on demand." },
     stack: ["Python", "PyTorch", "Transformers", "PEFT", "LoRA/QLoRA", "DPO", "PPO / RLOO", "Kaggle", "FastAPI", "Vercel"],
     status: { state: "live", label: "LIVE · GPU BACKEND ON DEMAND" },
@@ -140,10 +145,11 @@ export const llmProjects = [
       "Job pipeline from 4 sources with salary normalization, de-duplication and scam filtering; explainable match scores with pgvector",
       "Mock interviews in 4 languages scored on the STAR method, 30/60/90-day learning roadmaps, and distributed tracing with Jaeger; works with Claude, Gemini or local Ollama models",
     ],
+    metrics: [{ value: "11", label: "specialized agents" }, { value: "4", label: "interview languages" }],
     deploy: { mode: "Hybrid", text: "Next.js frontend on Vercel (live preview); FastAPI agents, Kafka, PostgreSQL + pgvector, Redis and Jaeger run locally in Docker." },
     stack: ["LangGraph", "Kafka", "A2A", "FastAPI", "Postgres + pgvector", "Redis", "Next.js", "Docker", "Jaeger"],
-    status: { state: "live", label: "LIVE PREVIEW · BACKEND LOCAL" },
-    links: { demo: "https://portiq-gamma.vercel.app" },
+    status: { state: "beta", label: "UI PREVIEW · BACKEND RUNS LOCALLY" },
+    links: { demo: "https://portiq-gamma.vercel.app", demoLabel: "UI preview" },
   },
 ];
 
@@ -168,6 +174,7 @@ export const mlProjects = [
       "Efficient training on limited GPUs: mixed precision, gradient accumulation, learning-rate scheduling and resumable checkpoints",
       "Engineering discipline: the model passes sanity checks before any training run, and is evaluated by perplexity",
     ],
+    metrics: [{ value: "GPT-style", label: "model built from scratch" }, { value: "BPE", label: "own tokenizer and data pipeline" }],
     deploy: { mode: "Training", text: "Trained on Kaggle and Colab GPUs with resumable checkpoints; not deployed (pretraining in progress)." },
     stack: ["Python", "PyTorch", "Transformers (from scratch)", "BPE Tokenizer", "Hugging Face Datasets", "Kaggle / Colab GPU"],
     status: { state: "rnd", label: "PRETRAINING IN PROGRESS" },
@@ -190,6 +197,7 @@ export const mlProjects = [
       "Hyperparameter optimization with Optuna; SHAP explains which factors drive each prediction",
       "Delivered as a live web app that anyone can try",
     ],
+    metrics: [{ value: "+17%", label: "accuracy, published (SCIE)" }, { value: "21", label: "engineered features" }],
     deploy: { mode: "Cloud", text: "Gradio app on Render, monitored 24/7 with UptimeRobot." },
     stack: ["Python", "XGBoost", "LightGBM", "SHAP", "Optuna", "Gradio", "Render", "Scikit-learn"],
     status: { state: "live", label: "LIVE DEMO" },
@@ -215,6 +223,7 @@ export const mlProjects = [
       "Similarity search finds each player's closest statistical twins: a blind stat line matched prime Messi at 98%",
       "Interactive app: classify any real or hypothetical player and explore radar charts and a PCA map",
     ],
+    metrics: [{ value: "6,314", label: "player-seasons clustered" }, { value: "98%", label: "match to prime Messi" }],
     deploy: { mode: "Cloud", text: "Streamlit app on Render, monitored with UptimeRobot." },
     stack: ["Python", "Scikit-learn", "Streamlit", "Plotly", "Render", "UptimeRobot"],
     status: { state: "live", label: "LIVE DEMO" },
@@ -239,6 +248,7 @@ export const mlProjects = [
       "Image classification with CNN and Transformer models, using transfer learning",
       "Dataset labeling and management with Roboflow",
     ],
+    metrics: [{ value: "YOLO", label: "object detection" }, { value: "Real-time", label: "video inference" }],
     deploy: { mode: "Planned", text: "Coming soon." },
     stack: ["Python", "YOLO", "PyTorch", "Roboflow", "OpenCV"],
     status: { state: "rnd", label: "COMING SOON" },
@@ -267,6 +277,7 @@ export const productProjects = [
       "Phone sign-in for Korea and Uzbekistan with OTP verification, plus Telegram login",
       "Recommendations improve from user feedback and order history",
     ],
+    metrics: [{ value: "RAG", label: "AI menu assistant" }, { value: "KR · UZ", label: "phone sign-in" }],
     deploy: { mode: "Cloud", text: "Next.js on Vercel with a hosted LLM API." },
     stack: ["Next.js", "RAG", "LLM API", "Vercel"],
     status: { state: "live", label: "LIVE" },
@@ -287,6 +298,7 @@ export const productProjects = [
       "AI assistant answers questions about the user's own transactions in plain language (RAG)",
       "AI-generated budget insights that learn from user corrections",
     ],
+    metrics: [{ value: "RAG", label: "finance assistant" }, { value: "AI", label: "budget insights" }],
     deploy: { mode: "Cloud", text: "Next.js on Vercel with a Supabase database and a hosted LLM API." },
     stack: ["Next.js", "Supabase", "RAG", "LLM API", "Vercel"],
     status: { state: "live", label: "LIVE" },
@@ -308,6 +320,7 @@ export const productProjects = [
       "GraphRAG over the user's personal knowledge base, with long-term memory across sessions",
       "Proactive suggestions that adapt to which tasks get done or missed",
     ],
+    metrics: [{ value: "GraphRAG", label: "personal knowledge base" }, { value: "Memory", label: "across sessions" }],
     deploy: { mode: "Cloud", text: "Next.js on Vercel with a hosted LLM API." },
     stack: ["Next.js", "Graph RAG", "LLM API", "Vercel"],
     status: { state: "live", label: "LIVE" },

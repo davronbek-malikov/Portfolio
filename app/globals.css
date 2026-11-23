@@ -1062,3 +1062,23 @@ a.pub-title:hover { text-decoration: underline; text-underline-offset: 3px; }
 .ap-summary { font-size: 15.5px; }
 .ap-deploy { font-size: 14px; }
 .footer-note { font-size: 13px; }
+
+/* --------------------------------------------------------- CARD METRICS (replace the old stat bars) */
+.card-metrics {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 6px 0 14px;
+}
+.metric {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.metric-value { display: block; font-family: var(--mono); font-size: 20px; font-weight: 700; color: var(--ra); letter-spacing: -0.02em; line-height: 1.2; }
+.metric-label { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; line-height: 1.35; }
+.card-num { text-transform: uppercase; }
+.hero-meta { font-family: var(--mono); font-size: 14px; color: var(--muted); margin: -10px 0 22px; }

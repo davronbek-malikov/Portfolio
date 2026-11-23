@@ -2,14 +2,16 @@
 
 import { useRef } from "react";
 import Motif from "./Motif";
-import { RARITY, rarityVars } from "./rarity";
+import { rarityVars } from "./rarity";
 
-const STAT_LABELS = {
-  PWR: "Power / impact",
-  SCL: "Scale / reach",
-  AUT: "Autonomy",
-  INT: "AI intelligence",
-  PLH: "Polish / production",
+// Short category shown at the top of each card.
+const CATEGORY = {
+  llm: "LLM system",
+  dl: "Deep learning",
+  "supervised-ml": "Machine learning",
+  "unsupervised-ml": "Machine learning",
+  cv: "Computer vision",
+  products: "AI product",
 };
 
 function hostOf(url) {
@@ -18,7 +20,6 @@ function hostOf(url) {
 
 export default function Card({ project }) {
   const ref = useRef(null);
-  const rar = RARITY[project.rarity] || RARITY.common;
 
   function onMove(e) {
     const el = ref.current;
@@ -56,8 +57,7 @@ export default function Card({ project }) {
         <div className="card-foil" />
         <div className="card-inner">
           <div className="card-top">
-            <span className="card-num">CARD {project.n}</span>
-            <span className="gem"><span className="g-dot" />{rar.label}</span>
+            <span className="card-num">{CATEGORY[project.group] || "Project"}</span>
           </div>
 
           <h3 className="card-title">{project.title}</h3>
@@ -68,22 +68,16 @@ export default function Card({ project }) {
             <Motif kind={project.motif} />
           </div>
 
-          <div className="stats">
-            {Object.entries(project.stats).map(([k, v]) => (
-              <div className="stat-row" key={k} title={STAT_LABELS[k]}>
-                <span className="stat-key">{k}</span>
-                <span className="meter"><span style={{ width: `${v}%` }} /></span>
-                <span className="stat-val">{v}</span>
-              </div>
-            ))}
-            {project.extraStat && (
-              <div className="stat-row stat-extra" key="extra">
-                <span className="stat-key">{project.extraStat.label.slice(0, 4)}</span>
-                <span className="meter"><span style={{ width: `${project.extraStat.value}%` }} /></span>
-                <span className="stat-val">{project.extraStat.value}</span>
-              </div>
-            )}
-          </div>
+          {project.metrics?.length > 0 && (
+            <div className="card-metrics">
+              {project.metrics.map((m) => (
+                <div className="metric" key={m.label}>
+                  <span className="metric-value">{m.value}</span>
+                  <span className="metric-label">{m.label}</span>
+                </div>
+              ))}
+            </div>
+          )}
 
           <ul className="abilities">
             {project.abilities.map((a, i) => (
@@ -111,7 +105,7 @@ export default function Card({ project }) {
               </span>
               <div className="card-links">
                 {project.links?.demo && (
-                  <a className="card-link solid" href={project.links.demo} target="_blank" rel="noreferrer">Live ↗</a>
+                  <a className="card-link solid" href={project.links.demo} target="_blank" rel="noreferrer">{project.links.demoLabel || "Live"} ↗</a>
                 )}
                 {project.links?.github && (
                   <a className="card-link" href={project.links.github} target="_blank" rel="noreferrer">Code ↗</a>
