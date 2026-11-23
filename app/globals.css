@@ -1010,3 +1010,55 @@ a.pub-title:hover { text-decoration: underline; text-underline-offset: 3px; }
 .ap-links a { border-bottom: 1px solid var(--line-strong); }
 .ap-links a:hover { border-color: var(--text); }
 .ap-more { margin-top: 20px; }
+
+/* =====================================================================
+   TYPOGRAPHY PASS: larger, higher-contrast text across the site.
+   Kept at the end so it wins over the earlier, smaller defaults.
+   ===================================================================== */
+:root {
+  --muted: #4b5563;  /* body grey: was #6b7280, now ~7.5:1 contrast on white */
+  --faint: #6b7280;  /* small labels: was #9ca3af, which failed WCAG contrast */
+}
+
+/* Header */
+.nav-inner { height: 72px; }
+.brand { font-size: 18px; }
+.brand .dot { width: 10px; height: 10px; }
+.nav-links { font-size: 15.5px; gap: 28px; font-weight: 500; }
+.nav-cta { font-size: 13.5px; padding: 9px 16px; }
+
+/* Hero */
+.hero-eyebrow { font-size: 14.5px; }
+.role-chip { font-size: 13.5px; padding: 7px 14px; }
+.hero-tag { font-size: clamp(17px, 2.2vw, 20px); line-height: 1.6; }
+.btn { font-size: 14.5px; padding: 13px 20px; }
+.hero-stat .lbl { font-size: 14.5px; }
+
+/* Section headings */
+.showcase-eyebrow { font-size: 14.5px; }
+.showcase-title { font-size: clamp(28px, 3.8vw, 42px); }
+.showcase-sub { font-size: 18px; }
+
+/* Project cards */
+.card-cls { font-size: 13.5px; }
+.card-flavor { font-size: 15.5px; }
+.abilities li { font-size: 15px; line-height: 1.5; }
+.card-deploy { font-size: 14px; }
+.deploy-mode { font-size: 12px; }
+.chip { font-size: 12.5px; }
+.stat-key { font-size: 12.5px; }
+
+/* Skills, chat, timeline, publications */
+.sk-head { font-size: 17px; }
+.sk-items li { font-size: 13px; }
+.bm-text, .bm-evidence span { font-size: 15px; }
+.ask-msg { font-size: 16px; }
+.ask-chip { font-size: 13px; }
+.ask-note { font-size: 13.5px; }
+.home-tl .tl-text { font-size: 16.5px; }
+.tl-bullets li { font-size: 16px; }
+.pub-title { font-size: 17px; }
+.tool-cat { font-size: 12.5px; }
+.ap-summary { font-size: 15.5px; }
+.ap-deploy { font-size: 14px; }
+.footer-note { font-size: 13px; }
