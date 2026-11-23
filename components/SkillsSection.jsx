@@ -44,7 +44,7 @@ export default function SkillsSection({ groups, brain }) {
       <div className="sk-brain">
         <div className="sk-brain-head">
           <span className="sk-brain-title">Explore my brain</span>
-          <span className="sk-brain-sub">Click a skill to see where I used it</span>
+          <span className="sk-brain-sub">Select a skill to see the projects behind it</span>
         </div>
         <BrainMap brain={brain} active={active} onSelect={setActive} />
       </div>

@@ -20,7 +20,7 @@ function curve(a, b) {
 
 // `active` / `onSelect` are optional: pass them to control the selection from a parent.
 export default function BrainMap({ brain, initial = null, active: activeProp, onSelect }) {
-  const { regions, nodes, synapses, hemispheres, width, height, projectCount } = brain;
+  const { regions, nodes, synapses, hemispheres, width, height, projectCount, liveCount, paperCount, scieCount } = brain;
   const [inner, setInner] = useState(initial); // { type: "skill" | "region", id }
   const controlled = activeProp !== undefined;
   const active = controlled ? activeProp : inner;
@@ -217,15 +217,15 @@ export default function BrainMap({ brain, initial = null, active: activeProp, on
             </>
           ) : (
             <>
-              <h3 className="bm-title">Click any skill</h3>
+              <h3 className="bm-title">Select a skill</h3>
               <p className="bm-text">
-                Each dot is a skill, grouped into brain regions. Lines between regions are synapses: two skills I used
-                together in the same project. Pick a skill to see where I used it.
+                Skills are grouped by area. Lines connect skills used together in the same project. Select any skill
+                to see the projects and work behind it.
               </p>
               <div className="bm-stats">
-                <div><b>{nodes.length}</b><span>skills</span></div>
-                <div><b>{regions.length}</b><span>regions</span></div>
                 <div><b>{projectCount}</b><span>projects</span></div>
+                <div><b>{liveCount}</b><span>live apps</span></div>
+                <div><b>{paperCount}</b><span>papers ({scieCount} SCIE)</span></div>
               </div>
             </>
           )}
