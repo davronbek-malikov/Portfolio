@@ -35,17 +35,7 @@ export const experience = [
     ],
   },
   {
-    role: "Independent Researcher in Sports Analytics",
-    org: "Self-directed Research",
-    period: "2020 – 2025",
-    bullets: [
-      "Research on machine learning, deep learning and LLMs applied to soccer analytics.",
-      "Models for performance evaluation, salary prediction, and tactical analysis.",
-      "Preparing submissions to SCIE and AI-focused journals.",
-    ],
-  },
-  {
-    role: "Independent AI Educator",
+    role: "AI Educator (part-time)",
     org: "Online & Private Instruction",
     period: "2020 – 2025",
     bullets: [
@@ -98,7 +88,7 @@ export const timeline = [
     text: "Machine learning for soccer analytics (salary, performance and injury prediction) and mathematics for distributed systems. 5 first-author papers, including 2 in SCIE journals.",
   },
   {
-    role: "AI Educator",
+    role: "AI Educator (part-time)",
     org: "Online, Uzbek-speaking students",
     period: "2020 – 2025",
     text: "Taught machine learning, deep learning, computer vision and LLM courses; mentored students through end-to-end AI projects.",
