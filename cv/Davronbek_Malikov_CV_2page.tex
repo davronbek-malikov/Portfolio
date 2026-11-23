@@ -127,6 +127,13 @@ Systems Lab (2018--2021): mathematics for distributed systems. 5 first-author pa
     \item \textit{Deployment:} not yet public; FastAPI and Next.js with PostgreSQL, DuckDB, and Qdrant.
 \end{itemize}
 
+\textbf{TACTIQ}: evidence-first football intelligence (RAG, Qdrant, on-premise LLMs) \hfill \href{https://github.com/davronbek-malikov/TACTIQ}{[GitHub]}
+\begin{itemize}
+    \item End-to-end RAG application for coaches, scouts, and analysts: document indexing into Qdrant, retrieval and generation with clickable source citations, and a FastAPI + Next.js investigation UI that indexes uploads automatically.
+    \item Three LLM providers with automatic fallback (local Qwen2.5 via Ollama, Groq, Gemini), an LLM-only vs RAG comparison mode, and connectors for StatsBomb, Wyscout, and SkillCorner data.
+    \item \textit{Deployment:} fully on-premise (Qdrant in Docker, local LLM); an offline mode switches off every cloud call.
+\end{itemize}
+
 \textbf{TeachHelp}: LLM post-training into an Uzbek/English teaching assistant \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]} $\cdot$ \href{https://teach-help.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
     \item End-to-end post-training of Qwen2.5-1.5B with SFT, DPO, and RLHF on free GPUs: accuracy on a held-out test rose from 22\% to 65\%, and 4-bit QLoRA came within 2 points of LoRA.
@@ -162,7 +169,7 @@ Systems Lab (2018--2021): mathematics for distributed systems. 5 first-author pa
     \item Similarity search finds each player's closest statistical twins (a blind stat line matched prime Messi at 98\%). \textit{Deployment:} Streamlit app on Render.
 \end{itemize}
 
-\textit{More on the portfolio: TACTIQ (evidence-first football RAG), Palov, Hamyon, and Kotib, at
+\textit{More on the portfolio: Palov, Hamyon, and Kotib, at
 \href{https://davronbek-portfolio.vercel.app}{davronbek-portfolio.vercel.app}.}
 
 %====================

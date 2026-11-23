@@ -47,7 +47,7 @@ export const skills = [
   { id: "rlhf", region: "post", short: "RLHF", name: "RLHF with reward models, PPO and RLOO", uses: ["llm-engineering"] },
   { id: "quant", region: "post", short: "Quantization", name: "4-bit quantization (GGUF, AWQ, GPTQ) for edge devices and small servers", uses: ["work"] },
   { id: "vllm", region: "post", short: "vLLM", name: "vLLM inference serving", uses: ["work"] },
-  { id: "ollama", region: "post", short: "Ollama", name: "Ollama and llama.cpp for local open-weight models", uses: ["era-academy", "work"] },
+  { id: "ollama", region: "post", short: "Ollama", name: "Ollama and llama.cpp for local open-weight models", uses: ["era-academy", "work", "tactiq"] },
 
   // Agents
   { id: "langgraph", region: "agents", short: "LangGraph", name: "LangGraph agent orchestration", uses: ["touchline", "portiq", "work"] },
@@ -102,10 +102,10 @@ export const skills = [
 
   // Backend and data
   { id: "python", region: "backend", short: "Python", name: "Python", uses: ["supervised-ml", "llm-engineering", "touchline", "tactiq", "work"] },
-  { id: "fastapi", region: "backend", short: "FastAPI", name: "FastAPI services", uses: ["touchline", "portiq", "llm-engineering"] },
+  { id: "fastapi", region: "backend", short: "FastAPI", name: "FastAPI services", uses: ["touchline", "portiq", "llm-engineering", "tactiq"] },
   { id: "sql", region: "backend", short: "SQL", name: "SQL (PostgreSQL, DuckDB)", uses: ["era-academy", "touchline"] },
   { id: "postgres", region: "backend", short: "PostgreSQL", name: "PostgreSQL (Prisma, Supabase)", uses: ["era-academy", "touchline", "portiq", "hamyon"] },
   { id: "redis", region: "backend", short: "Redis", name: "Redis", uses: ["portiq"] },
   { id: "kafka", region: "backend", short: "Kafka", name: "Apache Kafka (event-driven agents)", uses: ["portiq"] },
-  { id: "nextjs", region: "backend", short: "Next.js", name: "Next.js full-stack apps", uses: ["era-academy", "touchline", "portiq", "palov", "hamyon", "kotib"] },
+  { id: "nextjs", region: "backend", short: "Next.js", name: "Next.js full-stack apps", uses: ["era-academy", "touchline", "portiq", "palov", "hamyon", "kotib", "tactiq"] },
 ];
