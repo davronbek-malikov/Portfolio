@@ -344,7 +344,7 @@ export const publications = [
     title: "Beyond xG: A Dual Prediction Model for Analyzing Player Performance Through Expected and Actual Goals in European Soccer Leagues",
     venue: "SCIE Journal · Applied Sciences",
     year: "2024",
-    highlight: "12% improvement on player performance prediction",
+    highlight: "Up to 12% better performance with constructed features",
     role: "First author",
     link: "https://doi.org/10.3390/app142210390",
   },
