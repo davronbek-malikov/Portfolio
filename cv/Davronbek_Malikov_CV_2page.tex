@@ -113,61 +113,57 @@ Systems Lab (2018--2021): mathematics for distributed systems. 5 first-author pa
 
 \group{LLM \& Agentic Systems}
 
-\textbf{ERA Academy}: AI EdTech platform, multi-agent engine, permission-aware RAG \hfill \href{https://github.com/malikov-davronbek/ERA/tree/phase-1-foundation}{[GitHub]} $\cdot$ \href{https://era-academy.vercel.app}{\textbf{[Live]}}
+\textbf{ERA Academy}: multi-agent EdTech platform with permission-aware RAG \hfill \href{https://github.com/malikov-davronbek/ERA/tree/phase-1-foundation}{[GitHub]} $\cdot$ \href{https://era-academy.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
-    \item One provider-agnostic agent engine behind three role-scoped assistants (tutor, teacher, admin): Claude, OpenAI, and
-local Ollama adapters, SSE streaming, usage tracking, and cost and rate limits.
-    \item RAG over uploaded course files with pgvector; access rules enforced inside the retrieval SQL query, cited answers,
-prompt-injection defense; 206 automated tests, all passing.
+    \item Multi-role learning platform where one provider-agnostic agent engine serves three assistants (tutor, teacher, admin) across Claude, OpenAI, and local open-weight models, with streaming, usage tracking, and cost limits.
+    \item Permission-aware RAG over course documents: access control enforced in the database query, every answer cites its sources, prompt-injection defense; 206 automated tests, all passing.
+    \item \textit{Deployment:} Next.js on Vercel; PostgreSQL + pgvector and file storage on Supabase.
 \end{itemize}
 
-\textbf{Touchline}: AI scouting copilot (Claude, LangGraph, hybrid RAG, LangSmith) \hfill \href{https://github.com/davronbek-malikov/touchline}{[GitHub]}
+\textbf{Touchline}: AI scouting copilot (LangGraph, hybrid RAG, LangSmith) \hfill \href{https://github.com/davronbek-malikov/touchline}{[GitHub]}
 \begin{itemize}
-    \item Claude agent on LangGraph over 7 schema-validated tools with human-in-the-loop shortlist approval; hybrid RAG
-(dense + BM25, RRF) in Qdrant with cited reports; DuckDB warehouse of 50,149 players plus StatsBomb event data.
-    \item Every run traced in LangSmith; 120-question golden set run as experiments (filter accuracy, precision/recall@10,
-numeric grounding, invented-player detection); 102 automated tests.
+    \item A scout describes the player they need in plain language and gets a ranked shortlist and a cited report; LangGraph agent with validated tool calling and human-in-the-loop approval, so the model never invents numbers.
+    \item Hybrid RAG (dense + BM25) over a warehouse of 50,149 players; quality tracked in LangSmith on a 120-question benchmark (accuracy, precision/recall, grounding, hallucination checks); 102 automated tests.
+    \item \textit{Deployment:} not yet public; FastAPI and Next.js with PostgreSQL, DuckDB, and Qdrant.
 \end{itemize}
 
-\textbf{TeachHelp}: Post-training an LLM into an Uzbek and English teaching assistant \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]} $\cdot$ \href{https://teach-help.vercel.app}{\textbf{[Live]}}
+\textbf{TeachHelp}: LLM post-training into an Uzbek/English teaching assistant \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]} $\cdot$ \href{https://teach-help.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
-    \item Qwen2.5 through SFT $\rightarrow$ DPO $\rightarrow$ RLHF, 14 models on one 68-question held-out test: SFT raised
-Qwen2.5-1.5B from 15/68 to 44/68; DPO from scratch, with v1's length bias diagnosed and fixed in v2 (44/68, refusals 8/8).
-    \item RLHF with Bradley-Terry reward models and PPO/RLOO across 4 judges, with reward-hacking checks.
+    \item End-to-end post-training of Qwen2.5-1.5B with SFT, DPO, and RLHF on free GPUs: accuracy on a held-out test rose from 22\% to 65\%, and 4-bit QLoRA came within 2 points of LoRA.
+    \item Found and fixed a length bias in DPO (implemented from scratch); the final model refuses all harmful requests (8/8); RLHF with reward models (PPO, RLOO) and reward-hacking checks; 14 model versions benchmarked.
+    \item \textit{Deployment:} chat UI on Vercel; model served by FastAPI on a Kaggle T4 GPU through a Cloudflare tunnel.
 \end{itemize}
 
-\textbf{Portiq}: Multi-agent job hub (LangGraph, Kafka, A2A, pgvector) \hfill \href{https://portiq-gamma.vercel.app}{\textbf{[Live]}}
+\textbf{Portiq}: multi-agent career platform (LangGraph, Kafka, A2A, pgvector) \hfill \href{https://portiq-gamma.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
-    \item LangGraph orchestrator routes 11 agents over Kafka and A2A, with a Judge agent, pgvector job matching, and
-OpenTelemetry and Jaeger tracing.
+    \item 11 specialized agents find jobs, explain skill gaps, and run mock interviews; an event-driven LangGraph orchestrator routes work over Kafka and A2A, and a judge agent reviews every output before users see it.
+    \item Job pipeline from 4 sources with salary normalization, de-duplication, and scam filtering; explainable matching with pgvector; distributed tracing with OpenTelemetry and Jaeger.
+    \item \textit{Deployment:} frontend on Vercel (live preview); agents, Kafka, PostgreSQL, and Redis in Docker.
 \end{itemize}
 
 \group{Machine Learning \& Deep Learning}
 
 \textbf{LLM from Scratch}: GPT-style Transformer in PyTorch \textit{(pretraining in progress)} \hfill \href{https://github.com/davronbek-malikov/LLM_Model}{[GitHub]}
 \begin{itemize}
-    \item Implemented a decoder-only Transformer from first principles: multi-head causal self-attention, MLP blocks, weight
-tying; verified with shape, initial-loss, overfit-one-batch, and causality tests.
-    \item Full pretraining pipeline: cleaning, filtering, exact and MinHash near-duplicate detection, BPE tokenizer, binary
-token datasets; warmup + cosine LR, gradient accumulation and clipping, bf16/fp16 mixed precision, resumable checkpoints;
-perplexity evaluation and temperature/top-k/top-p sampling.
+    \item Language model built from first principles in PyTorch (attention, tokenizer, training loop) with a production-style data pipeline: cleaning, MinHash deduplication, and a custom BPE tokenizer.
+    \item Efficient training on limited GPUs: mixed precision, gradient accumulation, learning-rate scheduling, and resumable checkpoints; evaluated by perplexity. \textit{Training:} Kaggle and Colab GPUs.
 \end{itemize}
 
-\textbf{Soccer Player Salary Predictor}: end-to-end supervised ML \hfill \href{https://github.com/davronbek-malikov/soccer-xG-salary_prediction}{[GitHub]} $\cdot$ \href{https://soccer-xg-salary-prediction.onrender.com}{\textbf{[Live]}}
+\textbf{Soccer Player Salary Predictor}: end-to-end supervised ML (SCIE 2025) \hfill \href{https://github.com/davronbek-malikov/soccer-xG-salary_prediction}{[GitHub]} $\cdot$ \href{https://soccer-xg-salary-prediction.onrender.com}{\textbf{[Live]}}
 \begin{itemize}
-    \item Leakage-safe pipeline on 8 seasons of Bundesliga, La Liga, and Serie A data: 21 engineered features, baseline
-$\rightarrow$ gradient boosting (XGBoost, LightGBM) $\rightarrow$ stacking and voting ensembles, Optuna Bayesian tuning.
-    \item SHAP global and local explanations; Gradio demo on Render with uptime monitoring; 17\% accuracy gain (SCIE 2025).
+    \item Predicts player salaries from performance data to support contract and recruitment decisions; published in an SCIE journal with a 17\% accuracy improvement over the baseline.
+    \item Leakage-safe pipeline with 21 engineered features: linear baselines $\rightarrow$ XGBoost/LightGBM $\rightarrow$ stacking and voting ensembles, Optuna tuning, SHAP explanations.
+    \item \textit{Deployment:} Gradio app on Render, monitored with UptimeRobot.
 \end{itemize}
 
 \textbf{TacticalDNA}: unsupervised player-archetype discovery \hfill \href{https://github.com/davronbek-malikov/tactical-dna}{[GitHub]} $\cdot$ \href{https://soccer-player-clustering.onrender.com}{\textbf{[Live]}}
 \begin{itemize}
-    \item Clustered 6,314 player-seasons on per-90 features; KMeans, Agglomerative, DBSCAN, and Gaussian Mixture compared on
-Silhouette, Davies-Bouldin, and Calinski-Harabasz; a blind stat line matched prime Messi at 98\% cosine similarity.
+    \item Discovers player archetypes from 6,314 player-seasons across three European leagues to help scouts find comparable players; four clustering algorithms compared on three validation metrics.
+    \item Similarity search finds each player's closest statistical twins (a blind stat line matched prime Messi at 98\%). \textit{Deployment:} Streamlit app on Render.
 \end{itemize}
 
-\textit{More on the portfolio: TACTIQ (evidence-first football RAG, in development), and RAG-powered apps Palov, Hamyon,
-and Kotib, at \href{https://davronbek-portfolio.vercel.app}{davronbek-portfolio.vercel.app}.}
+\textit{More on the portfolio: TACTIQ (evidence-first football RAG), Palov, Hamyon, and Kotib, at
+\href{https://davronbek-portfolio.vercel.app}{davronbek-portfolio.vercel.app}.}
 
 %====================
 \section*{Publications (first author)}
