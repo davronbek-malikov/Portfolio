@@ -3,23 +3,15 @@
 import { useRef } from "react";
 import Motif from "./Motif";
 import { rarityVars } from "./rarity";
-
-// Short category shown at the top of each card.
-const CATEGORY = {
-  llm: "LLM system",
-  dl: "Deep learning",
-  "supervised-ml": "Machine learning",
-  "unsupervised-ml": "Machine learning",
-  cv: "Computer vision",
-  products: "AI product",
-};
+import { ui } from "../data/i18n";
 
 function hostOf(url) {
   try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return "link"; }
 }
 
-export default function Card({ project }) {
+export default function Card({ project, lang = "en" }) {
   const ref = useRef(null);
+  const L = ui[lang].card;
 
   function onMove(e) {
     const el = ref.current;
@@ -50,14 +42,14 @@ export default function Card({ project }) {
       >
         {project.comingSoon && (
           <div className="card-soon-overlay">
-            <span className="card-soon-label">Coming Soon</span>
-            <span className="card-soon-sub">Repository in progress</span>
+            <span className="card-soon-label">{L.soon}</span>
+            <span className="card-soon-sub">{L.soonSub}</span>
           </div>
         )}
         <div className="card-foil" />
         <div className="card-inner">
           <div className="card-top">
-            <span className="card-num">{CATEGORY[project.group] || "Project"}</span>
+            <span className="card-num">{L.category[project.group] || "Project"}</span>
           </div>
 
           <h3 className="card-title">{project.title}</h3>
@@ -87,7 +79,7 @@ export default function Card({ project }) {
 
           {project.deploy && (
             <div className="card-deploy">
-              <span className="deploy-mode">Deployment · {project.deploy.mode}</span>
+              <span className="deploy-mode">{L.deployment} · {L.mode[project.deploy.mode] || project.deploy.mode}</span>
               <span className="deploy-text">{project.deploy.text}</span>
             </div>
           )}
@@ -105,10 +97,10 @@ export default function Card({ project }) {
               </span>
               <div className="card-links">
                 {project.links?.demo && (
-                  <a className="card-link solid" href={project.links.demo} target="_blank" rel="noreferrer">{project.links.demoLabel || "Live"} ↗</a>
+                  <a className="card-link solid" href={project.links.demo} target="_blank" rel="noreferrer">{(project.links.demoLabel && (L.demoLabel[project.links.demoLabel] || project.links.demoLabel)) || L.live} ↗</a>
                 )}
                 {project.links?.github && (
-                  <a className="card-link" href={project.links.github} target="_blank" rel="noreferrer">Code ↗</a>
+                  <a className="card-link" href={project.links.github} target="_blank" rel="noreferrer">{L.code} ↗</a>
                 )}
               </div>
             </div>

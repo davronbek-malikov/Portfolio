@@ -50,7 +50,7 @@ export const experience = [
     period: "2022 – 2025",
     bullets: [
       "ML for soccer analytics, covering salary prediction with traditional ML and AutoML, a dual expected/actual-goals model, and injury-type prediction.",
-      "Published 4 first-author papers in SCIE and international conference proceedings.",
+      "Published 4 first-author papers (2 SCIE, 1 KSCIE, 1 international conference).",
     ],
   },
   {

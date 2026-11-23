@@ -41,12 +41,20 @@ function rateLimited(ip) {
 const EMAIL = profile.links.email.replace("mailto:", "");
 const CONTACT = `You can email Davronbek at ${EMAIL}, or read his CV at https://davronbek-portfolio.vercel.app/cv.pdf.`;
 
-// Friendly messages shown in the chat instead of technical errors.
-const MSG = {
+// Friendly messages shown in the chat instead of technical errors (English and Korean).
+const CONTACT_KO = `이메일(${EMAIL})로 연락하시거나 이력서(https://davronbek-portfolio.vercel.app/cv.pdf)를 확인해 주세요.`;
+const MESSAGES = {};
+MESSAGES.en = {
   tokensDay: `I'm sorry, my AI assistant has used up its free tokens for today, so it can't answer right now. Please try again tomorrow. ${CONTACT}`,
   tokensMinute: "I'm sorry, my AI assistant has used up its free tokens for the moment. Please try again in about a minute.",
   visitorLimit: `I'm sorry, you've reached the question limit for now. Please try again in a few minutes. ${CONTACT}`,
   offline: `I'm sorry, my AI assistant is offline right now. Please try again later. ${CONTACT}`,
+};
+MESSAGES.ko = {
+  tokensDay: `죄송합니다. 오늘 사용할 수 있는 무료 AI 토큰이 모두 소진되어 지금은 답변할 수 없습니다. 내일 다시 시도해 주세요. ${CONTACT_KO}`,
+  tokensMinute: "죄송합니다. 무료 AI 토큰이 잠시 소진되었습니다. 1분 정도 후에 다시 시도해 주세요.",
+  visitorLimit: `죄송합니다. 잠시 동안 질문 가능 횟수를 초과했습니다. 몇 분 후에 다시 시도해 주세요. ${CONTACT_KO}`,
+  offline: `죄송합니다. 현재 AI 어시스턴트를 사용할 수 없습니다. 나중에 다시 시도해 주세요. ${CONTACT_KO}`,
 };
 
 function error(status, message) {
@@ -54,18 +62,19 @@ function error(status, message) {
 }
 
 export async function POST(req) {
-  const key = process.env.GROQ_API_KEY;
-  if (!key) return error(503, MSG.offline);
-
-  const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "unknown";
-  if (rateLimited(ip)) return error(429, MSG.visitorLimit);
-
   let body;
   try {
     body = await req.json();
   } catch {
     return error(400, "Invalid request.");
   }
+  const MSG = MESSAGES[body?.lang === "ko" ? "ko" : "en"];
+
+  const key = process.env.GROQ_API_KEY;
+  if (!key) return error(503, MSG.offline);
+
+  const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "unknown";
+  if (rateLimited(ip)) return error(429, MSG.visitorLimit);
 
   const messages = (Array.isArray(body?.messages) ? body.messages : [])
     .filter((m) => m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string" && m.content.trim())

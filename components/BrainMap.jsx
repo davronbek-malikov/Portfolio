@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { ui } from "../data/i18n";
 
 // Pill size for region names; keep in sync with lib/brainLayout.js.
 const HUB_H = 32;
@@ -19,7 +20,8 @@ function curve(a, b) {
 }
 
 // `active` / `onSelect` are optional: pass them to control the selection from a parent.
-export default function BrainMap({ brain, initial = null, active: activeProp, onSelect }) {
+export default function BrainMap({ brain, initial = null, active: activeProp, onSelect, lang = "en" }) {
+  const T = ui[lang].brain;
   const { regions, nodes, synapses, hemispheres, width, height, projectCount, liveCount, paperCount, scieCount } = brain;
   const [inner, setInner] = useState(initial); // { type: "skill" | "region", id }
   const controlled = activeProp !== undefined;
@@ -164,7 +166,7 @@ export default function BrainMap({ brain, initial = null, active: activeProp, on
               );
             })}
           </svg>
-          <p className="bm-hint">Swipe sideways to see the whole brain →</p>
+          <p className="bm-hint">{T.hint}</p>
         </div>
 
         <aside className="bm-panel" aria-live="polite">
@@ -172,7 +174,7 @@ export default function BrainMap({ brain, initial = null, active: activeProp, on
             <>
               <span className="bm-tag" style={{ "--c": region[skill.region].color }}>{region[skill.region].label}</span>
               <h3 className="bm-title">{skill.name}</h3>
-              <div className="bm-sub">Where I used it</div>
+              <div className="bm-sub">{T.whereUsed}</div>
               <ul className="bm-evidence">
                 {skill.evidence.map((e) => (
                   <li key={e.id}>
@@ -185,7 +187,7 @@ export default function BrainMap({ brain, initial = null, active: activeProp, on
               </ul>
               {neighbors[skill.id]?.length > 0 && (
                 <>
-                  <div className="bm-sub">Used together with</div>
+                  <div className="bm-sub">{T.usedWith}</div>
                   <div className="bm-chips">
                     {neighbors[skill.id].slice(0, 10).map((nb) => (
                       <button key={nb.id} type="button" className="bm-chip" style={{ "--c": region[node[nb.id].region].color }} onClick={() => select("skill", nb.id)}>
@@ -195,15 +197,15 @@ export default function BrainMap({ brain, initial = null, active: activeProp, on
                   </div>
                 </>
               )}
-              <button type="button" className="btn btn-primary bm-ask" onClick={() => askAI(`What has Davronbek done with ${skill.name}?`)}>
-                Ask my AI about this →
+              <button type="button" className="btn btn-primary bm-ask" onClick={() => askAI(T.askSkillQ(skill.name))}>
+                {T.askSkill}
               </button>
             </>
           ) : activeRegion ? (
             <>
-              <span className="bm-tag" style={{ "--c": activeRegion.color }}>Region</span>
+              <span className="bm-tag" style={{ "--c": activeRegion.color }}>{T.region}</span>
               <h3 className="bm-title">{activeRegion.label}</h3>
-              <div className="bm-sub">{nodes.filter((n) => n.region === activeRegion.id).length} skills, pick one</div>
+              <div className="bm-sub">{T.pickOne(nodes.filter((n) => n.region === activeRegion.id).length)}</div>
               <div className="bm-chips">
                 {nodes.filter((n) => n.region === activeRegion.id).map((n) => (
                   <button key={n.id} type="button" className="bm-chip" style={{ "--c": activeRegion.color }} onClick={() => select("skill", n.id)}>
@@ -211,21 +213,18 @@ export default function BrainMap({ brain, initial = null, active: activeProp, on
                   </button>
                 ))}
               </div>
-              <button type="button" className="btn btn-ghost bm-ask" onClick={() => askAI(`Tell me about Davronbek's ${activeRegion.label} experience.`)}>
-                Ask my AI about {activeRegion.label} →
+              <button type="button" className="btn btn-ghost bm-ask" onClick={() => askAI(T.askRegionQ(activeRegion.label))}>
+                {T.askRegion(activeRegion.label)}
               </button>
             </>
           ) : (
             <>
-              <h3 className="bm-title">Select a skill</h3>
-              <p className="bm-text">
-                Skills are grouped by area. Lines connect skills used together in the same project. Select any skill
-                to see the projects and work behind it.
-              </p>
+              <h3 className="bm-title">{T.idleTitle}</h3>
+              <p className="bm-text">{T.idleText}</p>
               <div className="bm-stats">
-                <div><b>{projectCount}</b><span>projects</span></div>
-                <div><b>{liveCount}</b><span>live apps</span></div>
-                <div><b>{paperCount}</b><span>papers ({scieCount} SCIE)</span></div>
+                <div><b>{projectCount}</b><span>{T.statProjects}</span></div>
+                <div><b>{liveCount}</b><span>{T.statLive}</span></div>
+                <div><b>{paperCount}</b><span>{T.statPapers(scieCount)}</span></div>
               </div>
             </>
           )}

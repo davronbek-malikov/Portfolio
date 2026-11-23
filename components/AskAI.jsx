@@ -1,15 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ui } from "../data/i18n";
 
-const SUGGESTIONS = [
-  "What are his strongest LLM projects?",
-  "Has he done LLM post-training?",
-  "What is his ML research about?",
-  "Why should we hire him?",
-];
-
-export default function AskAI() {
+export default function AskAI({ lang = "en" }) {
+  const C = ui[lang].chat;
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
@@ -50,12 +45,12 @@ export default function AskAI() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history }),
+        body: JSON.stringify({ messages: history, lang }),
         signal: controller.signal,
       });
       if (!res.ok || !res.body) {
         const data = await res.json().catch(() => ({}));
-        setAnswer(data.error || "I'm sorry, something went wrong. Please try again in a moment.");
+        setAnswer(data.error || C.error);
         return;
       }
       const reader = res.body.getReader();
@@ -67,9 +62,9 @@ export default function AskAI() {
         answer += decoder.decode(value, { stream: true });
         setAnswer(answer);
       }
-      if (!answer.trim()) setAnswer("Sorry, I couldn't answer that. Please try rephrasing.");
+      if (!answer.trim()) setAnswer(C.empty_answer);
     } catch (err) {
-      if (err.name !== "AbortError") setAnswer("I'm sorry, I couldn't reach my AI assistant. Please check your connection and try again.");
+      if (err.name !== "AbortError") setAnswer(C.network);
     } finally {
       setBusy(false);
     }
@@ -82,21 +77,21 @@ export default function AskAI() {
       <div className="ask-log" ref={logRef} aria-live="polite">
         {messages.length === 0 ? (
           <p className="ask-empty">
-            Ask anything about my experience, projects, skills or research.
+            {C.empty[0]}
             <br />
-            Answers come from my CV and project data.
+            {C.empty[1]}
           </p>
         ) : (
           messages.map((m, i) => (
             <div key={i} className={`ask-msg ${m.role === "user" ? "ask-user" : "ask-bot"}`}>
-              {m.content || <span className="ask-typing">Thinking…</span>}
+              {m.content || <span className="ask-typing">{C.thinking}</span>}
             </div>
           ))
         )}
       </div>
       {messages.length === 0 && (
         <div className="ask-chips">
-          {SUGGESTIONS.map((s) => (
+          {C.suggestions.map((s) => (
             <button key={s} type="button" className="ask-chip" onClick={() => ask(s)} disabled={busy}>
               {s}
             </button>
@@ -114,12 +109,12 @@ export default function AskAI() {
           className="ask-input"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="e.g. What did he build with LangGraph?"
+          placeholder={C.placeholder}
           maxLength={600}
-          aria-label="Your question"
+          aria-label={C.label}
         />
         <button className="btn btn-primary" type="submit" disabled={busy || !input.trim()}>
-          {busy ? "…" : "Ask"}
+          {busy ? "…" : C.send}
         </button>
       </form>
     </div>
