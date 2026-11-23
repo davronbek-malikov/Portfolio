@@ -2,11 +2,11 @@ import { profile, llmProjects, mlProjects, productProjects, publications } from 
 import Reveal from "../components/Reveal";
 import Card from "../components/Card";
 import AskAI from "../components/AskAI";
-import BrainMap from "../components/BrainMap";
+import SkillsSection from "../components/SkillsSection";
 import { buildBrain } from "../lib/brainLayout";
 
 const brain = buildBrain();
-import { timeline } from "../data/career";
+import { timeline, technicalSkills } from "../data/career";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
           </div>
           <div className="nav-links">
             <a href="/about">About</a>
-            <a href="#brain">My brain</a>
+            <a href="#skills">Skills</a>
             <a href="#ask">Ask my AI</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
@@ -81,21 +81,24 @@ export default function Home() {
         </div>
       </header>
 
-      {/* BRAIN MAP */}
-      <section className="ml-showcase" id="brain">
+      {/* TECHNICAL SKILLS: classic list + brain map */}
+      <section className="ml-showcase" id="skills">
         <div className="container">
-          <Reveal as="div" className="showcase-eyebrow">Explore my brain</Reveal>
+          <Reveal as="div" className="showcase-eyebrow">Technical Skills</Reveal>
           <Reveal delay={40}>
-            <h2 className="showcase-title">A map of <span className="grad">what I know</span></h2>
+            <h2 className="showcase-title">What I know, <span className="grad">and where I used it</span></h2>
           </Reveal>
           <Reveal delay={80}>
             <p className="showcase-sub">
-              The left hemisphere holds language and LLM systems, the right holds machine learning, research and
-              engineering. Every skill links to the projects, papers or work where I used it, so you can check it.
+              Two views of the same skills: a classic list, and a brain map where the left hemisphere holds LLM systems
+              and the right holds machine learning, research and engineering. Every skill in the map links to the
+              projects, papers or work where I used it. Click a group in the list to highlight it in the brain.
             </p>
           </Reveal>
+        </div>
+        <div className="container container-wide">
           <Reveal delay={120}>
-            <BrainMap brain={brain} />
+            <SkillsSection groups={technicalSkills} brain={brain} />
           </Reveal>
         </div>
       </section>

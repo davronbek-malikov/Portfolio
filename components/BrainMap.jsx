@@ -18,9 +18,13 @@ function curve(a, b) {
   return `M${a.x},${a.y - 9} Q${mx},${my} ${b.x},${b.y - 9}`;
 }
 
-export default function BrainMap({ brain, initial = null }) {
+// `active` / `onSelect` are optional: pass them to control the selection from a parent.
+export default function BrainMap({ brain, initial = null, active: activeProp, onSelect }) {
   const { regions, nodes, synapses, hemispheres, width, height, projectCount } = brain;
-  const [active, setActive] = useState(initial); // { type: "skill" | "region", id }
+  const [inner, setInner] = useState(initial); // { type: "skill" | "region", id }
+  const controlled = activeProp !== undefined;
+  const active = controlled ? activeProp : inner;
+  const setActive = controlled ? onSelect : setInner;
   const [hover, setHover] = useState(null);
 
   const region = useMemo(() => Object.fromEntries(regions.map((r) => [r.id, r])), [regions]);

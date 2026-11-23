@@ -129,3 +129,15 @@ export const facts = {
   lookingFor: "Open to LLM, RAG, AI Agent, AI Research, Machine Learning, Deep Learning and Computer Vision engineering roles",
   confidentiality: "Work at the current employer is confidential; only general descriptions are public, and details can be discussed at interview",
 };
+
+// Classic "Technical Skills" list shown next to the brain map. `region` links a
+// group to a region in data/brain.js, so clicking the group highlights it there.
+export const technicalSkills = [
+  { group: "Machine Learning", region: "ml", items: ["Scikit-learn", "XGBoost", "LightGBM", "Stacking ensembles", "AutoML", "Optuna", "SHAP", "Clustering", "Feature engineering", "Leakage-safe validation"] },
+  { group: "Deep Learning & Computer Vision", region: "dl", items: ["PyTorch", "TensorFlow / Keras", "Hugging Face", "CNNs", "Transformers", "YOLO", "OpenCV"] },
+  { group: "LLM Post-training & Inference", region: "post", items: ["SFT", "LoRA / QLoRA", "DPO", "RLHF (PPO, RLOO)", "4-bit quantization (GGUF, AWQ, GPTQ)", "vLLM", "Ollama", "llama.cpp"] },
+  { group: "RAG & Retrieval", region: "rag", items: ["Hybrid search (BM25 + dense, RRF)", "Cross-encoder reranking", "GraphRAG", "pgvector", "Qdrant", "Milvus"] },
+  { group: "AI Agents", region: "agents", items: ["LangGraph", "LangChain", "Multi-agent systems", "Tool calling", "Human-in-the-loop", "MCP", "A2A"] },
+  { group: "Evaluation & Observability", region: "eval", items: ["LangSmith", "Arize Phoenix", "OpenTelemetry", "Ragas", "DeepEval", "LLM-as-a-Judge"] },
+  { group: "Engineering & MLOps", region: "eng", items: ["Python", "SQL", "FastAPI", "Docker", "GitHub Actions", "MLflow", "Weights & Biases", "PostgreSQL", "Redis", "Kafka", "Next.js"] },
+];
