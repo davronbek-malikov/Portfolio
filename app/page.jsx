@@ -1,6 +1,8 @@
 import { profile, llmProjects, mlProjects, productProjects, publications } from "../data/projects";
 import Reveal from "../components/Reveal";
 import Card from "../components/Card";
+import AskAI from "../components/AskAI";
+import { timeline } from "../data/career";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
           </div>
           <div className="nav-links">
             <a href="/about">About</a>
+            <a href="#ask">Ask my AI</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#publications">Publications</a>
             <a href="#contact">Contact</a>
@@ -25,6 +29,8 @@ export default function Home() {
       {/* HERO */}
       <header className="hero">
         <div className="container">
+          <div className="hero-grid">
+          <div className="hero-main">
           <Reveal as="div" className="hero-eyebrow">
             {profile.title} · {profile.setName}
           </Reveal>
@@ -50,12 +56,71 @@ export default function Home() {
               <a className="btn btn-primary" href="/about">About me →</a>
               <a className="btn btn-ghost" href={profile.links.cv} target="_blank" rel="noreferrer">Download CV</a>
               <a className="btn btn-primary" href="#projects">Projects ↓</a>
-              <a className="btn btn-ghost" href="#publications">Publications</a>
+              <a className="btn btn-ghost" href="#ask">Ask my AI</a>
             </div>
           </Reveal>
+          </div>
+          <Reveal delay={100} className="hero-photo-wrap">
+            <img className="hero-photo" src="/davronbek.jpg" alt="Portrait of Davronbek Malikov" width="400" height="400" />
+          </Reveal>
+          </div>
 
+          <Reveal delay={240}>
+            <div className="hero-stats">
+              <div className="hero-stat"><div className="num">Ph.D.</div><div className="lbl">AI Convergence Engineering</div></div>
+              <div className="hero-stat"><div className="num">5</div><div className="lbl">first-author papers (2 SCIE)</div></div>
+              <div className="hero-stat"><div className="num">Team Lead</div><div className="lbl">AI engineering at TripleH</div></div>
+              <div className="hero-stat"><div className="num">10+</div><div className="lbl">AI projects shipped</div></div>
+            </div>
+          </Reveal>
         </div>
       </header>
+
+      {/* ASK MY AI */}
+      <section className="ml-showcase" id="ask">
+        <div className="container">
+          <Reveal as="div" className="showcase-eyebrow">Ask my AI</Reveal>
+          <Reveal delay={40}>
+            <h2 className="showcase-title">Ask my AI <span className="grad">anything about me</span></h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="showcase-sub">
+              A small RAG assistant I built for this site: your question is matched against my CV and project data
+              with BM25 retrieval, and only the relevant parts are sent to an open-weight LLM (gpt-oss-120b on Groq)
+              to write a grounded answer.
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <AskAI />
+            <p className="ask-note">AI answers can contain mistakes. The CV is the source of truth.</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* EXPERIENCE */}
+      <section className="ml-showcase" id="experience">
+        <div className="container">
+          <Reveal as="div" className="showcase-eyebrow">Experience</Reveal>
+          <Reveal delay={40}>
+            <h2 className="showcase-title">Where I&apos;ve <span className="grad">worked and studied</span></h2>
+          </Reveal>
+          <ol className="timeline">
+            {timeline.map((item, i) => (
+              <Reveal as="li" key={item.role} delay={i * 60} className="tl-item">
+                <div className="tl-head">
+                  <span className="tl-role">{item.role}</span>
+                  <span className="tl-period">{item.period}</span>
+                </div>
+                <div className="tl-org">{item.org}</div>
+                <p className="tl-text">{item.text}</p>
+              </Reveal>
+            ))}
+          </ol>
+          <Reveal delay={120}>
+            <a className="btn btn-ghost" href="/about" style={{ marginTop: 8 }}>Full experience on the About page →</a>
+          </Reveal>
+        </div>
+      </section>
 
       {/* LLM & RAG PROJECTS SHOWCASE */}
       <section className="ml-showcase" id="projects">
