@@ -3,11 +3,9 @@
 import { useEffect, useState } from "react";
 
 // Light / dark switch. The saved choice is applied before paint by the inline
-// script in app/layout.jsx; without a saved choice the system setting is used.
+// script in app/layout.jsx; without a saved choice the site is light.
 function currentTheme() {
-  const set = document.documentElement.dataset.theme;
-  if (set === "dark" || set === "light") return set;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 }
 
 export default function ThemeToggle({ labels = { dark: "Dark mode", light: "Light mode" } }) {
