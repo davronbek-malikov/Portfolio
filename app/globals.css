@@ -755,16 +755,16 @@ a.pub-title:hover { text-decoration: underline; text-underline-offset: 3px; }
   .ask-msg { max-width: 92%; }
 }
 
-/* --------------------------------------------------------- TIMELINE */
-.timeline {
+/* --------------------------------------------------------- HOMEPAGE TIMELINE (scoped: the About page has its own timeline styles) */
+.timeline.home-tl {
   list-style: none;
   margin: 0 0 24px;
   padding: 0;
   max-width: 860px;
   border-left: 2px solid var(--line-strong);
 }
-.tl-item { position: relative; padding: 0 0 30px 28px; }
-.tl-item::before {
+.home-tl > .tl-item { display: block; position: relative; padding: 0 0 30px 28px; }
+.home-tl > .tl-item::before {
   content: "";
   position: absolute;
   left: -8px;
@@ -775,11 +775,11 @@ a.pub-title:hover { text-decoration: underline; text-underline-offset: 3px; }
   background: var(--bg);
   border: 2px solid var(--r-rare);
 }
-.tl-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; }
-.tl-role { font-size: 19px; font-weight: 700; }
-.tl-period { font-family: var(--mono); font-size: 13px; color: var(--muted); }
-.tl-org { color: var(--r-rare); font-size: 15px; margin-top: 2px; }
-.tl-text { color: var(--muted); line-height: 1.65; margin: 8px 0 0; }
+.home-tl .tl-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; }
+.home-tl .tl-role { font-size: 19px; font-weight: 700; }
+.home-tl .tl-period { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.home-tl .tl-org { color: var(--r-rare); font-size: 15px; margin-top: 2px; }
+.home-tl .tl-text { color: var(--muted); line-height: 1.65; margin: 8px 0 0; }
 
 /* --------------------------------------------------------- BRAIN MAP */
 .bm-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
@@ -989,3 +989,24 @@ a.pub-title:hover { text-decoration: underline; text-underline-offset: 3px; }
   color: var(--ra);
   margin-bottom: 3px;
 }
+
+/* --------------------------------------------------------- ABOUT: compact project list */
+.ap-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+.ap-item {
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.ap-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.ap-title { font-size: 18px; font-weight: 700; }
+.ap-status { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--muted); text-align: right; }
+.ap-cls { font-family: var(--mono); font-size: 12px; color: var(--r-rare); margin-top: 4px; }
+.ap-summary { color: var(--muted); font-size: 15px; line-height: 1.55; margin: 10px 0; }
+.ap-deploy { font-size: 13.5px; line-height: 1.45; background: var(--panel); border-radius: 8px; padding: 8px 10px; margin: 0 0 12px; }
+.ap-links { display: flex; gap: 14px; margin-top: auto; font-family: var(--mono); font-size: 13px; }
+.ap-links a { border-bottom: 1px solid var(--line-strong); }
+.ap-links a:hover { border-color: var(--text); }
+.ap-more { margin-top: 20px; }

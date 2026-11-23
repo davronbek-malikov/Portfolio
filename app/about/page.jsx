@@ -1,158 +1,9 @@
 import Reveal from "../../components/Reveal";
-import { profile, publications } from "../../data/projects";
+import { profile, publications, llmProjects, mlProjects, productProjects } from "../../data/projects";
 import { education, experience, technicalSkills } from "../../data/career";
 
-const selectedProjects = [
-  {
-    title: "ERA Academy",
-    sub: "AI EdTech Platform · Multi-Agent Engine · RAG · pgvector",
-    period: "2026",
-    demo: "https://era-academy.vercel.app",
-    github: "https://github.com/malikov-davronbek/ERA/tree/phase-1-foundation",
-    bullets: [
-      "A full learning platform (course → module → lesson → subskill, progress tracking, onboarding, admin CMS) with one shared AI agent engine behind three assistants: Student Tutor, Teacher Assistant and Admin Assistant.",
-      "Provider adapters for Claude (official Anthropic SDK), OpenAI and local Ollama models, with SSE streaming, usage and cost limits, and safe error handling.",
-      "RAG knowledge base: uploaded PDF, DOCX, TXT and Markdown are chunked, embedded and stored in pgvector; the permission check runs inside the retrieval query, and answers cite their sources.",
-      "Security-first: prompt-injection defence, server-only secrets, signed private storage; 206 automated tests across authorization, HTTP security, the AI engine and RAG, all passing.",
-    ],
-    stack: ["Next.js 15", "TypeScript", "Prisma", "PostgreSQL + pgvector", "Supabase", "Claude API", "Ollama"],
-  },
-  {
-    title: "TACTIQ",
-    sub: "Football Intelligence · RAG · Qdrant · Investigation Agent (in development)",
-    period: "2026",
-    demo: null,
-    github: "https://github.com/davronbek-malikov/TACTIQ",
-    bullets: [
-      "An evidence-first football intelligence platform for coaches, scouts and analysts: answers come with sources and an explicit statement of what the evidence can and cannot support.",
-      "Phase 1 built: a hand-written document indexing pipeline covering loading (PDF per page, DOCX, TXT, Markdown), metadata, cleaning, token-based chunking, Sentence-Transformers embeddings and idempotent storage in Qdrant.",
-      "Stable UUID5 IDs so re-ingestion never duplicates; metadata such as match, team and player IDs is never guessed; unit and integration tests for every step.",
-      "Planned: hybrid retrieval with RRF and reranking, a SQL analytics engine, an investigation agent, a FastAPI and Next.js app, and video intelligence with YOLO tracking.",
-    ],
-    stack: ["Python", "Qdrant", "Sentence Transformers", "PyMuPDF", "Docker", "pytest"],
-  },
-  {
-    title: "Touchline",
-    sub: "AI Scouting Copilot · Agentic RAG · LangGraph · LangSmith · Claude",
-    period: "2026",
-    demo: null,
-    github: "https://github.com/davronbek-malikov/touchline",
-    bullets: [
-      "A scout describes the player they need in plain words; a Claude agent orchestrated with LangGraph turns the brief into typed tool calls over a DuckDB warehouse of 50,149 players; the model never writes SQL.",
-      "Joined Transfermarkt market data with 297 StatsBomb matches (18 per-90 metrics and percentiles for 594 players), linking 87.5% of players across sources.",
-      "Human-in-the-loop shortlist approval via LangGraph interrupt() with persisted checkpoints; cited scouting reports built on Qdrant hybrid search over scout notes and Wikipedia.",
-      "120-question golden set in LangSmith with automatic checks for filter accuracy, precision/recall@10, numeric grounding and invented players; 102 automated tests.",
-    ],
-    stack: ["Claude API", "LangGraph", "LangSmith", "Qdrant", "DuckDB", "FastAPI", "Next.js", "Postgres"],
-  },
-  {
-    title: "TeachHelp",
-    sub: "Post-Training · SFT · DPO · RLHF (PPO / RLOO) · Uzbek–English teaching assistant",
-    period: "2026",
-    demo: "https://teach-help.vercel.app",
-    github: "https://github.com/davronbek-malikov/Post_Training",
-    bullets: [
-      "Took a pretrained Qwen2.5 base model through the full post-training pipeline (SFT, DPO, RLHF, deployment) and measured all 14 models on the same 68-question held-out test, working from a written model spec.",
-      "SFT took Qwen2.5-1.5B from 15/68 to 44/68 (LoRA vs QLoRA compared under identical settings). DPO implemented from scratch: v1 learned \"shorter is better\" (40/68); v2 fixed it with length-balanced pairs and an SFT loss term (44/68, final model).",
-      "Classic RLHF with a reward model and PPO, then RLOO, across four judges (own 0.5B and 1.5B reward models, Skywork-Reward-V2, Gemini as a live judge), with reward-hacking and length-bias checks. RLHF reached 39–41/68: in this setting it was only as good as its judge, and DPO was simpler and better.",
-      "Deployed as TeachHelp: a Claude-style chat in English and Uzbek on Vercel, served from a Kaggle GPU over a Cloudflare tunnel (~2–3 s per answer), plus a fully local version with all models.",
-    ],
-    stack: ["Python", "PyTorch", "Transformers", "PEFT", "LoRA/QLoRA", "DPO", "PPO / RLOO", "Kaggle", "Vercel"],
-  },
-  {
-    title: "Portiq",
-    sub: "Multi-Agent Job Hub · LangGraph · Kafka · A2A · pgvector",
-    period: "2026",
-    demo: "https://portiq-gamma.vercel.app",
-    github: null,
-    bullets: [
-      "A multi-agent job hub for Uzbekistan, Korea and worldwide (including Telegram job channels), in Uzbek, Russian, Korean and English: job matching, skill-gap roadmaps and company-specific mock interviews.",
-      "A LangGraph orchestrator plans each conversation and routes tasks to 11 agents over Kafka; agents call each other over A2A (Agent Cards + JSON-RPC). A Judge agent checks every output and sends weak work back for a retry.",
-      "Job pipeline from Remotive, Saramin, hh.uz and Telegram: normalisation (so'm / ₩ / $ salary parsing, dedup), a multilingual scam filter, and Postgres + pgvector search with an explainable match score.",
-      "Runs with Claude, Gemini or Ollama, with deterministic fallbacks when no key is set; Jaeger traces across agents, unit and end-to-end tests, and evals for scam detection and answer scoring.",
-    ],
-    stack: ["LangGraph", "Kafka", "A2A", "FastAPI", "Postgres + pgvector", "Redis", "Next.js", "Docker"],
-  },
-  {
-    title: "LLM from Scratch",
-    sub: "Deep Learning · GPT-style Transformer in PyTorch · Pretraining (in progress)",
-    period: "2026",
-    demo: null,
-    github: "https://github.com/davronbek-malikov/LLM_Model",
-    bullets: [
-      "Implemented a decoder-only Transformer from first principles in PyTorch (multi-head causal self-attention, MLP blocks and weight tying), verified with shape, random-init loss, overfit-one-batch and causality tests.",
-      "Built the full pretraining pipeline: cleaning, filtering, exact and MinHash near-duplicate detection, a trained BPE tokenizer and binary token datasets.",
-      "Training loop with linear warmup + cosine decay, gradient accumulation and clipping, bf16/fp16 mixed precision and resumable checkpoints; perplexity evaluation and temperature/top-k/top-p sampling.",
-    ],
-    stack: ["Python", "PyTorch", "BPE Tokenizer", "Hugging Face Datasets", "Kaggle / Colab GPU"],
-  },
-  {
-    title: "Soccer Player Salary Predictor",
-    sub: "Supervised ML · Regression · Sports Analytics",
-    period: "2024 – 2025",
-    demo: "https://soccer-xg-salary-prediction.onrender.com",
-    github: "https://github.com/davronbek-malikov/soccer-xG-salary_prediction",
-    bullets: [
-      "Industry-level ML pipeline: Baseline → Improved (RF, XGBoost, LightGBM) → Ensemble (Stacking + Voting).",
-      "21 engineered features without data leakage. Optuna Bayesian tuning (60 trials). SHAP global + local explanations.",
-      "Deployed on Render · kept alive 24/7 via UptimeRobot. Linked to SCIE publication: 17% accuracy improvement.",
-    ],
-    stack: ["Python", "XGBoost", "LightGBM", "SHAP", "Optuna", "Gradio", "Render"],
-  },
-  {
-    title: "TacticalDNA",
-    sub: "Unsupervised ML · Clustering · Sports Analytics",
-    period: "2025 – 2026",
-    demo: "https://soccer-player-clustering.onrender.com",
-    github: "https://github.com/davronbek-malikov/tactical-dna",
-    bullets: [
-      "A blind stat line (25 goals, 15 assists, no name attached) matched to prime Messi's 2019/20 season at 98% similarity.",
-      "Algorithm bake-off (KMeans, Agglomerative, DBSCAN, Gaussian Mixture) over 6,314 qualified player-seasons, scored on Silhouette, Davies-Bouldin & Calinski-Harabasz.",
-      "Rule-based archetype naming from cluster centroids: Elite Complete Forward, Clinical Poacher, Deep-Lying Playmaker & more.",
-      "Cosine-similarity engine + interactive Streamlit demo: classify any real or hypothetical player and find their statistical twins.",
-    ],
-    stack: ["Python", "Scikit-learn", "Streamlit", "Plotly", "Render"],
-  },
-  {
-    title: "Palov",
-    sub: "Full-Stack · RAG · AI Chatbot",
-    period: "2024",
-    demo: "https://www.palov.app/",
-    github: null,
-    bullets: [
-      "Halal Uzbek food platform for South Korea with multi-country OTP auth (+82 KR / +998 UZ).",
-      "RAG system over menu database: the AI chatbot answers dish queries with context-aware recommendations.",
-      "Self-improvement loop: user feedback feeds back into the model continuously.",
-    ],
-    stack: ["Next.js", "RAG", "LLM API", "Vercel"],
-  },
-  {
-    title: "Hamyon",
-    sub: "Personal Finance · RAG · AI Insights",
-    period: "2024",
-    demo: "https://hamyon-six.vercel.app/",
-    github: null,
-    bullets: [
-      "Real-time expense tracking with category-based spending analysis.",
-      "RAG-powered AI chatbot over transaction history for natural-language finance queries.",
-      "Self-improvement: learns from user corrections to refine categorisation and advice quality.",
-    ],
-    stack: ["Next.js", "Supabase", "RAG", "LLM API", "Vercel"],
-  },
-  {
-    title: "Kotib",
-    sub: "AI Agent · Graph RAG · Conversational Memory",
-    period: "2024",
-    demo: "https://kotib-rouge.vercel.app/",
-    github: null,
-    bullets: [
-      "AI-powered personal secretary with multi-step agent pipeline: intent → routing → action.",
-      "Graph RAG over personal knowledge base. Persistent conversational memory across all sessions.",
-      "Self-improvement: tracks completed vs. missed tasks, adjusts proactive suggestions autonomously.",
-    ],
-    stack: ["Next.js", "Graph RAG", "LLM API", "Vercel"],
-  },
-];
+// Projects come from the same data as the homepage cards, so the two pages never drift apart.
+const featured = [...llmProjects, ...mlProjects, ...productProjects].filter((p) => !p.comingSoon);
 
 const tools = technicalSkills.map((g) => ({ cat: g.group, items: g.items }));
 
@@ -301,30 +152,26 @@ export default function About() {
         <section className="about-section about-section-alt">
           <div className="container">
             <Reveal as="div" className="about-section-label">Selected Projects</Reveal>
-            <div className="timeline">
-              {selectedProjects.map((p, i) => (
-                <Reveal key={i} delay={i * 40} className="tl-item">
-                  <div className="tl-dot" />
-                  <div className="tl-body">
-                    <div className="tl-head">
-                      <span className="tl-role">{p.title}</span>
-                      <span className="tl-period">{p.period}</span>
-                    </div>
-                    <div className="tl-org">{p.sub}</div>
-                    <ul className="tl-bullets">
-                      {p.bullets.map((b, j) => <li key={j}>{b}</li>)}
-                    </ul>
-                    <div className="tl-stack">
-                      {p.stack.map((s) => <span className="chip" key={s}>{s}</span>)}
-                    </div>
-                    <div className="tl-links">
-                      {p.demo && <a href={p.demo} target="_blank" rel="noreferrer" className="tl-link">Live Demo ↗</a>}
-                      {p.github && <a href={p.github} target="_blank" rel="noreferrer" className="tl-link">GitHub ↗</a>}
-                    </div>
+            <div className="ap-list">
+              {featured.map((p, i) => (
+                <Reveal key={p.id} delay={i * 30} className="ap-item">
+                  <div className="ap-head">
+                    <span className="ap-title">{p.title}</span>
+                    <span className="ap-status">{p.status?.label}</span>
+                  </div>
+                  <div className="ap-cls">{p.cls}</div>
+                  <p className="ap-summary">{p.abilities[0]}</p>
+                  {p.deploy && (
+                    <p className="ap-deploy"><b>{p.deploy.mode}:</b> {p.deploy.text}</p>
+                  )}
+                  <div className="ap-links">
+                    {p.links?.demo && <a href={p.links.demo} target="_blank" rel="noreferrer">Live ↗</a>}
+                    {p.links?.github && <a href={p.links.github} target="_blank" rel="noreferrer">GitHub ↗</a>}
                   </div>
                 </Reveal>
               ))}
             </div>
+            <a className="btn btn-ghost ap-more" href="/#projects">See the full project cards →</a>
           </div>
         </section>
 

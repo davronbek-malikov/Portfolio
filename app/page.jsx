@@ -131,7 +131,7 @@ export default function Home() {
           <Reveal delay={40}>
             <h2 className="showcase-title">Where I&apos;ve <span className="grad">worked and studied</span></h2>
           </Reveal>
-          <ol className="timeline">
+          <ol className="timeline home-tl">
             {timeline.map((item, i) => (
               <Reveal as="li" key={item.role} delay={i * 60} className="tl-item">
                 <div className="tl-head">
