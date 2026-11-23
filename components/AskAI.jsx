@@ -18,6 +18,15 @@ export default function AskAI() {
 
   useEffect(() => () => abortRef.current?.abort(), []);
 
+  // Other sections (the brain map) can send a question here with
+  // window.dispatchEvent(new CustomEvent("ask-ai", { detail: "question" })).
+  const askRef = useRef(null);
+  useEffect(() => {
+    const onAsk = (e) => askRef.current?.(String(e.detail || ""));
+    window.addEventListener("ask-ai", onAsk);
+    return () => window.removeEventListener("ask-ai", onAsk);
+  }, []);
+
   useEffect(() => {
     const log = logRef.current;
     if (log) log.scrollTop = log.scrollHeight;
@@ -65,6 +74,8 @@ export default function AskAI() {
       setBusy(false);
     }
   }
+
+  askRef.current = ask;
 
   return (
     <div className="ask-box">

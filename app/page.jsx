@@ -2,6 +2,10 @@ import { profile, llmProjects, mlProjects, productProjects, publications } from 
 import Reveal from "../components/Reveal";
 import Card from "../components/Card";
 import AskAI from "../components/AskAI";
+import BrainMap from "../components/BrainMap";
+import { buildBrain } from "../lib/brainLayout";
+
+const brain = buildBrain();
 import { timeline } from "../data/career";
 
 export default function Home() {
@@ -16,6 +20,7 @@ export default function Home() {
           </div>
           <div className="nav-links">
             <a href="/about">About</a>
+            <a href="#brain">My brain</a>
             <a href="#ask">Ask my AI</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
@@ -75,6 +80,25 @@ export default function Home() {
           </Reveal>
         </div>
       </header>
+
+      {/* BRAIN MAP */}
+      <section className="ml-showcase" id="brain">
+        <div className="container">
+          <Reveal as="div" className="showcase-eyebrow">Explore my brain</Reveal>
+          <Reveal delay={40}>
+            <h2 className="showcase-title">A map of <span className="grad">what I know</span></h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="showcase-sub">
+              The left hemisphere holds language and LLM systems, the right holds machine learning, research and
+              engineering. Every skill links to the projects, papers or work where I used it, so you can check it.
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <BrainMap brain={brain} />
+          </Reveal>
+        </div>
+      </section>
 
       {/* ASK MY AI */}
       <section className="ml-showcase" id="ask">
