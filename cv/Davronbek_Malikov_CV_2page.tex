@@ -79,8 +79,8 @@ prediction accuracy and deployed as live applications.
 
 \textbf{AI Engineer \& Team Lead}, TripleH, Seoul \hfill Dec 2025--Present
 \begin{itemize}
-    \item Lead the AI engineering team building production autonomous agent systems for enterprise clients, from research
-and prototyping to on-premise and cloud deployment; set engineering standards, run code reviews, and mentor engineers.
+    \item Lead the AI engineering team building production agent systems for enterprise clients, from research to on-premise
+and cloud deployment; set engineering standards, run code reviews, and mentor engineers.
     \item \textbf{Multi-Agent Orchestration Platform:} central hub that plans, routes, and monitors specialized sub-agents
 (automated market reports, a financial-document RAG assistant, an enterprise-messenger chatbot).
     \item \textbf{Legal Research Assistant:} multi-LLM ensemble that queries several models in parallel, aggregates their
@@ -99,14 +99,11 @@ vision, and LLM courses and mentored students on end-to-end AI projects.
 \textbf{Graduate Researcher}, Gyeongsang National University, South Korea \hfill 2018--2025
 \begin{itemize}
     \item Big Data Systems Software Lab (2022--2025): ML for soccer analytics, covering salary prediction with traditional ML and
-AutoML, a dual expected/actual-goals performance model, and injury-type prediction from engineered features. Distributed
-Systems Lab (2018--2021): mathematics for distributed systems. 5 first-author papers (see Publications).
+AutoML, a dual expected/actual-goals performance model, and injury-type prediction. Distributed Systems Lab
+(2018--2021): mathematics for distributed systems. 5 first-author papers.
 \end{itemize}
 
-\textbf{Mathematics Instructor}, Fergana, Uzbekistan \hfill 2014--2017
-\begin{itemize}
-    \item Prepared students for university entrance exams, the SAT, and international mathematics exams.
-\end{itemize}
+\textbf{Mathematics Instructor} (university entrance and SAT preparation), Fergana, Uzbekistan \hfill 2014--2017
 
 %====================
 \section*{Selected Projects}
@@ -130,8 +127,7 @@ Systems Lab (2018--2021): mathematics for distributed systems. 5 first-author pa
 \textbf{TACTIQ}: evidence-first football intelligence (RAG, Qdrant, on-premise LLMs) \hfill \href{https://github.com/davronbek-malikov/TACTIQ}{[GitHub]}
 \begin{itemize}
     \item End-to-end RAG application for coaches, scouts, and analysts: document indexing into Qdrant, retrieval and generation with clickable source citations, and a FastAPI + Next.js investigation UI that indexes uploads automatically.
-    \item Three LLM providers with automatic fallback (local Qwen2.5 via Ollama, Groq, Gemini), an LLM-only vs RAG comparison mode, and connectors for StatsBomb, Wyscout, and SkillCorner data.
-    \item \textit{Deployment:} fully on-premise (Qdrant in Docker, local LLM); an offline mode switches off every cloud call.
+    \item Three LLM providers with automatic fallback (local Qwen2.5 via Ollama, Groq, Gemini) and an LLM-only vs RAG comparison mode. \textit{Deployment:} fully on-premise (Qdrant in Docker, local LLM), with an offline mode.
 \end{itemize}
 
 \textbf{TeachHelp}: LLM post-training into an Uzbek/English teaching assistant \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]} $\cdot$ \href{https://teach-help.vercel.app}{\textbf{[Live]}}
@@ -152,8 +148,7 @@ Systems Lab (2018--2021): mathematics for distributed systems. 5 first-author pa
 
 \textbf{LLM from Scratch}: GPT-style Transformer in PyTorch \textit{(pretraining in progress)} \hfill \href{https://github.com/davronbek-malikov/LLM_Model}{[GitHub]}
 \begin{itemize}
-    \item Language model built from first principles in PyTorch (attention, tokenizer, training loop) with a production-style data pipeline: cleaning, MinHash deduplication, and a custom BPE tokenizer.
-    \item Efficient training on limited GPUs: mixed precision, gradient accumulation, learning-rate scheduling, and resumable checkpoints; evaluated by perplexity. \textit{Training:} Kaggle and Colab GPUs.
+    \item Language model built from first principles with its own data pipeline (cleaning, MinHash deduplication, BPE tokenizer) and training loop; efficient training on limited Kaggle and Colab GPUs with mixed precision, gradient accumulation, and resumable checkpoints.
 \end{itemize}
 
 \textbf{Soccer Player Salary Predictor}: end-to-end supervised ML (SCIE 2025) \hfill \href{https://github.com/davronbek-malikov/soccer-xG-salary_prediction}{[GitHub]} $\cdot$ \href{https://soccer-xg-salary-prediction.onrender.com}{\textbf{[Live]}}
