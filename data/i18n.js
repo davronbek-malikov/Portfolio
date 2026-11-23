@@ -116,6 +116,7 @@ export const ui = {
       ctaContact: "Get in touch",
     },
     switchTo: { label: "한국어", title: "한국어로 보기" },
+    theme: { dark: "Dark mode", light: "Light mode" },
   },
 
   ko: {
@@ -224,6 +225,7 @@ export const ui = {
       ctaContact: "연락하기",
     },
     switchTo: { label: "EN", title: "View in English" },
+    theme: { dark: "다크 모드", light: "라이트 모드" },
   },
 };
 

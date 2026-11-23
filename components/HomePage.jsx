@@ -6,6 +6,7 @@ import Card from "./Card";
 import AskAI from "./AskAI";
 import SkillsSection from "./SkillsSection";
 import LangSwitch from "./LangSwitch";
+import ThemeToggle from "./ThemeToggle";
 import { buildBrain } from "../lib/brainLayout";
 
 const brain = buildBrain();
@@ -81,6 +82,7 @@ export default function HomePage({ lang = "en" }) {
             <a href="#contact">{t.nav.contact}</a>
           </div>
           <div className="nav-right">
+            <ThemeToggle labels={t.theme} />
             <LangSwitch lang={lang} href={otherHref} label={t.switchTo.label} title={t.switchTo.title} />
             <a className="nav-cta" href={profile.links.github} target="_blank" rel="noreferrer">GitHub</a>
           </div>

@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import LangSwitch from "./LangSwitch";
+import ThemeToggle from "./ThemeToggle";
 import { profile, publications, llmProjects, mlProjects, productProjects } from "../data/projects";
 import { education, experience, technicalSkills } from "../data/career";
 import { ui, prefix, aboutSummary, experienceKo, educationKo, languagesByLang } from "../data/i18n";
@@ -29,6 +30,7 @@ export default function AboutPage({ lang = "en" }) {
             <a href={`${base}/#contact`}>{a.contact}</a>
           </div>
           <div className="nav-right">
+            <ThemeToggle labels={t.theme} />
             <LangSwitch lang={lang} href={otherHref} label={t.switchTo.label} title={t.switchTo.title} />
             <a className="nav-cta" href={`${base}/`}>{a.back}</a>
           </div>
