@@ -376,7 +376,7 @@ export const profile = {
   title: "ML / LLM & RAG Engineer",
   roles: ["ML / LLM & RAG Engineer", "Ph.D. in AI Convergence Engineering"],
   tagline:
-    "AI Engineer & Team Lead with a Ph.D., building on-premise multi-agent LLM systems for enterprise clients. I post-train open-weight LLMs (SFT, LoRA/QLoRA, DPO, RLHF), quantize them to run on small servers, build hybrid RAG and GraphRAG knowledge systems, and ship end-to-end ML prediction models.",
+    "AI Engineer & Team Lead with a Ph.D. I build end-to-end machine learning systems: predictive models with supervised learning, gradient boosting and stacking ensembles, deep learning and computer vision, with leakage-safe validation, Optuna tuning and SHAP explainability, published in SCIE journals and deployed as live apps. On the LLM side, I lead on-premise multi-agent systems for enterprise clients: post-training (SFT, LoRA/QLoRA, DPO), quantization for small servers, and hybrid RAG and GraphRAG.",
   setName: "Ph.D.",
   links: {
     email: "mailto:davronbekmalikov96@gmail.com",
