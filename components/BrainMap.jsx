@@ -86,7 +86,7 @@ export default function BrainMap({ brain, initial = null, active: activeProp, on
               <ellipse key={side} className="bm-hemi" cx={e.cx} cy={e.cy} rx={e.rx} ry={e.ry} />
             ))}
             <text className="bm-side" x={hemispheres.left.cx} y={28} textAnchor="middle">LANGUAGE · LLM SYSTEMS</text>
-            <text className="bm-side" x={hemispheres.right.cx} y={28} textAnchor="middle">ANALYTICS · ML &amp; RESEARCH</text>
+            <text className="bm-side" x={hemispheres.right.cx} y={28} textAnchor="middle">ML · MLOPS · BACKEND</text>
 
             {/* dendrites: region hub to its skills */}
             {nodes.map((n) => {

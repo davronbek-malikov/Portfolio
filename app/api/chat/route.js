@@ -3,6 +3,7 @@
 // The API key stays on the server; requests are size- and rate-limited.
 
 import { retrieve } from "@/lib/knowledge";
+import { profile } from "@/data/projects";
 
 export const dynamic = "force-dynamic";
 
@@ -37,16 +38,27 @@ function rateLimited(ip) {
   return blocked;
 }
 
+const EMAIL = profile.links.email.replace("mailto:", "");
+const CONTACT = `You can email Davronbek at ${EMAIL}, or read his CV at https://davronbek-portfolio.vercel.app/cv.pdf.`;
+
+// Friendly messages shown in the chat instead of technical errors.
+const MSG = {
+  tokensDay: `I'm sorry, my AI assistant has used up its free tokens for today, so it can't answer right now. Please try again tomorrow. ${CONTACT}`,
+  tokensMinute: "I'm sorry, my AI assistant has used up its free tokens for the moment. Please try again in about a minute.",
+  visitorLimit: `I'm sorry, you've reached the question limit for now. Please try again in a few minutes. ${CONTACT}`,
+  offline: `I'm sorry, my AI assistant is offline right now. Please try again later. ${CONTACT}`,
+};
+
 function error(status, message) {
   return Response.json({ error: message }, { status });
 }
 
 export async function POST(req) {
   const key = process.env.GROQ_API_KEY;
-  if (!key) return error(503, "The assistant is not configured yet.");
+  if (!key) return error(503, MSG.offline);
 
   const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "unknown";
-  if (rateLimited(ip)) return error(429, "Too many questions for now. Please try again in a few minutes.");
+  if (rateLimited(ip)) return error(429, MSG.visitorLimit);
 
   let body;
   try {
@@ -84,6 +96,7 @@ ${context}
     });
 
   let upstream;
+  let limitText = "";
   for (const model of MODELS) {
     try {
       upstream = await fetch(GROQ_URL, {
@@ -96,14 +109,16 @@ ${context}
       continue;
     }
     if (upstream.status !== 429) break;
+    // Remember why Groq refused (per-minute or per-day token limit), then try the next model.
+    limitText += await upstream.text().catch(() => "");
   }
 
-  if (!upstream) return error(502, "The assistant is unavailable right now. Please try again later.");
-  if (!upstream.ok || !upstream.body) {
-    return upstream.status === 429
-      ? error(429, "The assistant is busy right now. Please try again in a minute.")
-      : error(502, "The assistant is unavailable right now. Please try again later.");
+  if (!upstream) return error(502, MSG.offline);
+  if (upstream.status === 429) {
+    const daily = /per day|\(TPD\)|\(RPD\)/i.test(limitText);
+    return error(429, daily ? MSG.tokensDay : MSG.tokensMinute);
   }
+  if (!upstream.ok || !upstream.body) return error(502, MSG.offline);
 
   // Convert Groq's server-sent events into a plain text stream of answer tokens.
   const encoder = new TextEncoder();

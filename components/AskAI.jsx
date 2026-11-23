@@ -55,7 +55,7 @@ export default function AskAI() {
       });
       if (!res.ok || !res.body) {
         const data = await res.json().catch(() => ({}));
-        setAnswer(data.error || "Sorry, something went wrong. Please try again.");
+        setAnswer(data.error || "I'm sorry, something went wrong. Please try again in a moment.");
         return;
       }
       const reader = res.body.getReader();
@@ -69,7 +69,7 @@ export default function AskAI() {
       }
       if (!answer.trim()) setAnswer("Sorry, I couldn't answer that. Please try rephrasing.");
     } catch (err) {
-      if (err.name !== "AbortError") setAnswer("Network error. Please try again.");
+      if (err.name !== "AbortError") setAnswer("I'm sorry, I couldn't reach my AI assistant. Please check your connection and try again.");
     } finally {
       setBusy(false);
     }

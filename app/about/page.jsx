@@ -1,6 +1,6 @@
 import Reveal from "../../components/Reveal";
 import { profile, publications } from "../../data/projects";
-import { education, experience } from "../../data/career";
+import { education, experience, technicalSkills } from "../../data/career";
 
 const selectedProjects = [
   {
@@ -154,19 +154,7 @@ const selectedProjects = [
   },
 ];
 
-const tools = [
-  { cat: "LLM Post-Training", items: ["SFT", "LoRA / QLoRA", "DPO", "RLHF (PPO / RLOO)", "Reward Modeling", "Hugging Face PEFT", "Instruction Tuning"] },
-  { cat: "Model Serving & Inference", items: ["vLLM", "TGI", "Ollama", "llama.cpp", "AWQ / GPTQ / GGUF", "LoRA Hot-Swapping", "Speculative Decoding"] },
-  { cat: "RAG & Vector Engineering", items: ["GraphRAG", "Hybrid Search (Dense + BM25)", "Cross-Encoder Reranking", "Hierarchical Chunking", "pgvector", "Qdrant", "Milvus", "LlamaParse", "Unstructured.io"] },
-  { cat: "Agentic AI & Orchestration", items: ["LangChain", "LangGraph", "MCP", "Function Calling", "Multi-Agent (Supervisor / Router / Network)", "Plan-and-Execute", "Reflection Loops", "Human-in-the-Loop", "Kafka", "A2A Protocol"] },
-  { cat: "Evaluation & Security", items: ["LLM-as-a-Judge", "Ragas", "DeepEval", "LangSmith", "NeMo Guardrails", "Llama Guard", "Prompt Injection Defense", "Semantic Caching", "Token & Cost Tracking"] },
-  { cat: "Machine Learning", items: ["Scikit-learn", "XGBoost", "LightGBM", "Random Forest", "Stacking Ensembles", "AutoML", "Optuna", "SHAP", "Feature Engineering", "Pandas", "NumPy"] },
-  { cat: "Deep Learning", items: ["PyTorch", "TensorFlow / Keras", "CNNs", "RNN / LSTM", "Transformers (from scratch)", "Transfer Learning", "Mixed Precision", "Multi-GPU Training"] },
-  { cat: "MLOps & Deployment", items: ["MLflow", "Weights & Biases", "DVC", "Docker", "GitHub Actions", "FastAPI Serving", "ONNX", "TensorRT", "Gradio", "Streamlit", "Vercel", "Render"] },
-  { cat: "Computer Vision", items: ["Image Classification", "Object Detection (YOLO)", "Segmentation (U-Net, Mask R-CNN)", "Object Tracking", "OCR", "OpenCV", "Roboflow"] },
-  { cat: "Web & Viz", items: ["HTML", "CSS", "JavaScript"] },
-  { cat: "Research", items: ["Overleaf", "LaTeX"] },
-];
+const tools = technicalSkills.map((g) => ({ cat: g.group, items: g.items }));
 
 const languages = [
   { lang: "English", level: "Fluent", pct: 90 },

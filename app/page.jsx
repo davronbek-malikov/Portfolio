@@ -91,8 +91,8 @@ export default function Home() {
           <Reveal delay={80}>
             <p className="showcase-sub">
               Two views of the same skills: a classic list, and a brain map where the left hemisphere holds LLM systems
-              and the right holds machine learning, research and engineering. Every skill in the map links to the
-              projects, papers or work where I used it. Click a group in the list to highlight it in the brain.
+              and the right holds machine learning, MLOps and backend. Every skill in the map links to the projects,
+              papers or work where I used it. Click a group in the list to highlight it in the brain.
             </p>
           </Reveal>
         </div>

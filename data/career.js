@@ -112,14 +112,14 @@ export const timeline = [
 ];
 
 export const skills = [
-  { group: "LLM Engineering", items: "prompt and context engineering, structured outputs and tool calling with schema validation, SSE streaming, multi-provider LLM gateways (Claude, OpenAI, Ollama) with cost and rate limits, guardrails and prompt-injection defense" },
-  { group: "Post-training & Inference", items: "SFT, LoRA, QLoRA, DPO, RLHF (reward models, PPO, RLOO), Hugging Face Transformers and PEFT, vLLM, Ollama, llama.cpp, 4-bit quantization (GGUF, AWQ, GPTQ), on-premise serving on small servers" },
-  { group: "RAG & Retrieval", items: "chunking and embedding strategies, hybrid search (BM25 + dense, RRF), cross-encoder reranking, GraphRAG, permission-aware retrieval, cited answers, pgvector, Qdrant, Milvus" },
-  { group: "Agents", items: "LangGraph, LangChain, multi-agent orchestration (planner, router, judge), human-in-the-loop approval, MCP, A2A, event-driven agents on Kafka" },
-  { group: "Evaluation & Observability", items: "LangSmith, Arize Phoenix, OpenTelemetry and Jaeger, Ragas, DeepEval, LLM-as-a-Judge, golden-set experiments, precision/recall@k, grounding and hallucination checks" },
-  { group: "Machine Learning", items: "supervised regression and classification, feature engineering, leakage-safe validation, XGBoost, LightGBM, stacking ensembles, AutoML, Optuna, SHAP, clustering (KMeans, DBSCAN, Gaussian Mixture)" },
-  { group: "Deep Learning & Computer Vision", items: "PyTorch, TensorFlow/Keras, CNNs, Transformer architectures (including a GPT-style model written from scratch), YOLO, OpenCV" },
-  { group: "Engineering", items: "Python, SQL, FastAPI, PostgreSQL, Redis, Kafka, Docker, GitHub Actions, MLflow, Weights & Biases, Next.js" },
+  { group: "Machine Learning", items: "Scikit-learn, XGBoost, LightGBM, ensemble learning (stacking, voting), Optuna, SHAP, feature engineering, leakage-safe validation, clustering, AutoML, Pandas, NumPy" },
+  { group: "Deep Learning & Computer Vision", items: "PyTorch, TensorFlow/Keras, Hugging Face, Transformer architectures (including a GPT-style model written from scratch), CNNs, YOLO, OpenCV" },
+  { group: "LLM Post-training & Inference", items: "SFT, LoRA, QLoRA, DPO, RLHF (reward models, PPO, RLOO), 4-bit quantization (GGUF, AWQ, GPTQ) to run LLMs on edge devices and small servers, vLLM, Ollama, llama.cpp" },
+  { group: "RAG & Vector Databases", items: "hybrid search (BM25 + dense, RRF), cross-encoder reranking, GraphRAG, pgvector, Qdrant, Milvus" },
+  { group: "AI Agents", items: "LangGraph, LangChain, multi-agent systems (orchestrator, router, judge), tool calling, MCP, A2A" },
+  { group: "LLM Evaluation & Observability", items: "LangSmith, Arize Phoenix, Ragas, DeepEval, LLM-as-a-Judge, OpenTelemetry and Jaeger" },
+  { group: "MLOps & Cloud", items: "Docker, AWS, S3 and MinIO object storage, MLflow, Weights & Biases, CI/CD with GitHub Actions, model serving with FastAPI and Gradio" },
+  { group: "Backend & Data", items: "Python, FastAPI, SQL, PostgreSQL, Redis, Kafka, Next.js" },
 ];
 
 export const facts = {
@@ -133,11 +133,12 @@ export const facts = {
 // Classic "Technical Skills" list shown next to the brain map. `region` links a
 // group to a region in data/brain.js, so clicking the group highlights it there.
 export const technicalSkills = [
-  { group: "Machine Learning", region: "ml", items: ["Scikit-learn", "XGBoost", "LightGBM", "Stacking ensembles", "AutoML", "Optuna", "SHAP", "Clustering", "Feature engineering", "Leakage-safe validation"] },
-  { group: "Deep Learning & Computer Vision", region: "dl", items: ["PyTorch", "TensorFlow / Keras", "Hugging Face", "CNNs", "Transformers", "YOLO", "OpenCV"] },
-  { group: "LLM Post-training & Inference", region: "post", items: ["SFT", "LoRA / QLoRA", "DPO", "RLHF (PPO, RLOO)", "4-bit quantization (GGUF, AWQ, GPTQ)", "vLLM", "Ollama", "llama.cpp"] },
-  { group: "RAG & Retrieval", region: "rag", items: ["Hybrid search (BM25 + dense, RRF)", "Cross-encoder reranking", "GraphRAG", "pgvector", "Qdrant", "Milvus"] },
-  { group: "AI Agents", region: "agents", items: ["LangGraph", "LangChain", "Multi-agent systems", "Tool calling", "Human-in-the-loop", "MCP", "A2A"] },
-  { group: "Evaluation & Observability", region: "eval", items: ["LangSmith", "Arize Phoenix", "OpenTelemetry", "Ragas", "DeepEval", "LLM-as-a-Judge"] },
-  { group: "Engineering & MLOps", region: "eng", items: ["Python", "SQL", "FastAPI", "Docker", "GitHub Actions", "MLflow", "Weights & Biases", "PostgreSQL", "Redis", "Kafka", "Next.js"] },
+  { group: "Machine Learning", region: "ml", items: ["Scikit-learn", "XGBoost", "LightGBM", "Ensemble learning", "Optuna", "SHAP", "Feature engineering", "Clustering", "AutoML", "Pandas", "NumPy"] },
+  { group: "Deep Learning & Computer Vision", region: "dl", items: ["PyTorch", "TensorFlow / Keras", "Hugging Face", "Transformers", "CNNs", "YOLO", "OpenCV"] },
+  { group: "LLM Post-training & Inference", region: "post", items: ["SFT", "LoRA / QLoRA", "DPO", "RLHF (PPO, RLOO)", "Quantization (GGUF, AWQ, GPTQ)", "vLLM", "Ollama", "llama.cpp"] },
+  { group: "RAG & Vector Databases", region: "rag", items: ["Hybrid search (BM25 + dense)", "Reranking", "GraphRAG", "pgvector", "Qdrant", "Milvus"] },
+  { group: "AI Agents", region: "agents", items: ["LangGraph", "LangChain", "Multi-agent systems", "Tool calling", "MCP", "A2A"] },
+  { group: "LLM Evaluation & Observability", region: "eval", items: ["LangSmith", "Arize Phoenix", "Ragas", "DeepEval", "LLM-as-a-Judge", "OpenTelemetry"] },
+  { group: "MLOps & Cloud", region: "mlops", items: ["Docker", "AWS", "S3", "MinIO", "MLflow", "Weights & Biases", "GitHub Actions (CI/CD)", "Model serving"] },
+  { group: "Backend & Data", region: "backend", items: ["Python", "FastAPI", "SQL", "PostgreSQL", "Redis", "Kafka", "Next.js"] },
 ];
