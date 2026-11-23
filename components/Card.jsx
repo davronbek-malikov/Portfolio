@@ -91,6 +91,13 @@ export default function Card({ project }) {
             ))}
           </ul>
 
+          {project.deploy && (
+            <div className="card-deploy">
+              <span className="deploy-mode">Deployment · {project.deploy.mode}</span>
+              <span className="deploy-text">{project.deploy.text}</span>
+            </div>
+          )}
+
           <div className="card-foot">
             <div className="chips">
               {project.stack.map((s, i) => (

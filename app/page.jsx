@@ -158,12 +158,11 @@ export default function Home() {
           </Reveal>
           <Reveal delay={80}>
             <p className="showcase-sub">
-              <strong>ERA Academy</strong>: an AI learning platform with one agent engine behind three
-              assistants and permission-aware RAG. <strong>TACTIQ</strong>: evidence-first football
-              intelligence, phase 1: the indexing pipeline into Qdrant. <strong>Touchline</strong>: a Claude
-              scouting agent on LangGraph with cited reports, traced in LangSmith. <strong>TeachHelp</strong>: SFT,
-              DPO and RLHF on Qwen2.5, 15/68 → 44/68. <strong>Portiq</strong>: 11 agents over Kafka and A2A with a
-              Judge agent.
+              Production-style LLM systems: a multi-agent learning platform with permission-aware RAG
+              (<strong>ERA Academy</strong>), an AI scouting copilot with cited reports (<strong>Touchline</strong>),
+              evidence-first football intelligence (<strong>TACTIQ</strong>), end-to-end post-training of an
+              open-weight model that raised accuracy from 22% to 65% (<strong>TeachHelp</strong>), and an
+              event-driven platform of 11 agents (<strong>Portiq</strong>).
             </p>
           </Reveal>
           <div className="showcase-grid">
@@ -185,11 +184,10 @@ export default function Home() {
           </Reveal>
           <Reveal delay={80}>
             <p className="showcase-sub">
-              <strong>LLM from Scratch</strong>: a GPT-style Transformer written by hand in PyTorch, with its own
-              tokenizer, data pipeline and training loop. <strong>Soccer Player Salary Predictor</strong>: a supervised
-              ML pipeline with stacking ensembles, Optuna tuning and SHAP explainability (SCIE 2025).{" "}
-              <strong>TacticalDNA</strong>: unsupervised clustering that matched a blind stat line to prime Messi at 98%
-              similarity. Computer Vision coming next.
+              Predictive and deep learning work: a published salary model with a 17% accuracy gain
+              (<strong>Soccer Salary Predictor</strong>, SCIE 2025), player archetype discovery with clustering
+              (<strong>TacticalDNA</strong>), and a GPT-style Transformer built from scratch (<strong>LLM from
+              Scratch</strong>). Computer vision is coming next.
             </p>
           </Reveal>
           <div className="showcase-grid">
