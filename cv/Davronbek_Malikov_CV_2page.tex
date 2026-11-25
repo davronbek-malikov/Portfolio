@@ -70,8 +70,9 @@ prediction accuracy and deployed as live applications.
     \item \textbf{Machine Learning:} Scikit-learn, XGBoost, LightGBM, ensemble learning, Optuna, SHAP, feature engineering, clustering, AutoML, Pandas, NumPy
     \item \textbf{Deep Learning \& Vision:} PyTorch, TensorFlow/Keras, Hugging Face (Transformers, PEFT), CNNs, YOLO, OpenCV
     \item \textbf{LLM Post-training \& Inference:} SFT, LoRA/QLoRA, DPO, RLHF (PPO, RLOO), quantization (GGUF, AWQ, GPTQ), vLLM, Ollama, llama.cpp
-    \item \textbf{RAG \& Knowledge Graphs:} document parsing, chunking and embedding pipelines (Sentence Transformers), hybrid search (BM25 + dense, RRF), cross-encoder reranking, GraphRAG, ontology modeling, Neo4j (Cypher), pgvector, Qdrant, Milvus
-    \item \textbf{Agents \& Evaluation:} LangGraph, LangChain, multi-agent systems, tool calling, structured outputs, agent memory, MCP, A2A, prompt engineering, guardrails, LangSmith, Arize Phoenix, Ragas, DeepEval, LLM-as-a-Judge
+    \item \textbf{RAG \& Retrieval:} document parsing (PDF, DOCX), chunking strategies, embedding models (Sentence Transformers), hybrid search (BM25 + dense, RRF), cross-encoder reranking, permission-aware retrieval, cited and grounded answers, RAG evaluation (Ragas, golden sets)
+    \item \textbf{Knowledge Graphs \& Vector DBs:} GraphRAG, knowledge graph construction, ontology modeling, Neo4j (Cypher), pgvector, Qdrant, Milvus
+    \item \textbf{Agents \& Evaluation:} LangGraph, LangChain, multi-agent systems, tool calling, structured outputs, agent memory, MCP, A2A, prompt engineering, guardrails, LangSmith, Arize Phoenix, DeepEval, LLM-as-a-Judge
     \item \textbf{MLOps \& Cloud:} Docker, AWS, S3, MinIO, MLflow, Weights \& Biases, GitHub Actions (CI/CD), model serving
     \item \textbf{Backend \& Data:} Python, FastAPI, SQL, PostgreSQL, Redis, Kafka, Next.js
 \end{itemize}
@@ -87,9 +88,9 @@ and cloud deployment; set engineering standards, run code reviews, and mentor en
 (automated market reports, a financial-document RAG assistant, an enterprise-messenger chatbot).
     \item \textbf{Legal Research Assistant:} multi-LLM ensemble that queries several models in parallel, aggregates their
 answers, and verifies every cited regional legal precedent before it reaches the user.
-    \item \textbf{On-Premise AI Platform:} every agent runs locally on open-weight LLMs (Llama 4, Qwen3) with no external API
-calls, so no data ever leaves the client. Also delivered a meeting-intelligence agent (on-premise speech-to-text) and per-employee AI assistants.
-Stack: SFT/LoRA and DPO, hybrid RAG (pgvector, Qdrant), LangGraph, LangSmith and Arize Phoenix monitoring.
+    \item \textbf{On-Premise AI Platform:} every agent runs locally on open-weight LLMs (Llama 4, Qwen3), so no data leaves the
+client; also a meeting-intelligence agent and per-employee assistants. Stack: SFT/LoRA, DPO, hybrid RAG and GraphRAG
+(pgvector, Qdrant, Neo4j), LangGraph, LangSmith, Arize Phoenix.
 \end{itemize}
 
 \textbf{Graduate Researcher}, Gyeongsang National University, South Korea \hfill 2018--2025
@@ -111,15 +112,13 @@ AutoML, a dual expected/actual-goals performance model, and injury-type predicti
 \textbf{ERA Academy}: multi-agent EdTech platform with permission-aware RAG \hfill \href{https://github.com/malikov-davronbek/ERA/tree/phase-1-foundation}{[GitHub]} $\cdot$ \href{https://era-academy.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
     \item Multi-role learning platform where one provider-agnostic agent engine serves three assistants (tutor, teacher, admin) across Claude, OpenAI, and local open-weight models, with streaming, usage tracking, and cost limits.
-    \item Permission-aware RAG over course documents: access control enforced in the database query, every answer cites its sources, prompt-injection defense; 206 automated tests, all passing.
-    \item \textit{Deployment:} Next.js on Vercel; PostgreSQL + pgvector and file storage on Supabase.
+    \item Permission-aware RAG over course documents: access control enforced in the database query, every answer cites its sources, prompt-injection defense; 206 automated tests. \textit{Deployment:} Vercel and Supabase (pgvector).
 \end{itemize}
 
 \textbf{Touchline}: AI scouting copilot (LangGraph, hybrid RAG, LangSmith) \hfill \href{https://github.com/davronbek-malikov/touchline}{[GitHub]}
 \begin{itemize}
     \item A scout describes the player they need in plain language and gets a ranked shortlist and a cited report; LangGraph agent with validated tool calling and human-in-the-loop approval, so the model never invents numbers.
-    \item Hybrid RAG (dense + BM25) over a warehouse of 50,149 players; quality tracked in LangSmith on a 120-question benchmark (accuracy, precision/recall, grounding, hallucination checks); 102 automated tests.
-    \item \textit{Deployment:} not yet public; FastAPI and Next.js with PostgreSQL, DuckDB, and Qdrant.
+    \item Hybrid RAG (dense + BM25) over a warehouse of 50,149 players; quality tracked in LangSmith on a 120-question benchmark (accuracy, precision/recall, grounding, hallucination checks); 102 automated tests. \textit{Deployment:} not yet public (FastAPI, Next.js, DuckDB, Qdrant).
 \end{itemize}
 
 \textbf{TACTIQ}: evidence-first football intelligence (RAG, Qdrant, on-premise LLMs) \hfill \href{https://github.com/davronbek-malikov/TACTIQ}{[GitHub]}
@@ -131,15 +130,13 @@ AutoML, a dual expected/actual-goals performance model, and injury-type predicti
 \textbf{TeachHelp}: LLM post-training into an Uzbek/English teaching assistant \hfill \href{https://github.com/davronbek-malikov/Post_Training}{[GitHub]} $\cdot$ \href{https://teach-help.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
     \item End-to-end post-training of Qwen2.5-1.5B with SFT, DPO, and RLHF on free GPUs: accuracy on a held-out test rose from 22\% to 65\%, and 4-bit QLoRA came within 2 points of LoRA.
-    \item Found and fixed a length bias in DPO (implemented from scratch); the final model refuses all harmful requests (8/8); RLHF with reward models (PPO, RLOO) and reward-hacking checks; 14 model versions benchmarked.
-    \item \textit{Deployment:} chat UI on Vercel; model served by FastAPI on a Kaggle T4 GPU through a Cloudflare tunnel.
+    \item Found and fixed a length bias in DPO (implemented from scratch); the final model refuses all harmful requests (8/8); RLHF with reward models (PPO, RLOO) and reward-hacking checks; 14 model versions benchmarked. \textit{Deployment:} Vercel UI; FastAPI model server on a Kaggle T4 GPU.
 \end{itemize}
 
 \textbf{Portiq}: multi-agent career platform (LangGraph, Kafka, A2A, pgvector) \hfill \href{https://portiq-gamma.vercel.app}{\textbf{[Live]}}
 \begin{itemize}
     \item 11 specialized agents find jobs, explain skill gaps, and run mock interviews; an event-driven LangGraph orchestrator routes work over Kafka and A2A, and a judge agent reviews every output before users see it.
-    \item Job pipeline from 4 sources with salary normalization, de-duplication, and scam filtering; explainable matching with pgvector; distributed tracing with OpenTelemetry and Jaeger.
-    \item \textit{Deployment:} frontend on Vercel (live preview); agents, Kafka, PostgreSQL, and Redis in Docker.
+    \item Job pipeline from 4 sources with salary normalization, de-duplication, and scam filtering; explainable matching with pgvector; distributed tracing with OpenTelemetry and Jaeger. \textit{Deployment:} Vercel UI; agents, Kafka, PostgreSQL, Redis in Docker.
 \end{itemize}
 
 \group{Machine Learning \& Deep Learning}
@@ -152,8 +149,7 @@ AutoML, a dual expected/actual-goals performance model, and injury-type predicti
 \textbf{Soccer Player Salary Predictor}: end-to-end supervised ML (SCIE 2025) \hfill \href{https://github.com/davronbek-malikov/soccer-xG-salary_prediction}{[GitHub]} $\cdot$ \href{https://soccer-xg-salary-prediction.onrender.com}{\textbf{[Live]}}
 \begin{itemize}
     \item Predicts player salaries from performance data to support contract and recruitment decisions; published in an SCIE journal with a 17\% accuracy improvement over the baseline.
-    \item Leakage-safe pipeline with 21 engineered features: linear baselines $\rightarrow$ XGBoost/LightGBM $\rightarrow$ stacking and voting ensembles, Optuna tuning, SHAP explanations.
-    \item \textit{Deployment:} Gradio app on Render, monitored with UptimeRobot.
+    \item Leakage-safe pipeline with 21 engineered features: linear baselines $\rightarrow$ XGBoost/LightGBM $\rightarrow$ stacking and voting ensembles, Optuna tuning, SHAP explanations. \textit{Deployment:} Gradio on Render.
 \end{itemize}
 
 \textbf{TacticalDNA}: unsupervised player-archetype discovery \hfill \href{https://github.com/davronbek-malikov/tactical-dna}{[GitHub]} $\cdot$ \href{https://soccer-player-clustering.onrender.com}{\textbf{[Live]}}
