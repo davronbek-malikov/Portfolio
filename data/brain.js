@@ -29,7 +29,7 @@ export const sources = {
 export const regions = [
   { id: "post", label: "LLM Post-training", side: "left", x: 265, y: 175, color: "#e8294a" },
   { id: "agents", label: "AI Agents", side: "left", x: 420, y: 265, color: "#d97706" },
-  { id: "rag", label: "RAG & Vector DBs", side: "left", x: 205, y: 365, color: "#7c3aed" },
+  { id: "rag", label: "RAG & Knowledge Graphs", side: "left", x: 235, y: 365, color: "#7c3aed" },
   { id: "eval", label: "LLM Evaluation", side: "left", x: 370, y: 470, color: "#db2777" },
   { id: "dl", label: "Deep Learning & CV", side: "right", x: 735, y: 175, color: "#0284c7" },
   { id: "ml", label: "Machine Learning", side: "right", x: 580, y: 265, color: "#2563eb" },
@@ -56,6 +56,8 @@ export const skills = [
   { id: "tools", region: "agents", short: "Tool calling", name: "Tool and function calling with schema validation", uses: ["touchline", "era-academy"] },
   { id: "mcp", region: "agents", short: "MCP", name: "Model Context Protocol (MCP)", uses: ["work"] },
   { id: "a2a", region: "agents", short: "A2A", name: "Agent-to-agent protocol (A2A)", uses: ["portiq"] },
+  { id: "memory", region: "agents", short: "Agent memory", name: "Agent memory (persistent conversational memory)", uses: ["kotib"] },
+  { id: "guardrails", region: "agents", short: "Guardrails", name: "Guardrails and prompt-injection defense", uses: ["era-academy"] },
 
   // RAG and vector databases
   { id: "hybrid", region: "rag", short: "Hybrid search", name: "Hybrid search (BM25 + dense, RRF)", uses: ["touchline"] },
@@ -64,6 +66,9 @@ export const skills = [
   { id: "pgvector", region: "rag", short: "pgvector", name: "pgvector (PostgreSQL vector search)", uses: ["era-academy", "portiq", "work"] },
   { id: "qdrant", region: "rag", short: "Qdrant", name: "Qdrant vector database", uses: ["touchline", "tactiq", "work"] },
   { id: "milvus", region: "rag", short: "Milvus", name: "Milvus vector database", uses: ["work"] },
+  { id: "neo4j", region: "rag", short: "Neo4j", name: "Neo4j graph database (Cypher)", uses: ["work"] },
+  { id: "ontology", region: "rag", short: "Ontology", name: "Ontology modeling and knowledge graph construction", uses: ["work"] },
+  { id: "docparse", region: "rag", short: "Doc parsing", name: "Document parsing and chunking pipelines (PDF, DOCX)", uses: ["tactiq", "era-academy"] },
 
   // LLM evaluation and observability
   { id: "langsmith", region: "eval", short: "LangSmith", name: "LangSmith tracing and experiments", uses: ["touchline", "work"] },

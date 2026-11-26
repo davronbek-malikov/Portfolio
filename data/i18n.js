@@ -237,7 +237,7 @@ export const heroTitle = {
 };
 
 export const taglineKo =
-  "박사 학위를 보유한 AI 엔지니어 겸 팀 리드입니다. 지도학습, 그래디언트 부스팅과 스태킹 앙상블, 딥러닝, 컴퓨터 비전을 활용한 예측 모델을 데이터 누수 방지 검증, Optuna 튜닝, SHAP 기반 설명까지 엔드투엔드로 구축하며, 그 결과를 SCIE 저널에 게재하고 실제 서비스로 배포했습니다. LLM 분야에서는 기업 고객을 위한 온프레미스 멀티 에이전트 시스템 개발을 이끌고 있습니다. 포스트 트레이닝(SFT, LoRA/QLoRA, DPO), 원래 성능을 최대한 유지하면서 엣지 디바이스와 소형 서버에서 구동되는 경량 양자화 모델로의 압축, 그리고 하이브리드 RAG와 GraphRAG를 담당합니다.";
+  "박사 학위를 보유한 AI 엔지니어 겸 팀 리드입니다. 지도학습, 그래디언트 부스팅과 스태킹 앙상블, 딥러닝, 컴퓨터 비전을 활용한 예측 모델을 데이터 누수 방지 검증, Optuna 튜닝, SHAP 기반 설명까지 엔드투엔드로 구축하며, 그 결과를 SCIE 저널에 게재하고 실제 서비스로 배포했습니다. LLM 분야에서는 기업 고객을 위한 온프레미스 멀티 에이전트 시스템 개발을 이끌고 있습니다. 포스트 트레이닝(SFT, LoRA/QLoRA, DPO), 원래 성능을 최대한 유지하면서 엣지 디바이스와 소형 서버에서 구동되는 경량 양자화 모델(sLLM)로의 압축, 그리고 하이브리드 RAG, GraphRAG, 온톨로지 기반 지식 그래프(Neo4j)를 담당합니다.";
 
 export const timelineKo = [
   {
@@ -269,12 +269,12 @@ export const timelineKo = [
 export const aboutSummary = {
   en: [
     "Ph.D. in AI Convergence Engineering and AI Engineer & Team Lead at TripleH, leading the design and development of on-premise multi-agent AI systems for enterprise clients: system architecture, LLM orchestration, RAG pipelines, agent workflows, and observability with LangGraph, LangSmith and Arize Phoenix.",
-    "On the LLM side I post-train models with SFT, LoRA, QLoRA, DPO and RLHF on limited GPU, improving a Qwen2.5-1.5B model's accuracy on a held-out bilingual (Uzbek/English) teaching test from 22% to 65%. I compress models with 4-bit quantization (GGUF, AWQ, GPTQ) so they run on edge devices and small on-premise servers, and build enterprise knowledge systems with hybrid RAG and GraphRAG.",
+    "On the LLM side I post-train models with SFT, LoRA, QLoRA, DPO and RLHF on limited GPU, improving a Qwen2.5-1.5B model's accuracy on a held-out bilingual (Uzbek/English) teaching test from 22% to 65%. I compress models with 4-bit quantization (GGUF, AWQ, GPTQ) so they run on edge devices and small on-premise servers, and build enterprise knowledge systems with hybrid RAG, GraphRAG and ontology-based knowledge graphs (Neo4j).",
     "On the ML side I build end-to-end prediction models: feature engineering, leakage-safe validation, XGBoost, LightGBM, stacking ensembles, Optuna tuning and SHAP explainability. Author of 5 first-author papers, including 2 in SCIE journals, with published models improving prediction accuracy by up to 17% and deployed as live apps.",
   ],
   ko: [
     "AI융합공학 박사이자 TripleH의 AI 엔지니어 겸 팀 리드로서, 기업 고객을 위한 온프레미스 멀티 에이전트 AI 시스템의 설계와 개발을 이끌고 있습니다. 시스템 아키텍처, LLM 오케스트레이션, RAG 파이프라인, 에이전트 워크플로, 그리고 LangGraph, LangSmith, Arize Phoenix를 활용한 모니터링을 담당합니다.",
-    "LLM 분야에서는 제한된 GPU 환경에서 SFT, LoRA, QLoRA, DPO, RLHF로 모델을 포스트 트레이닝하여, Qwen2.5-1.5B 모델의 이중 언어(우즈베크어/영어) 교육용 테스트 정확도를 22%에서 65%로 향상시켰습니다. 4비트 양자화(GGUF, AWQ, GPTQ)로 모델을 경량화해 엣지 디바이스와 소형 온프레미스 서버에서 구동하고, 하이브리드 RAG와 GraphRAG로 기업용 지식 시스템을 구축합니다.",
+    "LLM 분야에서는 제한된 GPU 환경에서 SFT, LoRA, QLoRA, DPO, RLHF로 모델을 포스트 트레이닝하여, Qwen2.5-1.5B 모델의 이중 언어(우즈베크어/영어) 교육용 테스트 정확도를 22%에서 65%로 향상시켰습니다. 4비트 양자화(GGUF, AWQ, GPTQ)로 모델을 경량화해 엣지 디바이스와 소형 온프레미스 서버에서 구동하고, 하이브리드 RAG, GraphRAG, 온톨로지 기반 지식 그래프(Neo4j)로 기업용 지식 시스템을 구축합니다.",
     "머신러닝 분야에서는 피처 엔지니어링, 데이터 누수 방지 검증, XGBoost, LightGBM, 스태킹 앙상블, Optuna 튜닝, SHAP 기반 설명까지 예측 모델을 엔드투엔드로 구축합니다. 제1저자 논문 5편(SCIE 2편)을 발표했으며, 게재된 모델은 예측 정확도를 최대 17% 개선했고 실제 서비스로 배포되었습니다.",
   ],
 };
