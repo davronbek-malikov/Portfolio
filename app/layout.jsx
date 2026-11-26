@@ -15,6 +15,8 @@ export const metadata = {
 
 export const viewport = {
   themeColor: "#ffffff",
+  // Light only: stops mobile browsers (Chrome Android auto-dark, Samsung Internet) from darkening the page.
+  colorScheme: "only light",
 };
 
 export default function RootLayout({ children }) {

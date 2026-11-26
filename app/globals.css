@@ -1,4 +1,5 @@
 :root {
+  color-scheme: only light; /* white by default on every device; the dark theme overrides this */
   --bg: #ffffff;
   --bg-2: #f7f8fc;
   --panel: #f0f2f8;
@@ -1126,7 +1127,7 @@ body { word-break: keep-all; overflow-wrap: break-word; }
   --r-epic: #a78bfa; --r-epic-2: #f472b6; --r-rare: #38bdf8; --r-rare-2: #818cf8;
   color-scheme: dark;
 }
-:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="light"] { color-scheme: only light; }
 
 .theme-toggle {
   width: 40px; height: 40px;
@@ -1140,3 +1141,12 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 }
 .theme-toggle:hover { border-color: var(--r-rare); color: var(--r-rare); }
 .theme-toggle svg { width: 18px; height: 18px; }
+
+/* Small phones: keep the header on one line (name, theme, language). */
+@media (max-width: 520px) {
+  .nav-cta { display: none; }
+  .brand { font-size: 16px; gap: 8px; }
+  .nav-right { gap: 8px; }
+  .theme-toggle { width: 36px; height: 36px; }
+  .lang-switch { padding: 8px 11px; }
+}
