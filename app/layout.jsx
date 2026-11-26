@@ -23,10 +23,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="darkreader-lock" />
         {/* Apply a saved light/dark choice before the first paint (no flash). */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}",
+            __html: "try{var t=localStorage.getItem('theme-v2');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}",
           }}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

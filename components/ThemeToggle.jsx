@@ -19,7 +19,7 @@ export default function ThemeToggle({ labels = { dark: "Dark mode", light: "Ligh
     const next = currentTheme() === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     try {
-      localStorage.setItem("theme", next);
+      localStorage.setItem("theme-v2", next);
     } catch {
       // storage blocked: the choice lasts for this page view only
     }
